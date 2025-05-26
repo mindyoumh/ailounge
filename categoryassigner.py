@@ -5,7 +5,6 @@ from tqdm import tqdm  # Import the tqdm library for progress bars
 from dotenv import load_dotenv
 import os
 
-# === Config ===
 load_dotenv() 
 API_KEY = os.getenv("API_KEY")
 API_URL = os.getenv("API_URL")
@@ -39,15 +38,19 @@ def categorize_ticket(subject, i):
     
     if response_data is not None and "choices" in response_data and len(response_data["choices"]) > 0:
         category_with_subcategory = response_data["choices"][0]["message"]["content"].strip()
-        categories = category_with_subcategory.split(',')
-        if len(categories) == 2:
-            return {
-                'Category': categories[0].strip(),
-                'Sub Category': categories[1].strip()
-            }
+        if "|" in category_with_subcategory:
+            categories = category_with_subcategory.split('|')
+            if len(categories) == 2:
+                return {
+                    'Category': categories[0].strip(),
+                    'Sub Category': categories[1].strip()
+                }
+            else:
+                print(f"Failed to categorize: {subject}, due length of categories being more than 2. Row: {i}")
+                return None
         else:
-            print(f"Failed to categorize: {subject}, due to invalid response. Row: {i}")
-            return None
+                print(f"Failed to categorize: {subject}, due to invalid response: {category_with_subcategory}. Row: {i}")
+                return None
     else:
         print(f"Failed to categorize {subject}")
         return None
@@ -56,6 +59,12 @@ def process_csv(csv_file):
     df = pd.read_csv(csv_file)
     
     for i, subject in enumerate(df['Subject'], start=1):
+        if not subject:  
+            print(f"Skip ticket: {i}, due to null value.")
+            continue
+        elif subject.strip() == "(No Subject)":
+            print(f"Skip ticket: {i}, due to (No Subject).")
+            continue
         response_data = get_api_response(subject, API_KEY)
         
         if response_data is not None:
@@ -70,7 +79,7 @@ def process_csv(csv_file):
     
     df.to_csv(csv_file, index=False)
     print(f"\nCSV file '{csv_file}' updated with categories.")
-    
+
 csv_file = os.getenv("csvfile")
 
 process_csv(csv_file)
