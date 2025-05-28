@@ -4,3 +4,9 @@ venv/
 
 # Ignore environment variables
 .env
+
+# Data and outputs
+data/*
+outputs/*
+
+**/__pycache__/
