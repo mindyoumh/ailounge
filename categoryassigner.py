@@ -59,10 +59,10 @@ def process_csv(csv_file):
     df = pd.read_csv(csv_file)
     
     for i, subject in enumerate(df['Subject'], start=1):
-        if not subject:  
-            print(f"Skip ticket: {i}, due to null value.")
+        if not isinstance(subject, str) or not subject.strip():
+            print(f"Skip ticket: {i}, due to null or non-string value.")
             continue
-        elif subject.strip() == "(No Subject)":
+        if subject.strip() == "(No Subject)":
             print(f"Skip ticket: {i}, due to (No Subject).")
             continue
         response_data = get_api_response(subject, API_KEY)
