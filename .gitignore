@@ -1,6 +1,5 @@
 *.csv
-venv
-.env# Ignore virtual environments
+# Ignore virtual environments
 venv/
 .env/
 
