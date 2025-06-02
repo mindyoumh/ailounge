@@ -1,4 +1,5 @@
 import os
+import re
 from google import genai
 from google.genai import types
 import pandas as pd
@@ -23,7 +24,7 @@ with open(prompt_path, "r", encoding="utf-8") as f:
     system_prompt_chunk = f.read()
 
 # Step 2: Load the full CSV from data folder
-csv_path = os.path.join("data", "Zoho Tickets 2021-2024_cleaned.csv")
+csv_path = os.path.join("data", "Zoho Tickets 2024-2025_cleaned.csv")
 try:
     df = pd.read_csv(csv_path)
 except Exception as e:
@@ -88,8 +89,12 @@ final_output = {
 final_json_str = json.dumps(final_output, indent=2)
 print(final_json_str)
 
-# Step 6: Save the result to outputs folder
-output_path = os.path.join("outputs", "final_categories_tags.json")
+# Step 6: Save the result to outputs folder with dynamic filename based on CSV
+match = re.search(r"(\d{4}-\d{4})", os.path.basename(csv_path))
+date_range = match.group(1) if match else "unknown"
+output_filename = f"final_categories_tags({date_range}).json"
+output_path = os.path.join("outputs", output_filename)
+
 with open(output_path, "w", encoding="utf-8") as f:
     f.write(final_json_str)
 
