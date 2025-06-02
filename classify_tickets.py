@@ -1,101 +1,98 @@
 import os
 import re
-from google import genai
-from google.genai import types
-import pandas as pd
 import json
+import pandas as pd
 from collections import defaultdict
 from dotenv import load_dotenv
+from google import genai
+from google.genai import types
 from utils.classification_utils import normalize_name, merge_similar_items
 
-# Load environment variables from .env file
-load_dotenv()
-API_KEY = os.getenv("API_KEY")
-MODEL_NAME = os.getenv("MODEL_NAME", "gemini-2.0-flash")  # default if missing
+class TicketClassifier:
+    def __init__(self, csv_path: str, chunk_size: int = 100):
+        load_dotenv()
+        self.api_key = os.getenv("API_KEY")
+        self.model_name = os.getenv("MODEL_NAME", "gemini-2.0-flash")
 
-if not API_KEY:
-    raise ValueError("API_KEY not found in environment variables")
+        if not self.api_key:
+            raise ValueError("API_KEY not found in environment variables")
 
-client = genai.Client(api_key=API_KEY)
+        self.client = genai.Client(api_key=self.api_key)
+        self.csv_path = csv_path
+        self.chunk_size = chunk_size
+        self.prompt = self._load_prompt()
+        self.df = self._load_csv()
+        self.categories = defaultdict(set)
+        self.tags = set()
 
-# Step 1: Load the system prompt from file
-prompt_path = os.path.join("prompts", "system_prompt_chunk.txt")
-with open(prompt_path, "r", encoding="utf-8") as f:
-    system_prompt_chunk = f.read()
+    def _load_prompt(self) -> str:
+        prompt_path = os.path.join("prompts", "system_prompt_chunk.txt")
+        with open(prompt_path, "r", encoding="utf-8") as f:
+            return f.read()
 
-# Step 2: Load the full CSV from data folder
-csv_path = os.path.join("data", "Zoho Tickets 2024-2025_cleaned.csv")
-try:
-    df = pd.read_csv(csv_path)
-except Exception as e:
-    print(f"Error reading CSV file: {e}")
-    exit()
+    def _load_csv(self) -> pd.DataFrame:
+        try:
+            return pd.read_csv(self.csv_path)
+        except Exception as e:
+            raise ValueError(f"Failed to load CSV: {e}")
 
-# Step 3: Process each chunk
-chunk_size = 100
-all_categories = defaultdict(set)
-all_tags = set()
+    def _extract_json_from_response(self, response) -> dict:
+        raw_text = response.candidates[0].content.parts[0].text.strip()
+        if raw_text.startswith("```json"):
+            raw_text = raw_text.replace("```json", "").replace("```", "").strip()
+        return json.loads(raw_text)
 
-for i in range(0, len(df), chunk_size):
-    chunk = df.iloc[i:i + chunk_size]
-    csv_content = chunk.to_string(index=False)
-
-    try:
-        response = client.models.generate_content(
-            model=MODEL_NAME,
-            config=types.GenerateContentConfig(system_instruction=system_prompt_chunk),
+    def _process_chunk(self, chunk: pd.DataFrame):
+        csv_content = chunk.to_string(index=False)
+        response = self.client.models.generate_content(
+            model=self.model_name,
+            config=types.GenerateContentConfig(system_instruction=self.prompt),
             contents=[
                 "Here is a chunk of the support ticket dataset:",
                 csv_content
             ]
         )
-        
-        print(f"=== Gemini Response for chunk {i//chunk_size + 1} ===")
-        print(response)
 
-        raw_text = response.candidates[0].content.parts[0].text.strip()
+        data = self._extract_json_from_response(response)
 
-        # Remove Markdown formatting if present
-        if raw_text.startswith("```json"):
-            raw_text = raw_text.replace("```json", "").replace("```", "").strip()
-
-        # Parse the cleaned JSON string
-        data = json.loads(raw_text)
-
-        # Collect categories
         for cat in data.get("categories", []):
             main_cat = normalize_name(cat["name"])
-            all_categories[main_cat].update(map(normalize_name, cat.get("subcategories", [])))
+            self.categories[main_cat].update(map(normalize_name, cat.get("subcategories", [])))
 
-        # Collect tags
-        all_tags.update(map(normalize_name, data.get("tags", [])))
+        self.tags.update(map(normalize_name, data.get("tags", [])))
 
-    except Exception as e:
-        print(f"Error processing chunk {i//chunk_size + 1}: {e}")
+    def run(self):
+        for i in range(0, len(self.df), self.chunk_size):
+            chunk = self.df.iloc[i:i + self.chunk_size]
+            try:
+                print(f"\n📦 Processing chunk {i // self.chunk_size + 1}")
+                self._process_chunk(chunk)
+            except Exception as e:
+                print(f"⚠️ Error processing chunk {i // self.chunk_size + 1}: {e}")
 
-# Step 4: Aggregate and format the results
-final_output = {
-    "categories": [
-        {
-            "name": main_cat.title(),
-            "subcategories": sorted(list(merge_similar_items(subcats)))
+    def save_output(self):
+        output = {
+            "categories": [
+                {
+                    "name": main_cat.title(),
+                    "subcategories": sorted(list(merge_similar_items(subcats)))
+                }
+                for main_cat, subcats in self.categories.items()
+            ],
+            "tags": sorted(list(merge_similar_items(self.tags)))
         }
-        for main_cat, subcats in all_categories.items()
-    ],
-    "tags": sorted(list(merge_similar_items(all_tags)))
-}
 
-# Step 5: Print the final aggregated result
-final_json_str = json.dumps(final_output, indent=2)
-print(final_json_str)
+        match = re.search(r"(\d{4}-\d{4})", os.path.basename(self.csv_path))
+        date_range = match.group(1) if match else "unknown"
+        output_filename = f"final_categories_tags({date_range}).json"
+        output_path = os.path.join("outputs", output_filename)
 
-# Step 6: Save the result to outputs folder with dynamic filename based on CSV
-match = re.search(r"(\d{4}-\d{4})", os.path.basename(csv_path))
-date_range = match.group(1) if match else "unknown"
-output_filename = f"final_categories_tags({date_range}).json"
-output_path = os.path.join("outputs", output_filename)
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(output, f, indent=2)
 
-with open(output_path, "w", encoding="utf-8") as f:
-    f.write(final_json_str)
+        print(f"\n✅ Final aggregated result saved to '{output_path}'")
 
-print(f"\n✅ Final aggregated result saved to '{output_path}'")
+if __name__ == "__main__":
+    classifier = TicketClassifier("data/Zoho Tickets 2021-2024_cleaned.csv")
+    classifier.run()
+    classifier.save_output()
