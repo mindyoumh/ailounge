@@ -2,24 +2,30 @@ import os
 import pandas as pd
 from bs4 import BeautifulSoup
 
-# Define paths
-input_csv = os.path.join("data", "Zoho Tickets 2021-2024.csv")
-output_csv = os.path.join("data", "Zoho Tickets 2021-2024_cleaned.csv")
+def clean_csv_description(input_csv_path: str) -> str:
+    if not os.path.exists(input_csv_path):
+        raise FileNotFoundError(f"CSV file not found: {input_csv_path}")
 
-# Read CSV
-df = pd.read_csv(input_csv)
+    # Generate output path by inserting "_cleaned" before .csv
+    base, ext = os.path.splitext(input_csv_path)
+    output_csv_path = f"{base}_cleaned{ext}"
 
-# Clean the 'Description' column
-for index, row in df.iterrows():
-    try:
-        if pd.isna(row['Description']):
-            df.at[index, 'Description'] = ''
-        else:
-            soup = BeautifulSoup(str(row['Description']), 'html.parser')
-            df.at[index, 'Description'] = soup.get_text().strip()
-    except Exception as e:
-        print(f"Error parsing row {index}: {e}")
+    # Load and clean
+    df = pd.read_csv(input_csv_path)
+    
+    for index, row in df.iterrows():
+        try:
+            if pd.isna(row['Description']):
+                df.at[index, 'Description'] = ''
+            else:
+                soup = BeautifulSoup(str(row['Description']), 'html.parser')
+                df.at[index, 'Description'] = soup.get_text().strip()
+        except Exception as e:
+            print(f"Error parsing row {index}: {e}")
 
-# Save cleaned CSV (better to save to a new file to avoid overwriting original)
-df.to_csv(output_csv, index=False)
-print(f"\n✅ Cleaned CSV saved to '{output_csv}'")
+    df.to_csv(output_csv_path, index=False)
+    print(f"\n✅ Cleaned CSV saved to '{output_csv_path}'")
+    return output_csv_path
+
+input_csv = "data/Zoho Tickets 2024-2025.csv"
+cleaned_csv = clean_csv_description(input_csv)
