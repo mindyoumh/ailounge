@@ -38,14 +38,14 @@ def upload_all_csvs():
     for filename in os.listdir(current_dir):
         if filename.endswith('.csv') and filename != os.path.basename(__file__):
             original_path = os.path.join(current_dir, filename)
-            cleaned_path = clean_csv_description(original_path)  # output will be _cleaned.csv
+            processed_path = clean_csv_description(original_path)  # output will be _processed.csv
 
-            cleaned_name = os.path.basename(cleaned_path)
-            if upload_file(service, cleaned_path, cleaned_name):
+            processed_name = os.path.basename(processed_path)
+            if upload_file(service, processed_path, processed_name):
                 try:
                     os.remove(original_path)
-                    os.remove(cleaned_path)
-                    print(f"🧹 Deleted local files: {filename}, {cleaned_name}")
+                    os.remove(processed_path)
+                    print(f"🧹 Deleted local files: {filename}, {processed_name}")
                 except Exception as e:
                     print(f"⚠️ Failed to delete local files: {e}")
 

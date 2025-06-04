@@ -8,7 +8,7 @@ def clean_csv_description(input_csv_path: str, output_csv_path: str = None) -> s
 
     base, ext = os.path.splitext(input_csv_path)
     if output_csv_path is None:
-        output_csv_path = f"{base}_cleaned{ext}"
+        output_csv_path = f"{base}_processed{ext}"
 
     df = pd.read_csv(input_csv_path)
 
@@ -23,5 +23,5 @@ def clean_csv_description(input_csv_path: str, output_csv_path: str = None) -> s
             print(f"Error parsing row {index}: {e}")
 
     df.to_csv(output_csv_path, index=False)
-    print(f"✅ Cleaned CSV saved to '{output_csv_path}'")
+    print(f"✅ Processed CSV saved to '{output_csv_path}'")
     return output_csv_path

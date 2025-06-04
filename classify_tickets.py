@@ -28,7 +28,7 @@ class TicketClassifier:
         self.client = genai.Client(api_key=self.api_key)
         self.drive_service = self.authenticate_drive()
 
-        self.csv_path = self.download_cleaned_csv()
+        self.csv_path = self.download_processed_csv()
         self.chunk_size = chunk_size
         self.prompt = self._load_prompt()
         self.df = self._load_csv()
@@ -42,8 +42,8 @@ class TicketClassifier:
         )
         return build('drive', 'v3', credentials=creds)
 
-    def download_cleaned_csv(self):
-        filename = f"Zoho Tickets {self.year_range}_cleaned.csv"
+    def download_processed_csv(self):
+        filename = f"Zoho Tickets {self.year_range}_processed.csv"
         query = f"'{self.raw_folder_id}' in parents and name='{filename}'"
         results = self.drive_service.files().list(q=query, fields="files(id, name)").execute()
         files = results.get('files', [])
@@ -61,7 +61,7 @@ class TicketClassifier:
             while not done:
                 _, done = downloader.next_chunk()
 
-        print(f"📥 Downloaded cleaned CSV: {filename}")
+        print(f"📥 Downloaded processed CSV: {filename}")
         return local_path
 
     def _load_prompt(self) -> str:
@@ -129,7 +129,7 @@ class TicketClassifier:
 
         file_metadata = {
             'name': filename,
-            'parents': [self.output_folder_id]
+            'parents': [self.raw_folder_id]
         }
         media = MediaIoBaseUpload(open(local_path, 'rb'), mimetype='application/json')
         uploaded_file = self.drive_service.files().create(body=file_metadata, media_body=media, fields='id').execute()
@@ -138,7 +138,7 @@ class TicketClassifier:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-year", required=True, help="Year range to load cleaned CSV")
+    parser.add_argument("-year", required=True, help="Year range to load processed CSV")
     args = parser.parse_args()
 
     classifier = TicketClassifier(args.year)
