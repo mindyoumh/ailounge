@@ -14,3 +14,5 @@ outputs/*
 !outputs/.gitkeep
 
 **/__pycache__/
+
+service_account.json
