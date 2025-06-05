@@ -23,7 +23,7 @@ uploaded_csv_file_paths, folder_id = google.upload_all_csvs(file_path)
 
 for path in uploaded_csv_file_paths:
     filename = Path(path).name
-    spreadsheet_id = google.create_spreadsheet(filename, folder_id)
+    spreadsheet_id = google.create_spreadsheet(filename)
 
     with open(path, newline="", encoding="utf-8") as csvfile:
         reader = list(csv.reader(csvfile))
