@@ -39,7 +39,11 @@ def string_to_values(string: str):
 
         category = data.get("Category", "Unknown")
         sub_category = data.get("Sub Category", "Unknown")
-        tags = ", ".join(data.get("Tags", []))
+        tags = (
+            ", ".join(data.get("Tags", []))
+            if isinstance(data.get("Tags"), list)
+            else "Unknown"
+        )
 
         return category, sub_category, tags
 
