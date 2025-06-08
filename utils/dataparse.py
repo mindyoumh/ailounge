@@ -1,5 +1,4 @@
 import os
-import json
 import pandas as pd
 from bs4 import BeautifulSoup
 
@@ -27,26 +26,3 @@ def clean_csv_description(input_csv_path: str, output_csv_path: str = None) -> s
     df.to_csv(output_csv_path, index=False)
     print(f"✅ Cleaned CSV saved to '{output_csv_path}'")
     return output_csv_path
-
-
-def string_to_values(string: str):
-    try:
-        clean_str = string.strip("`").strip()
-        if clean_str.startswith("json"):
-            clean_str = clean_str[4:].strip()
-
-        data = json.loads(clean_str)
-
-        category = data.get("Category", "Unknown")
-        sub_category = data.get("Sub Category", "Unknown")
-        tags = (
-            ", ".join(data.get("Tags", []))
-            if isinstance(data.get("Tags"), list)
-            else "Unknown"
-        )
-
-        return category, sub_category, tags
-
-    except (json.JSONDecodeError, TypeError):
-        print("Invalid result")
-        return "Unknown", "Unknown", "Unknown"
