@@ -12,15 +12,22 @@ def clean_csv_description(input_csv_path: str, output_csv_path: str = None) -> s
 
     df = pd.read_csv(input_csv_path)
 
-    for index, row in df.iterrows():
-        try:
-            if pd.isna(row['Description']):
-                df.at[index, 'Description'] = ''
-            else:
-                soup = BeautifulSoup(str(row['Description']), 'html.parser')
-                df.at[index, 'Description'] = soup.get_text().strip()
-        except Exception as e:
-            print(f"Error parsing row {index}: {e}")
+    # List of columns to clean
+    columns_to_clean = ["Ticket Id", "Ticket Reference Id", "Subject", "Description", "Category", "Sub Category", "Tags"]
+
+    for col in columns_to_clean:
+        if col in df.columns:
+            df[col] = df[col].astype(str)  # Force column to string/object before cleaning
+
+            for index, value in df[col].items():
+                try:
+                    if pd.isna(value) or value.strip().lower() == 'nan':
+                        df.at[index, col] = ''
+                    else:
+                        soup = BeautifulSoup(str(value), 'html.parser')
+                        df.at[index, col] = soup.get_text().strip()
+                except Exception as e:
+                    print(f"Error parsing row {index}, column '{col}': {e}")
 
     df.to_csv(output_csv_path, index=False)
     print(f"✅ Processed CSV saved to '{output_csv_path}'")
