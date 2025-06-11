@@ -8,6 +8,7 @@ from .utils.google_process import GoogleProcess
 from .utils.ticket_processor import TicketClassifierUsingGemini
 from .utils.dataparse import string_to_values
 from googleapiclient.http import MediaIoBaseDownload
+import time
 
 
 @api_view(["POST"])
@@ -51,7 +52,8 @@ def process_ticket(request):
             print(f"{e}. Required column missing in {filename}. Skipping.")
             continue
 
-        for row in data_rows:
+        batch_size = 28
+        for i, row in enumerate(data_rows):
             category_value, sub_category_value, tags_value = string_to_values(
                 ticket.classify_each_ticket(
                     row[ticket_ID], row[subject], row[description], row[resolution]
@@ -60,6 +62,11 @@ def process_ticket(request):
             row[category] = category_value
             row[sub_category] = sub_category_value
             row[tags] = tags_value
+
+            # Using this to pause every 10 rows since Gemini has Rate Limiter
+            if (i + 1) % batch_size == 0:
+                print(f"⏸️ Pausing for 60 seconds after processing {i + 1} rows...")
+                time.sleep(60)
 
         updated_data = [header] + data_rows
 
