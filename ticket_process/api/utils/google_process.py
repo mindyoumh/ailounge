@@ -64,8 +64,8 @@ class GoogleProcess:
         Returns:
             dict: The API response indicating the update result.
         """
-        max_retries = 3
-        delay_seconds = 60
+        max_retries = 5
+        delay_seconds = 30
         for attempt in range(max_retries):
             try:
                 body = {"values": _values}
