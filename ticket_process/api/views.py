@@ -89,7 +89,7 @@ def process_ticket(request):
             chunk_token_count = ticket.count_token(ticket.prompt + chunk_text)
 
             if chunk_token_count <= MAX_TOKEN_LIMIT:
-                chunks_to_process.append((i, chunk))  # Save starting row + chunk
+                chunks_to_process.append((i, chunk))
                 i += len(chunk)
             else:
                 CHUNK_SIZE = max(1, CHUNK_SIZE // 2)
@@ -119,9 +119,9 @@ def process_ticket(request):
                 if parsed_results:
                     for row, parsed in zip(chunk, parsed_results):
                         if isinstance(parsed, dict):
-                            row[category] = parsed.get("Category", "")
-                            row[sub_category] = parsed.get("Sub Category", "")
-                            row[tags] = ", ".join(parsed.get("Tags", []))
+                            row[category] = parsed.get("Category", "Unknown")
+                            row[sub_category] = parsed.get("Sub Category", "Unknown")
+                            row[tags] = ", ".join(parsed.get("Tags", ["Unknown"]))
                         else:
                             row[category] = "Unknown"
                             row[sub_category] = "Unknown"
