@@ -1,8 +1,10 @@
 import os
-
+import time
+import ssl
 
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
+from googleapiclient.errors import HttpError
 
 
 class GoogleProcess:
@@ -62,20 +64,34 @@ class GoogleProcess:
         Returns:
             dict: The API response indicating the update result.
         """
-        body = {"values": _values}
-        result = (
-            self.sheets_service.spreadsheets()
-            .values()
-            .append(
-                spreadsheetId=spreadsheet_id,
-                range=range_name,
-                valueInputOption=value_input_option,
-                body=body,
-            )
-            .execute()
-        )
-        print(f"{(result.get('updates').get('updatedCells'))} cells appended.")
-        return result
+        max_retries = 3
+        delay_seconds = 60
+        for attempt in range(max_retries):
+            try:
+                body = {"values": _values}
+                result = (
+                    self.sheets_service.spreadsheets()
+                    .values()
+                    .append(
+                        spreadsheetId=spreadsheet_id,
+                        range=range_name,
+                        valueInputOption=value_input_option,
+                        body=body,
+                    )
+                    .execute()
+                )
+                print(f"{(result.get('updates').get('updatedCells'))} cells appended.")
+                return result
+            except (HttpError, ssl.SSLEOFError) as e:
+                print(
+                    f"⚠️ Error writing to sheet (Attempt {attempt + 1}/{max_retries}): {e}"
+                )
+                if attempt < max_retries - 1:
+                    print(f"⏳ Waiting {delay_seconds} seconds before retry...")
+                    time.sleep(delay_seconds)
+                else:
+                    print("❌ Max retries reached. Raising error.")
+                    raise
 
     def move_file_to_folder(self, file_id: str, folder_id: str):
         """
