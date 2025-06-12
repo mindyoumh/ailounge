@@ -9,7 +9,7 @@ from .utils.ticket_processor import TicketClassifierUsingGemini
 from .utils.dataparse import string_to_values
 from googleapiclient.http import MediaIoBaseDownload
 from google.genai.errors import ServerError
-import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
 @api_view(["POST"])
@@ -71,13 +71,13 @@ def process_ticket(request):
         google.write_value_on_spreadsheet(
             spreadsheet_id=spreadsheet_id, range_name="A1", _values=[header]
         )
-        current_row = 2
-
+        chunks_to_process = []
         i = 0
+
         while i < len(data_rows):
             chunk = data_rows[i : i + CHUNK_SIZE]
-
             chunk_text = ""
+
             for row in chunk:
                 chunk_text += f"""
                     Ticket ID: {row[ticket_ID]}
@@ -89,29 +89,7 @@ def process_ticket(request):
             chunk_token_count = ticket.count_token(ticket.prompt + chunk_text)
 
             if chunk_token_count <= MAX_TOKEN_LIMIT:
-                print(
-                    f"✅ Processing chunk from row {i} to {i+len(chunk)} (Token count: {chunk_token_count})"
-                )
-                try:
-                    parsed_results = flush_chunk(chunk)
-                    for row, parsed in zip(chunk, parsed_results):
-                        if isinstance(parsed, dict):
-                            row[category] = parsed.get("Category", "")
-                            row[sub_category] = parsed.get("Sub Category", "")
-                            row[tags] = ", ".join(parsed.get("Tags", []))
-                        else:
-                            print(f"⚠️ Unexpected parsed format: {parsed}")
-
-                    google.write_value_on_spreadsheet(
-                        spreadsheet_id=spreadsheet_id,
-                        range_name=f"A{current_row}",
-                        _values=chunk,
-                    )
-                    current_row += len(chunk)
-
-                    time.sleep(60)
-                except ServerError as e:
-                    print(f"⚠️ Gemini failed for this batch: {e}")
+                chunks_to_process.append((i, chunk))  # Save starting row + chunk
                 i += len(chunk)
             else:
                 CHUNK_SIZE = max(1, CHUNK_SIZE // 2)
@@ -119,10 +97,45 @@ def process_ticket(request):
                     f"❌ Skipping chunk from row {i} to {i+len(chunk)}: token count {chunk_token_count} exceeds {MAX_TOKEN_LIMIT}"
                 )
 
-        updated_data = [header] + data_rows
+        results = []
 
-        google.write_value_on_spreadsheet(
-            spreadsheet_id=spreadsheet_id, range_name="A1", _values=updated_data
-        )
+        def process_and_return(index, chunk):
+            try:
+                parsed_results = flush_chunk(chunk)
+                return (index, chunk, parsed_results)
+            except Exception as e:
+                print(f"⚠️ Error processing chunk starting at row {index}: {e}")
+                return (index, chunk, None)
+
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            future_to_index = {
+                executor.submit(process_and_return, index, chunk): index
+                for index, chunk in chunks_to_process
+            }
+
+            for future in as_completed(future_to_index):
+                index = future_to_index[future]
+                i, chunk, parsed_results = future.result()
+                if parsed_results:
+                    for row, parsed in zip(chunk, parsed_results):
+                        if isinstance(parsed, dict):
+                            row[category] = parsed.get("Category", "")
+                            row[sub_category] = parsed.get("Sub Category", "")
+                            row[tags] = ", ".join(parsed.get("Tags", []))
+                        else:
+                            row[category] = "Unknown"
+                            row[sub_category] = "Unknown"
+                            row[tags] = "Unknown"
+                            print(f"⚠️ Unexpected parsed format at row {i}: {parsed}")
+                    results.append((i, chunk))
+
+        results.sort()
+        for i, chunk in results:
+            row_number = i + 2
+            google.write_value_on_spreadsheet(
+                spreadsheet_id=spreadsheet_id,
+                range_name=f"A{row_number}",
+                _values=chunk,
+            )
 
     return Response("SUCCESS", status=status.HTTP_200_OK)
