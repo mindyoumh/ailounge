@@ -16,7 +16,7 @@ load_dotenv()
 class GoogleDriveUploader:
     def __init__(self):
         self.api_scopes = [os.getenv('GOOGLE_DRIVE_API')]
-        self.root_folder_id = os.getenv('RAW_DATA_FOLDER_ID')
+        self.root_folder_id = os.getenv('GOOGLE_DRIVE_FOLDER_ID')
         self.service_account_file = os.path.join(os.path.dirname(__file__), '..', 'service_account.json')
         self.columns_to_include = [
             "Ticket Id", "Ticket Reference Id", "Subject", "Description",
@@ -65,14 +65,12 @@ class GoogleDriveUploader:
         df = pd.read_csv(processed_path)
         df_filtered = df[[col for col in self.columns_to_include if col in df.columns]]
 
-        base_name = os.path.splitext(filename)[0].strip()  # e.g., "Zoho Tickets 2024-2025"
-        year_part = base_name.split()[-1]  # e.g., "2024-2025"
+        base_name = os.path.splitext(filename)[0].strip()
+        year_part = base_name.split()[-1]
         cleaned_sheet_name = f"{year_part}_processed"
 
-        # Step 1: Create a folder for this dataset
         subfolder_id = self.create_folder(base_name, self.root_folder_id)
 
-        # Step 2: Upload cleaned sheet into that folder
         if self.upload_dataframe_as_sheet(df_filtered, cleaned_sheet_name, subfolder_id):
             try:
                 os.remove(csv_path)

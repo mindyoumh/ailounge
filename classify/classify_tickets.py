@@ -1,5 +1,6 @@
 import sys
 import os
+import io
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import re
@@ -24,8 +25,7 @@ class TicketClassifier:
 
         self.api_key = os.getenv("API_KEY")
         self.model_name = os.getenv("MODEL_NAME", "gemini-2.0-flash")
-        self.raw_folder_id = os.getenv("RAW_DATA_FOLDER_ID")
-        self.output_folder_id = os.getenv("GEMINI_ANALYSIS_OUTPUT_FOLDER_ID")
+        self.raw_folder_id = os.getenv("GOOGLE_DRIVE_FOLDER_ID")
         self.year_range = year_range
         self.chunk_size = chunk_size
         self.max_workers = max_workers
@@ -98,9 +98,18 @@ class TicketClassifier:
 
     def _extract_json_from_response(self, response) -> dict:
         raw_text = response.candidates[0].content.parts[0].text.strip()
+
         if raw_text.startswith("```json"):
             raw_text = raw_text.replace("```json", "").replace("```", "").strip()
-        return json.loads(raw_text)
+
+        try:
+            return json.loads(raw_text)
+        except json.JSONDecodeError as e:
+            print("❌ Failed to decode JSON from Gemini response.")
+            print(f"📍 Error: {e}")
+            print(f"🧾 Partial content:\n{raw_text[:300]}...\n")
+            return {}
+
 
     def _process_chunk(self, chunk: pd.DataFrame, chunk_index: int):
         try:
@@ -137,36 +146,34 @@ class TicketClassifier:
                 _ = future.result()
 
     def save_output(self):
-        output = {
-            "categories": [
-                {
-                    "name": main_cat.title(),
-                    "subcategories": [
-                        {
-                            "name": subcat.title(),
-                            "tags": sorted(list(merge_similar_items(tags)))
-                        }
-                        for subcat, tags in subcats.items()
-                    ]
-                }
-                for main_cat, subcats in self.categories.items()
-            ]
-        }
+        # Step 1: Build structured data for export
+        rows = []
+        for main_cat, subcats in self.categories.items():
+            for subcat, tags in subcats.items():
+                rows.append({
+                    "Category": main_cat.title(),
+                    "Subcategory": subcat.title(),
+                    "Tags": ", ".join(sorted(list(merge_similar_items(tags))))
+                })
 
-        filename = f"{self.year_range}_result.json"
-        local_path = os.path.join(tempfile.gettempdir(), filename)
+        df_result = pd.DataFrame(rows)
 
-        with open(local_path, "w", encoding="utf-8") as f:
-            json.dump(output, f, indent=2)
+        # Step 2: Save and upload as Google Sheet
+        sheet_name = f"{self.year_range}_result"
+        csv_bytes = df_result.to_csv(index=False).encode('utf-8')
+        stream = io.BytesIO(csv_bytes)
 
         file_metadata = {
-            'name': filename,
+            'name': sheet_name,
+            'mimeType': 'application/vnd.google-apps.spreadsheet',
             'parents': [self.dataset_folder_id]
         }
-        media = MediaIoBaseUpload(open(local_path, 'rb'), mimetype='application/json')
-        uploaded_file = self.drive_service.files().create(body=file_metadata, media_body=media, fields='id').execute()
 
-        print(f"\n✅ Final classification result uploaded to Drive folder '{self.year_range}' (ID: {uploaded_file['id']})")
+        media = MediaIoBaseUpload(stream, mimetype='text/csv', resumable=True)
+        file = self.drive_service.files().create(body=file_metadata, media_body=media, fields='id').execute()
+
+        print(f"\n✅ Final classification sheet uploaded: {sheet_name} (ID: {file['id']})")
+
 
 
 if __name__ == "__main__":
