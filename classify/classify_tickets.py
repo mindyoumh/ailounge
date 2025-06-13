@@ -54,27 +54,38 @@ class TicketClassifier:
         return build('drive', 'v3', credentials=creds)
 
     def load_sheet_as_df(self):
-        sheet_name = f"Zoho Tickets {self.year_range}_cleaned"
-        query = f"name='{sheet_name}' and mimeType='application/vnd.google-apps.spreadsheet'"
-        results = self.drive_service.files().list(q=query, fields="files(id, name)").execute()
-        files = results.get('files', [])
+        # Step 1: Locate folder for this dataset (e.g., Zoho Tickets 2024-2025)
+        folder_name = f"Zoho Tickets {self.year_range}"
+        folder_query = f"name='{folder_name}' and mimeType='application/vnd.google-apps.folder'"
+        folder_results = self.drive_service.files().list(q=folder_query, fields="files(id, name)").execute()
+        folders = folder_results.get('files', [])
+        if not folders:
+            raise FileNotFoundError(f"❌ Folder '{folder_name}' not found in Drive")
+        self.dataset_folder_id = folders[0]['id']
+        print(f"📁 Found Drive folder: {folder_name} (ID: {self.dataset_folder_id})")
 
-        if not files:
-            raise FileNotFoundError(f"Google Sheet '{sheet_name}' not found in Drive")
+        # Step 2: Locate the _processed Google Sheet inside that folder
+        sheet_query = f"'{self.dataset_folder_id}' in parents and name contains '_processed' and mimeType='application/vnd.google-apps.spreadsheet'"
+        sheet_results = self.drive_service.files().list(q=sheet_query, fields="files(id, name)").execute()
+        sheets = sheet_results.get('files', [])
+        if not sheets:
+            raise FileNotFoundError(f"❌ No '_processed' sheet found in '{folder_name}'")
 
-        sheet_id = files[0]['id']
-        print(f"📄 Found Google Sheet: {sheet_name} (ID: {sheet_id})")
+        sheet_id = sheets[0]['id']
+        print(f"📄 Found Google Sheet: {sheets[0]['name']} (ID: {sheet_id})")
 
+        # Step 3: Load sheet data
         sheet_metadata = self.sheets_service.spreadsheets().get(spreadsheetId=sheet_id).execute()
         first_sheet_title = sheet_metadata['sheets'][0]['properties']['title']
         sheet_range = f"{first_sheet_title}"
+
         result = self.sheets_service.spreadsheets().values().get(
             spreadsheetId=sheet_id, range=sheet_range
         ).execute()
 
         rows = result.get("values", [])
         if not rows:
-            raise ValueError(f"No data found in sheet '{sheet_name}'")
+            raise ValueError(f"❌ No data found in sheet '{sheets[0]['name']}'")
 
         df = pd.DataFrame(rows[1:], columns=rows[0])
         print(f"📊 Loaded sheet into DataFrame: {df.shape[0]} rows")
@@ -142,7 +153,7 @@ class TicketClassifier:
             ]
         }
 
-        filename = f"final_categories_tags({self.year_range}).json"
+        filename = f"{self.year_range}_result.json"
         local_path = os.path.join(tempfile.gettempdir(), filename)
 
         with open(local_path, "w", encoding="utf-8") as f:
@@ -150,12 +161,13 @@ class TicketClassifier:
 
         file_metadata = {
             'name': filename,
-            'parents': [self.raw_folder_id]
+            'parents': [self.dataset_folder_id]
         }
         media = MediaIoBaseUpload(open(local_path, 'rb'), mimetype='application/json')
         uploaded_file = self.drive_service.files().create(body=file_metadata, media_body=media, fields='id').execute()
 
-        print(f"\n✅ Final aggregated result uploaded to Drive (ID: {uploaded_file['id']})")
+        print(f"\n✅ Final classification result uploaded to Drive folder '{self.year_range}' (ID: {uploaded_file['id']})")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
