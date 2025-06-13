@@ -5,3 +5,26 @@ venv/
 
 # Ignore environment variables
 .env
+
+# Data and outputs
+data/*
+!data/.gitkeep
+
+outputs/*
+!outputs/.gitkeep
+
+**/__pycache__/
+
+service_account.json
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+env
+db.sqlite3
+
+# Thumbnails
+_*
