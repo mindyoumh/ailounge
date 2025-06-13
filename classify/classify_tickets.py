@@ -21,6 +21,16 @@ from utils.classification_utils import normalize_name, merge_similar_items
 
 class TicketClassifier:
     def __init__(self, year_range: str, chunk_size: int = 100, max_workers: int = 4):
+        """
+        Initializes the classifier by loading environment variables, authenticating services,
+        loading the Gemini prompt, and fetching the relevant Google Sheet data for classification.
+
+        Args:
+            year_range (str): Year range used to identify the dataset folder (e.g., "2024-2025").
+            chunk_size (int): Number of rows per chunk sent to Gemini for processing.
+            max_workers (int): Number of threads for concurrent chunk processing.
+        """
+        
         load_dotenv()
 
         self.api_key = os.getenv("API_KEY")
@@ -43,6 +53,13 @@ class TicketClassifier:
         self.lock = Lock()
 
     def authenticate_drive(self):
+        """
+        Authenticates and builds the Google Drive and Sheets API services using a service account.
+
+        Returns:
+            Resource: Google Drive API client.
+        """
+        
         service_account_path = os.path.join(os.path.dirname(__file__), '..', 'service_account.json')
         creds = service_account.Credentials.from_service_account_file(
             service_account_path, scopes=[
@@ -54,7 +71,14 @@ class TicketClassifier:
         return build('drive', 'v3', credentials=creds)
 
     def load_sheet_as_df(self):
-        # Step 1: Locate folder for this dataset (e.g., Zoho Tickets 2024-2025)
+        """
+        Loads the '_processed' Google Sheet inside the year-specific folder from Google Drive,
+        and returns it as a Pandas DataFrame.
+
+        Returns:
+            pd.DataFrame: The loaded sheet with support ticket data.
+        """
+        
         folder_name = f"Zoho Tickets {self.year_range}"
         folder_query = f"name='{folder_name}' and mimeType='application/vnd.google-apps.folder'"
         folder_results = self.drive_service.files().list(q=folder_query, fields="files(id, name)").execute()
@@ -64,7 +88,6 @@ class TicketClassifier:
         self.dataset_folder_id = folders[0]['id']
         print(f"📁 Found Drive folder: {folder_name} (ID: {self.dataset_folder_id})")
 
-        # Step 2: Locate the _processed Google Sheet inside that folder
         sheet_query = f"'{self.dataset_folder_id}' in parents and name contains '_processed' and mimeType='application/vnd.google-apps.spreadsheet'"
         sheet_results = self.drive_service.files().list(q=sheet_query, fields="files(id, name)").execute()
         sheets = sheet_results.get('files', [])
@@ -74,7 +97,6 @@ class TicketClassifier:
         sheet_id = sheets[0]['id']
         print(f"📄 Found Google Sheet: {sheets[0]['name']} (ID: {sheet_id})")
 
-        # Step 3: Load sheet data
         sheet_metadata = self.sheets_service.spreadsheets().get(spreadsheetId=sheet_id).execute()
         first_sheet_title = sheet_metadata['sheets'][0]['properties']['title']
         sheet_range = f"{first_sheet_title}"
@@ -92,11 +114,28 @@ class TicketClassifier:
         return df
 
     def _load_prompt(self) -> str:
+        """
+        Loads the system prompt text used to instruct the Gemini model for ticket classification.
+
+        Returns:
+            str: The content of the system prompt file.
+        """
+        
         prompt_path = os.path.join(os.path.dirname(__file__), 'prompts', 'system_prompt_chunk.txt')
         with open(prompt_path, "r", encoding="utf-8") as f:
             return f.read()
 
     def _extract_json_from_response(self, response) -> dict:
+        """
+        Extracts and parses the JSON string from the Gemini model's output.
+        
+        Args:
+            response: Gemini response object.
+        
+        Returns:
+            dict: Parsed JSON data, or empty dict if decoding fails.
+        """
+
         raw_text = response.candidates[0].content.parts[0].text.strip()
 
         if raw_text.startswith("```json"):
@@ -112,6 +151,15 @@ class TicketClassifier:
 
 
     def _process_chunk(self, chunk: pd.DataFrame, chunk_index: int):
+        """
+        Sends a chunk of ticket data to Gemini for classification and collects
+        categories, subcategories, and tags.
+
+        Args:
+            chunk (pd.DataFrame): A slice of the main dataset.
+            chunk_index (int): Index of the chunk for logging and tracking.
+        """
+        
         try:
             print(f"📦 Processing chunk {chunk_index + 1}")
             csv_content = chunk[["Ticket Id", "Ticket Reference Id", "Subject", "Description", "Category", "Sub Category", "Tags"]].to_csv(index=False)
@@ -137,6 +185,10 @@ class TicketClassifier:
             print(f"⚠️ Error in chunk {chunk_index + 1}: {e}")
 
     def run(self):
+        """
+        Initiates concurrent processing of the DataFrame in chunks using ThreadPoolExecutor.
+        """
+        
         futures = []
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             for i in range(0, len(self.df), self.chunk_size):
@@ -146,7 +198,11 @@ class TicketClassifier:
                 _ = future.result()
 
     def save_output(self):
-        # Step 1: Build structured data for export
+        """
+        Converts the aggregated classification result into a formatted DataFrame
+        and uploads it to Google Drive as a new Google Sheet in the appropriate dataset folder.
+        """
+        
         rows = []
         for main_cat, subcats in self.categories.items():
             for subcat, tags in subcats.items():
@@ -158,7 +214,6 @@ class TicketClassifier:
 
         df_result = pd.DataFrame(rows)
 
-        # Step 2: Save and upload as Google Sheet
         sheet_name = f"{self.year_range}_result"
         csv_bytes = df_result.to_csv(index=False).encode('utf-8')
         stream = io.BytesIO(csv_bytes)
