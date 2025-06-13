@@ -7,7 +7,9 @@ This repository provides an automated pipeline to clean CSV ticket files, upload
 📁 Folder Structure
 
 ├── main.py # Main script to run the entire automation
+
 ├── requirements.txt # Dependencies for the project
+
 └── ticket_process/ # Django project directory
 
 ---
@@ -45,9 +47,9 @@ Step-by-step:
 2. Copy the full path to the folder.
 3. Run the script using:
 
-    python main.py "/path/to/your/folder"
+    python main.py "C:\Users\YourName\Documents\MyProject"
 
-Replace `/path/to/your/folder` with your actual folder path.
+Replace `C:\Users\YourName\Documents\MyProject` with your actual folder path.
 
 ---
 
@@ -60,6 +62,7 @@ Root `.env` file should include:
     API_URL=<The URL of the Django app>
 
 To get `FOLDER_ID`, follow this instruction: [Google Drive Folder ID Guide](https://adventuresusingai.com/google-drive-folder-id)
+
 Make sure the Django server is running to get the `API_URL`. By default, the API URL is http://127.0.0.1:8000
 
 Django app `.env` file (inside `ticket_process/`) should include:
@@ -71,5 +74,7 @@ Django app `.env` file (inside `ticket_process/`) should include:
     MODEL_NAME="gemini-2.0-flash-lite"
 
 To get `FOLDER_ID`, follow this instruction: [Google Drive Folder ID Guide](https://adventuresusingai.com/google-drive-folder-id)
+
 To get `API_KEY`, follow steps from: [Gemini API Key Setup](https://ai.google.dev/gemini-api/docs/api-key)
+
 For `MODEL_NAME` you can use the recommended model, or choose from: [Gemini Models](https://ai.google.dev/gemini-api/docs/models)
