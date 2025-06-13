@@ -7,6 +7,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseUpload
 from google.oauth2 import service_account
 
+# Add parent to path for utils import
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.dataparse import clean_csv_description
 
@@ -17,8 +18,11 @@ class GoogleDriveUploader:
         self.api_scopes = [os.getenv('GOOGLE_DRIVE_API')]
         self.folder_id = os.getenv('RAW_DATA_FOLDER_ID')
         self.service_account_file = os.path.join(os.path.dirname(__file__), '..', 'service_account.json')
-        self.columns_to_include = ["Ticket Id", "Ticket Reference Id", "Subject", "Description", "Category", "Sub Category", "Tags"]
-        self.current_dir = os.path.dirname(__file__)
+        self.columns_to_include = [
+            "Ticket Id", "Ticket Reference Id", "Subject", "Description",
+            "Category", "Sub Category", "Tags"
+        ]
+        self.raw_dir = os.path.join(os.path.dirname(__file__), 'raw_csvs')
         self.service = self.authenticate()
 
     def authenticate(self):
@@ -44,7 +48,7 @@ class GoogleDriveUploader:
         return True
 
     def process_and_upload_csv(self, filename: str):
-        original_path = os.path.join(self.current_dir, filename)
+        original_path = os.path.join(self.raw_dir, filename)
         processed_path = clean_csv_description(original_path)
 
         df = pd.read_csv(processed_path)
@@ -60,8 +64,8 @@ class GoogleDriveUploader:
                 print(f"⚠️ Failed to delete local files: {e}")
 
     def upload_all_csvs(self):
-        for filename in os.listdir(self.current_dir):
-            if filename.endswith('.csv') and filename != os.path.basename(__file__):
+        for filename in os.listdir(self.raw_dir):
+            if filename.endswith('.csv'):
                 self.process_and_upload_csv(filename)
 
 if __name__ == '__main__':

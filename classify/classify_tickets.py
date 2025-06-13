@@ -1,4 +1,7 @@
+import sys
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import re
 import json
 import argparse
@@ -18,6 +21,7 @@ from utils.classification_utils import normalize_name, merge_similar_items
 class TicketClassifier:
     def __init__(self, year_range: str, chunk_size: int = 100, max_workers: int = 4):
         load_dotenv()
+
         self.api_key = os.getenv("API_KEY")
         self.model_name = os.getenv("MODEL_NAME", "gemini-2.0-flash")
         self.raw_folder_id = os.getenv("RAW_DATA_FOLDER_ID")
@@ -34,14 +38,14 @@ class TicketClassifier:
         self.prompt = self._load_prompt()
         self.df = self.load_sheet_as_df()
 
-        self.categories = defaultdict(set)
+        self.categories = defaultdict(lambda: defaultdict(set))
         self.tags = set()
-        self.lock = Lock()  # For thread-safe updates
+        self.lock = Lock()
 
     def authenticate_drive(self):
-        SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), 'service_account.json')
+        service_account_path = os.path.join(os.path.dirname(__file__), '..', 'service_account.json')
         creds = service_account.Credentials.from_service_account_file(
-            SERVICE_ACCOUNT_FILE, scopes=[
+            service_account_path, scopes=[
                 'https://www.googleapis.com/auth/drive',
                 'https://www.googleapis.com/auth/spreadsheets.readonly'
             ]
@@ -77,7 +81,7 @@ class TicketClassifier:
         return df
 
     def _load_prompt(self) -> str:
-        prompt_path = os.path.join("prompts", "system_prompt_chunk.txt")
+        prompt_path = os.path.join(os.path.dirname(__file__), 'prompts', 'system_prompt_chunk.txt')
         with open(prompt_path, "r", encoding="utf-8") as f:
             return f.read()
 
@@ -104,8 +108,11 @@ class TicketClassifier:
             with self.lock:
                 for cat in data.get("categories", []):
                     main_cat = normalize_name(cat["name"])
-                    self.categories[main_cat].update(map(normalize_name, cat.get("subcategories", [])))
-                self.tags.update(map(normalize_name, data.get("tags", [])))
+                    for subcat in cat.get("subcategories", []):
+                        subcat_name = normalize_name(subcat["name"])
+                        tags = set(map(normalize_name, subcat.get("tags", [])))
+                        self.categories[main_cat][subcat_name].update(tags)
+                        self.tags.update(tags)
         except Exception as e:
             print(f"⚠️ Error in chunk {chunk_index + 1}: {e}")
 
@@ -123,11 +130,16 @@ class TicketClassifier:
             "categories": [
                 {
                     "name": main_cat.title(),
-                    "subcategories": sorted(list(merge_similar_items(subcats)))
+                    "subcategories": [
+                        {
+                            "name": subcat.title(),
+                            "tags": sorted(list(merge_similar_items(tags)))
+                        }
+                        for subcat, tags in subcats.items()
+                    ]
                 }
                 for main_cat, subcats in self.categories.items()
-            ],
-            "tags": sorted(list(merge_similar_items(self.tags)))
+            ]
         }
 
         filename = f"final_categories_tags({self.year_range}).json"
