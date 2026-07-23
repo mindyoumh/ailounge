@@ -160,7 +160,7 @@ Save each section as its own file in `docs/feeds/`.
 ```md
 # GitHub Trending
 > Notable repos from GitHub Trending — manually curated picks worth highlighting.
-> Auto-fetched repos also appear here via scraper.py → SQLite.
+> Auto-fetched repos also appear here via the GitHub Trending ingester into Supabase (PostgreSQL).
 > Format: - [Title](URL) | YYYY-MM-DD | tag1, tag2
 
 ## June 2026
@@ -177,7 +177,7 @@ Save each section as its own file in `docs/feeds/`.
 ```md
 # Hacker News
 > High-signal HN discussions worth reading — manually saved picks.
-> Top stories are also auto-fetched daily via HN Algolia API → SQLite.
+> Top stories are also auto-fetched daily via the HN Algolia API into Supabase (PostgreSQL).
 > Format: - [Title](URL) | YYYY-MM-DD | tag1, tag2
 
 ## June 2026

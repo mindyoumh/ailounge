@@ -1,6 +1,6 @@
 # Hacker News
 > High-signal HN discussions worth reading — manually saved picks.
-> Top stories are also auto-fetched daily via HN Algolia API → SQLite.
+> Top stories are also auto-fetched daily via the HN Algolia API into Supabase (PostgreSQL).
 > Format: - [Title](URL) | YYYY-MM-DD | tag1, tag2
 
 ## June 2026
