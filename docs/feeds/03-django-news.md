@@ -5,6 +5,14 @@
 
 ## June 2026
 
+- [Packaging Council Inaugural Election Dates](https://blog.python.org/2026/06/2026-packaging-council-election-dates/) | 2026-06-28 | django
+- [How the Django Software Foundation Became a CNA](https://www.djangoproject.com/weblog/2026/jun/25/how-the-django-software-foundation-became-a-cna/) | 2026-06-25 | django
+- [DSF member of the month - Salim Nuru](https://www.djangoproject.com/weblog/2026/jun/29/dsf-member-of-the-month-salim-nuru/) | 2026-06-29 | django
+- [Keeping Up with the Django Community](https://www.djangoproject.com/weblog/2026/jun/30/keeping-up-with-the-django-community/) | 2026-06-30 | django
+- [Django 6.1 beta 1 released](https://www.djangoproject.com/weblog/2026/jun/24/django-61-beta-1-released/) | 2026-06-24 | django
+- [Python 3.15.0 beta 3 is here!](https://blog.python.org/2026/06/python-3150-beta-3/) | 2026-06-23 | django
+- [Mitigated API authentication bypass for python.org download metadata](https://blog.python.org/2026/06/mitigated-api-bypass-for-download-metadata-python-dot-org/) | 2026-06-23 | django
+- [Announcing the Search for a DSF Executive Director](https://www.djangoproject.com/weblog/2026/jun/17/announcing-the-search-for-a-dsf-executive-director/) | 2026-06-17 | django
 - [Django security releases issued: 6.0.6 and 5.2.15](https://www.djangoproject.com/weblog/2026/jun/03/security-releases/) | 2026-06-03 | django
 - [DSF 2026 Fundraising Goals](https://www.djangoproject.com/weblog/2026/jun/10/dsf-2026-fundraising-goals/) | 2026-06-10 | django
 - [Python 3.14.6 and 3.13.14 are now available!](https://blog.python.org/2026/06/python-3146-31314/) | 2026-06-10 | django
@@ -57,3 +65,10 @@
 - [Python 3.15.0 alpha 5 (yes, another alpha!)](https://blog.python.org/2026/01/python-3150-alpha-5-yes-another-alpha/) | 2026-01-14 | django
 - [Python 3.15.0 alpha 4](https://blog.python.org/2026/01/python-3150-alpha-4/) | 2026-01-13 | django
 
+
+## July 2026
+- [Last Call 2026 Django Developer Survey](https://www.djangoproject.com/weblog/2026/jul/08/last-call-2026-django-developer-survey/) | 2026-07-08 | django
+- [Python 3.15.0 beta 4 is here!](https://blog.python.org/2026/07/python-3150-beta-4/) | 2026-07-18 | django
+- [Supporting the Triptych Project](https://www.djangoproject.com/weblog/2026/jul/15/supporting-the-triptych-project/) | 2026-07-15 | django
+- [Explore the DjangoCon US 2026 Speaker Lineup and Reserve Your Spot](https://www.djangoproject.com/weblog/2026/jul/13/explore-the-djangocon-us-2026-speaker-lineup-and-r/) | 2026-07-13 | django
+- [Django security releases issued: 6.0.7 and 5.2.16](https://www.djangoproject.com/weblog/2026/jul/07/security-releases/) | 2026-07-07 | django

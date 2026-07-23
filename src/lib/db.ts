@@ -1,4 +1,6 @@
-import { getDb } from "../db/client";
+import { serviceClient } from "../db/service-client";
+import { scoreRelevance } from "./relevance-scorer";
+import { recalcEngagementForItem } from "./engagement-scorer";
 
 export interface IngestEntry {
   source:       string;
@@ -11,26 +13,57 @@ export interface IngestEntry {
   published_at: string;
 }
 
-export function upsertEntry(entry: IngestEntry): "inserted" | "skipped" {
-  const db = getDb();
+export async function upsertEntry(entry: IngestEntry): Promise<"inserted" | "skipped"> {
+  const { data: existing } = await serviceClient
+    .from("feed_items")
+    .select("id")
+    .eq("source", entry.source)
+    .eq("url", entry.url)
+    .maybeSingle();
 
-  const stmt = db.prepare(`
-    INSERT OR IGNORE INTO feed_items
-      (source, category, title, url, summary, tags, score, published_at, fetched_at)
-    VALUES
-      (@source, @category, @title, @url, @summary, @tags, @score, @published_at, datetime('now'))
-  `);
+  if (existing) return "skipped";
 
-  const result = stmt.run({
-    source:       entry.source,
-    category:     entry.category,
-    title:        entry.title,
-    url:          entry.url,
-    summary:      entry.summary ?? null,
-    tags:         entry.tags ?? null,
-    score:        entry.score ?? null,
-    published_at: entry.published_at,
+  const { data: inserted, error } = await serviceClient
+    .from("feed_items")
+    .insert({
+      source: entry.source,
+      category: entry.category,
+      title: entry.title,
+      url: entry.url,
+      summary: entry.summary ?? null,
+      tags: entry.tags ?? null,
+      score: entry.score ?? null,
+      published_at: entry.published_at,
+      fetched_at: new Date().toISOString(),
+    })
+    .select("id")
+    .single();
+
+  if (error) {
+    if (error.code === "23505") return "skipped";
+    return "skipped";
+  }
+
+  const relevance = await scoreRelevance({
+    title: entry.title,
+    summary: entry.summary,
+    tags: entry.tags,
+    category: entry.category,
   });
 
-  return result.changes === 1 ? "inserted" : "skipped";
+  if (relevance) {
+    await serviceClient
+      .from("feed_items")
+      .update({
+        ai_relevance_score: relevance.score,
+        ai_relevance_label: relevance.label,
+        ai_relevance_reason: relevance.reason,
+        relevance_base: relevance.score,
+      })
+      .eq("id", inserted.id);
+
+    await recalcEngagementForItem(inserted.id);
+  }
+
+  return "inserted";
 }

@@ -5,6 +5,7 @@ venv/
 
 # Ignore environment variables
 .env
+.env.local
 node_modules/
 service-account.json
 
@@ -24,6 +25,9 @@ skills-lock.json
 
 # TypeScript build cache
 *.tsbuildinfo
+
+# OpenCode config (contains MCP server info)
+opencode.json
 
 # OpenCode scratch files (for local files used by opencode as reference, but not meant to be committed)
 .scratch/

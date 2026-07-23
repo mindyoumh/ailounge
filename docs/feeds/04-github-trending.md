@@ -2,9 +2,446 @@
 
 ## June 2026
 
+- [supermemoryai/supermemory](https://github.com/supermemoryai/supermemory) | 2026-06-25 | github, trending, opensource
+- [run-llama/liteparse](https://github.com/run-llama/liteparse) | 2026-06-25 | github, trending, opensource
+- [ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) | 2026-06-25 | github, trending, opensource
+- [openai/plugins](https://github.com/openai/plugins) | 2026-06-25 | github, trending, opensource
+- [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) | 2026-06-25 | github, trending, opensource
+- [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | 2026-06-25 | github, trending, opensource
+- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) | 2026-06-25 | github, trending, opensource
+- [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 2026-06-25 | github, trending, opensource
+- [lfnovo/open-notebook](https://github.com/lfnovo/open-notebook) | 2026-06-25 | github, trending, opensource
+- [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph) | 2026-06-25 | github, trending, opensource
+- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 2026-06-25 | github, trending, opensource
+- [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 2026-06-25 | github, trending, opensource
+- [esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix) | 2026-06-25 | github, trending, opensource
+- [microsoft/Webwright](https://github.com/microsoft/Webwright) | 2026-06-25 | github, trending, opensource
+- [microsoft/markitdown](https://github.com/microsoft/markitdown) | 2026-06-25 | github, trending, opensource
+- [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 2026-06-25 | github, trending, opensource
+- [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | 2026-06-25 | github, trending, opensource
+- [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | 2026-06-25 | github, trending, opensource
+- [microsoft/presidio](https://github.com/microsoft/presidio) | 2026-06-25 | github, trending, opensource
+- [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 2026-06-25 | github, trending, opensource
+- [Stirling-Tools/Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) | 2026-06-25 | github, trending, opensource
+- [Kong/insomnia](https://github.com/Kong/insomnia) | 2026-06-25 | github, trending, opensource
+- [makeplane/plane](https://github.com/makeplane/plane) | 2026-06-25 | github, trending, opensource
+- [OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut) | 2026-06-25 | github, trending, opensource
+- [iptv-org/iptv](https://github.com/iptv-org/iptv) | 2026-06-25 | github, trending, opensource
+- [jamiepine/voicebox](https://github.com/jamiepine/voicebox) | 2026-06-25 | github, trending, opensource
+- [withastro/flue](https://github.com/withastro/flue) | 2026-06-25 | github, trending, opensource
+- [penpot/penpot](https://github.com/penpot/penpot) | 2026-06-25 | github, trending, opensource
+- [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 2026-06-25 | github, trending, opensource
+- [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 2026-06-25 | github, trending, opensource
+- [koala73/worldmonitor](https://github.com/koala73/worldmonitor) | 2026-06-25 | github, trending, opensource
+- [n0-computer/iroh](https://github.com/n0-computer/iroh) | 2026-06-25 | github, trending, opensource
+- [google-research/timesfm](https://github.com/google-research/timesfm) | 2026-06-25 | github, trending, opensource
+- [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 2026-06-25 | github, trending, opensource
+- [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | 2026-06-25 | github, trending, opensource
+- [kunchenguid/no-mistakes](https://github.com/kunchenguid/no-mistakes) | 2026-06-25 | github, trending, opensource
+- [Flowseal/zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube) | 2026-06-25 | github, trending, opensource
+- [google-labs-code/design.md](https://github.com/google-labs-code/design.md) | 2026-06-25 | github, trending, opensource
+- [stablyai/orca](https://github.com/stablyai/orca) | 2026-06-25 | github, trending, opensource
+- [andreknieriem/headunit-revived](https://github.com/andreknieriem/headunit-revived) | 2026-06-25 | github, trending, opensource
+- [flutter/flutter](https://github.com/flutter/flutter) | 2026-06-25 | github, trending, opensource
+- [revfactory/harness](https://github.com/revfactory/harness) | 2026-06-25 | github, trending, opensource
+- [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | 2026-06-25 | github, trending, opensource
+- [interviewstreet/hiring-agent](https://github.com/interviewstreet/hiring-agent) | 2026-06-25 | github, trending, opensource
+- [apple/container](https://github.com/apple/container) | 2026-06-25 | github, trending, opensource
+- [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | 2026-06-25 | github, trending, opensource
+- [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 2026-06-25 | github, trending, opensource
+- [run-llama/liteparse](https://github.com/run-llama/liteparse) | 2026-06-24 | github, trending, opensource
+- [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) | 2026-06-24 | github, trending, opensource
+- [ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) | 2026-06-24 | github, trending, opensource
+- [openai/plugins](https://github.com/openai/plugins) | 2026-06-24 | github, trending, opensource
+- [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 2026-06-24 | github, trending, opensource
+- [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) | 2026-06-24 | github, trending, opensource
+- [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | 2026-06-24 | github, trending, opensource
+- [lfnovo/open-notebook](https://github.com/lfnovo/open-notebook) | 2026-06-24 | github, trending, opensource
+- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) | 2026-06-24 | github, trending, opensource
+- [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph) | 2026-06-24 | github, trending, opensource
+- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 2026-06-24 | github, trending, opensource
+- [microsoft/markitdown](https://github.com/microsoft/markitdown) | 2026-06-24 | github, trending, opensource
+- [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 2026-06-24 | github, trending, opensource
+- [esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix) | 2026-06-24 | github, trending, opensource
+- [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 2026-06-24 | github, trending, opensource
+- [apple/container](https://github.com/apple/container) | 2026-06-24 | github, trending, opensource
+- [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | 2026-06-24 | github, trending, opensource
+- [continuedev/continue](https://github.com/continuedev/continue) | 2026-06-24 | github, trending, opensource
+- [stablyai/orca](https://github.com/stablyai/orca) | 2026-06-24 | github, trending, opensource
+- [chatwoot/chatwoot](https://github.com/chatwoot/chatwoot) | 2026-06-24 | github, trending, opensource
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 2026-06-24 | github, trending, opensource
+- [Stirling-Tools/Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) | 2026-06-24 | github, trending, opensource
+- [makeplane/plane](https://github.com/makeplane/plane) | 2026-06-24 | github, trending, opensource
+- [Kong/insomnia](https://github.com/Kong/insomnia) | 2026-06-24 | github, trending, opensource
+- [mattpocock/skills](https://github.com/mattpocock/skills) | 2026-06-24 | github, trending, opensource
+- [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 2026-06-24 | github, trending, opensource
+- [OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut) | 2026-06-24 | github, trending, opensource
+- [withastro/flue](https://github.com/withastro/flue) | 2026-06-24 | github, trending, opensource
+- [penpot/penpot](https://github.com/penpot/penpot) | 2026-06-24 | github, trending, opensource
+- [iptv-org/iptv](https://github.com/iptv-org/iptv) | 2026-06-24 | github, trending, opensource
+- [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 2026-06-24 | github, trending, opensource
+- [n0-computer/iroh](https://github.com/n0-computer/iroh) | 2026-06-24 | github, trending, opensource
+- [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 2026-06-24 | github, trending, opensource
+- [google-research/timesfm](https://github.com/google-research/timesfm) | 2026-06-24 | github, trending, opensource
+- [affaan-m/ECC](https://github.com/affaan-m/ECC) | 2026-06-24 | github, trending, opensource
+- [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | 2026-06-24 | github, trending, opensource
+- [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 2026-06-24 | github, trending, opensource
+- [byoungd/English-level-up-tips](https://github.com/byoungd/English-level-up-tips) | 2026-06-24 | github, trending, opensource
+- [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | 2026-06-24 | github, trending, opensource
+- [jamiepine/voicebox](https://github.com/jamiepine/voicebox) | 2026-06-24 | github, trending, opensource
+- [revfactory/harness](https://github.com/revfactory/harness) | 2026-06-24 | github, trending, opensource
+- [shanraisshan/claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice) | 2026-06-24 | github, trending, opensource
+- [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | 2026-06-24 | github, trending, opensource
+- [palmier-io/palmier-pro](https://github.com/palmier-io/palmier-pro) | 2026-06-24 | github, trending, opensource
+- [koala73/worldmonitor](https://github.com/koala73/worldmonitor) | 2026-06-24 | github, trending, opensource
+- [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 2026-06-24 | github, trending, opensource
+- [garrytan/gstack](https://github.com/garrytan/gstack) | 2026-06-24 | github, trending, opensource
+- [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | 2026-06-24 | github, trending, opensource
+- [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | 2026-06-24 | github, trending, opensource
+- [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 2026-06-24 | github, trending, opensource
+- [ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) | 2026-06-23 | github, trending, opensource
+- [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | 2026-06-23 | github, trending, opensource
+- [openai/plugins](https://github.com/openai/plugins) | 2026-06-23 | github, trending, opensource
+- [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 2026-06-23 | github, trending, opensource
+- [lfnovo/open-notebook](https://github.com/lfnovo/open-notebook) | 2026-06-23 | github, trending, opensource
+- [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) | 2026-06-23 | github, trending, opensource
+- [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) | 2026-06-23 | github, trending, opensource
+- [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | 2026-06-23 | github, trending, opensource
+- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 2026-06-23 | github, trending, opensource
+- [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 2026-06-23 | github, trending, opensource
+- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) | 2026-06-23 | github, trending, opensource
+- [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph) | 2026-06-23 | github, trending, opensource
+- [microsoft/markitdown](https://github.com/microsoft/markitdown) | 2026-06-23 | github, trending, opensource
+- [esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix) | 2026-06-23 | github, trending, opensource
+- [apple/container](https://github.com/apple/container) | 2026-06-23 | github, trending, opensource
+- [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 2026-06-23 | github, trending, opensource
+- [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | 2026-06-23 | github, trending, opensource
+- [OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut) | 2026-06-23 | github, trending, opensource
+- [LMCache/LMCache](https://github.com/LMCache/LMCache) | 2026-06-23 | github, trending, opensource
+- [koala73/worldmonitor](https://github.com/koala73/worldmonitor) | 2026-06-23 | github, trending, opensource
+- [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) | 2026-06-23 | github, trending, opensource
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 2026-06-23 | github, trending, opensource
+- [Kong/insomnia](https://github.com/Kong/insomnia) | 2026-06-23 | github, trending, opensource
+- [makeplane/plane](https://github.com/makeplane/plane) | 2026-06-23 | github, trending, opensource
+- [teslamate-org/teslamate](https://github.com/teslamate-org/teslamate) | 2026-06-23 | github, trending, opensource
+- [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 2026-06-23 | github, trending, opensource
+- [withastro/flue](https://github.com/withastro/flue) | 2026-06-23 | github, trending, opensource
+- [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 2026-06-23 | github, trending, opensource
+- [iptv-org/iptv](https://github.com/iptv-org/iptv) | 2026-06-23 | github, trending, opensource
+- [google-research/timesfm](https://github.com/google-research/timesfm) | 2026-06-23 | github, trending, opensource
+- [n0-computer/iroh](https://github.com/n0-computer/iroh) | 2026-06-23 | github, trending, opensource
+- [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 2026-06-23 | github, trending, opensource
+- [mattpocock/skills](https://github.com/mattpocock/skills) | 2026-06-23 | github, trending, opensource
+- [lyogavin/airllm](https://github.com/lyogavin/airllm) | 2026-06-23 | github, trending, opensource
+- [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | 2026-06-23 | github, trending, opensource
+- [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | 2026-06-23 | github, trending, opensource
+- [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | 2026-06-23 | github, trending, opensource
+- [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 2026-06-23 | github, trending, opensource
+- [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 2026-06-23 | github, trending, opensource
+- [tursodatabase/turso](https://github.com/tursodatabase/turso) | 2026-06-23 | github, trending, opensource
+- [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 2026-06-23 | github, trending, opensource
+- [garrytan/gstack](https://github.com/garrytan/gstack) | 2026-06-23 | github, trending, opensource
+- [Stirling-Tools/Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) | 2026-06-23 | github, trending, opensource
+- [penpot/penpot](https://github.com/penpot/penpot) | 2026-06-23 | github, trending, opensource
+- [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | 2026-06-23 | github, trending, opensource
+- [jamiepine/voicebox](https://github.com/jamiepine/voicebox) | 2026-06-23 | github, trending, opensource
+- [palmier-io/palmier-pro](https://github.com/palmier-io/palmier-pro) | 2026-06-23 | github, trending, opensource
+- [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 2026-06-23 | github, trending, opensource
+- [openai/plugins](https://github.com/openai/plugins) | 2026-06-22 | github, trending, opensource
+- [ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) | 2026-06-22 | github, trending, opensource
+- [lfnovo/open-notebook](https://github.com/lfnovo/open-notebook) | 2026-06-22 | github, trending, opensource
+- [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 2026-06-22 | github, trending, opensource
+- [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) | 2026-06-22 | github, trending, opensource
+- [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | 2026-06-22 | github, trending, opensource
+- [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) | 2026-06-22 | github, trending, opensource
+- [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | 2026-06-22 | github, trending, opensource
+- [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 2026-06-22 | github, trending, opensource
+- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 2026-06-22 | github, trending, opensource
+- [microsoft/markitdown](https://github.com/microsoft/markitdown) | 2026-06-22 | github, trending, opensource
+- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) | 2026-06-22 | github, trending, opensource
+- [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph) | 2026-06-22 | github, trending, opensource
+- [apple/container](https://github.com/apple/container) | 2026-06-22 | github, trending, opensource
+- [esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix) | 2026-06-22 | github, trending, opensource
+- [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 2026-06-22 | github, trending, opensource
+- [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | 2026-06-22 | github, trending, opensource
+- [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) | 2026-06-22 | github, trending, opensource
+- [swc-project/swc](https://github.com/swc-project/swc) | 2026-06-22 | github, trending, opensource
+- [chatwoot/chatwoot](https://github.com/chatwoot/chatwoot) | 2026-06-22 | github, trending, opensource
+- [meshery/meshery](https://github.com/meshery/meshery) | 2026-06-22 | github, trending, opensource
+- [LMCache/LMCache](https://github.com/LMCache/LMCache) | 2026-06-22 | github, trending, opensource
+- [makeplane/plane](https://github.com/makeplane/plane) | 2026-06-22 | github, trending, opensource
+- [Kong/insomnia](https://github.com/Kong/insomnia) | 2026-06-22 | github, trending, opensource
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 2026-06-22 | github, trending, opensource
+- [withastro/flue](https://github.com/withastro/flue) | 2026-06-22 | github, trending, opensource
+- [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 2026-06-22 | github, trending, opensource
+- [google-research/timesfm](https://github.com/google-research/timesfm) | 2026-06-22 | github, trending, opensource
+- [n0-computer/iroh](https://github.com/n0-computer/iroh) | 2026-06-22 | github, trending, opensource
+- [iptv-org/iptv](https://github.com/iptv-org/iptv) | 2026-06-22 | github, trending, opensource
+- [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 2026-06-22 | github, trending, opensource
+- [mattpocock/skills](https://github.com/mattpocock/skills) | 2026-06-22 | github, trending, opensource
+- [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 2026-06-22 | github, trending, opensource
+- [byoungd/English-level-up-tips](https://github.com/byoungd/English-level-up-tips) | 2026-06-22 | github, trending, opensource
+- [topoteretes/cognee](https://github.com/topoteretes/cognee) | 2026-06-22 | github, trending, opensource
+- [smicallef/spiderfoot](https://github.com/smicallef/spiderfoot) | 2026-06-22 | github, trending, opensource
+- [mikumifa/biliTickerBuy](https://github.com/mikumifa/biliTickerBuy) | 2026-06-22 | github, trending, opensource
+- [tw93/Pake](https://github.com/tw93/Pake) | 2026-06-22 | github, trending, opensource
+- [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | 2026-06-22 | github, trending, opensource
+- [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 2026-06-22 | github, trending, opensource
+- [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 2026-06-22 | github, trending, opensource
+- [koala73/worldmonitor](https://github.com/koala73/worldmonitor) | 2026-06-22 | github, trending, opensource
+- [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | 2026-06-22 | github, trending, opensource
+- [penpot/penpot](https://github.com/penpot/penpot) | 2026-06-22 | github, trending, opensource
+- [tursodatabase/turso](https://github.com/tursodatabase/turso) | 2026-06-22 | github, trending, opensource
+- [chopratejas/headroom](https://github.com/chopratejas/headroom) | 2026-06-22 | github, trending, opensource
+- [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 2026-06-22 | github, trending, opensource
+- [palmier-io/palmier-pro](https://github.com/palmier-io/palmier-pro) | 2026-06-22 | github, trending, opensource
+- [openai/plugins](https://github.com/openai/plugins) | 2026-06-22 | github
+- [ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) | 2026-06-22 | github
+- [lfnovo/open-notebook](https://github.com/lfnovo/open-notebook) | 2026-06-22 | github
+- [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 2026-06-22 | github
+- [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) | 2026-06-22 | github
+- [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | 2026-06-22 | github
+- [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) | 2026-06-22 | github
+- [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | 2026-06-22 | github
+- [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 2026-06-22 | github
+- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 2026-06-22 | github
+- [microsoft/markitdown](https://github.com/microsoft/markitdown) | 2026-06-22 | github
+- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) | 2026-06-22 | github
+- [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph) | 2026-06-22 | github
+- [apple/container](https://github.com/apple/container) | 2026-06-22 | github
+- [esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix) | 2026-06-22 | github
+- [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 2026-06-22 | github
+- [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | 2026-06-22 | github
+- [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) | 2026-06-22 | github
+- [swc-project/swc](https://github.com/swc-project/swc) | 2026-06-22 | github
+- [chatwoot/chatwoot](https://github.com/chatwoot/chatwoot) | 2026-06-22 | github
+- [meshery/meshery](https://github.com/meshery/meshery) | 2026-06-22 | github
+- [LMCache/LMCache](https://github.com/LMCache/LMCache) | 2026-06-22 | github
+- [makeplane/plane](https://github.com/makeplane/plane) | 2026-06-22 | github
+- [Kong/insomnia](https://github.com/Kong/insomnia) | 2026-06-22 | github
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 2026-06-22 | github
+- [withastro/flue](https://github.com/withastro/flue) | 2026-06-22 | github
+- [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 2026-06-22 | github
+- [google-research/timesfm](https://github.com/google-research/timesfm) | 2026-06-22 | github
+- [n0-computer/iroh](https://github.com/n0-computer/iroh) | 2026-06-22 | github
+- [iptv-org/iptv](https://github.com/iptv-org/iptv) | 2026-06-22 | github
+- [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 2026-06-22 | github
+- [mattpocock/skills](https://github.com/mattpocock/skills) | 2026-06-22 | github
+- [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 2026-06-22 | github
+- [byoungd/English-level-up-tips](https://github.com/byoungd/English-level-up-tips) | 2026-06-22 | github
+- [topoteretes/cognee](https://github.com/topoteretes/cognee) | 2026-06-22 | github
+- [smicallef/spiderfoot](https://github.com/smicallef/spiderfoot) | 2026-06-22 | github
+- [mikumifa/biliTickerBuy](https://github.com/mikumifa/biliTickerBuy) | 2026-06-22 | github
+- [tw93/Pake](https://github.com/tw93/Pake) | 2026-06-22 | github
+- [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | 2026-06-22 | github
+- [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 2026-06-22 | github
+- [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 2026-06-22 | github
+- [koala73/worldmonitor](https://github.com/koala73/worldmonitor) | 2026-06-22 | github
+- [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | 2026-06-22 | github
+- [penpot/penpot](https://github.com/penpot/penpot) | 2026-06-22 | github
+- [tursodatabase/turso](https://github.com/tursodatabase/turso) | 2026-06-22 | github
+- [chopratejas/headroom](https://github.com/chopratejas/headroom) | 2026-06-22 | github
+- [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 2026-06-22 | github
+- [palmier-io/palmier-pro](https://github.com/palmier-io/palmier-pro) | 2026-06-22 | github
 - [nesquena/hermes-webui](https://github.com/nesquena/hermes-webui) | 2026-06-04 | github, trending, opensource
 - [microsoft/markitdown](https://github.com/microsoft/markitdown) | 2026-06-04 | github, trending, opensource
 - [Open-LLM-VTuber](https://github.com/Open-LLM-VTuber/Open-LLM-VTuber) | 2026-06-04 | github, trending, opensource
 - [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | 2026-06-04 | github, trending, opensource
 - [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 2026-06-04 | github, trending, opensource
 
+
+## July 2026
+- [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | 2026-07-02 | github, trending, opensource
+- [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | 2026-07-20 | github, trending, opensource
+- [wonderwhy-er/DesktopCommanderMCP](https://github.com/wonderwhy-er/DesktopCommanderMCP) | 2026-07-20 | github, trending, opensource
+- [gabime/spdlog](https://github.com/gabime/spdlog) | 2026-07-20 | github, trending, opensource
+- [simplex-chat/simplex-chat](https://github.com/simplex-chat/simplex-chat) | 2026-07-20 | github, trending, opensource
+- [palmier-io/palmier-pro](https://github.com/palmier-io/palmier-pro) | 2026-07-20 | github, trending, opensource
+- [ocornut/imgui](https://github.com/ocornut/imgui) | 2026-07-20 | github, trending, opensource
+- [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 2026-07-20 | github, trending, opensource
+- [interviewstreet/hiring-agent](https://github.com/interviewstreet/hiring-agent) | 2026-07-20 | github, trending, opensource
+- [alibaba/page-agent](https://github.com/alibaba/page-agent) | 2026-07-20 | github, trending, opensource
+- [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute) | 2026-07-20 | github, trending, opensource
+- [Zackriya-Solutions/meetily](https://github.com/Zackriya-Solutions/meetily) | 2026-07-20 | github, trending, opensource
+- [ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) | 2026-07-20 | github, trending, opensource
+- [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 2026-07-20 | github, trending, opensource
+- [stablyai/orca](https://github.com/stablyai/orca) | 2026-07-20 | github, trending, opensource
+- [catchorg/Catch2](https://github.com/catchorg/Catch2) | 2026-07-20 | github, trending, opensource
+- [kunchenguid/no-mistakes](https://github.com/kunchenguid/no-mistakes) | 2026-07-20 | github, trending, opensource
+- [usestrix/strix](https://github.com/usestrix/strix) | 2026-07-20 | github, trending, opensource
+- [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 2026-07-20 | github, trending, opensource
+- [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 2026-07-20 | github, trending, opensource
+- [anthropics/cwc-workshops](https://github.com/anthropics/cwc-workshops) | 2026-07-20 | github, trending, opensource
+- [earendil-works/pi](https://github.com/earendil-works/pi) | 2026-07-20 | github, trending, opensource
+- [openinterpreter/openinterpreter](https://github.com/openinterpreter/openinterpreter) | 2026-07-20 | github, trending, opensource
+- [openai/codex](https://github.com/openai/codex) | 2026-07-20 | github, trending, opensource
+- [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | 2026-07-20 | github, trending, opensource
+- [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | 2026-07-20 | github, trending, opensource
+- [kangarooking/cangjie-skill](https://github.com/kangarooking/cangjie-skill) | 2026-07-20 | github, trending, opensource
+- [mattpocock/skills](https://github.com/mattpocock/skills) | 2026-07-20 | github, trending, opensource
+- [HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) | 2026-07-20 | github, trending, opensource
+- [HKUDS/Vibe-Trading](https://github.com/HKUDS/Vibe-Trading) | 2026-07-20 | github, trending, opensource
+- [Shubhamsaboo/awesome-llm-apps](https://github.com/Shubhamsaboo/awesome-llm-apps) | 2026-07-20 | github, trending, opensource
+- [OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut) | 2026-07-20 | github, trending, opensource
+- [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | 2026-07-20 | github, trending, opensource
+- [PKUFlyingPig/cs-self-learning](https://github.com/PKUFlyingPig/cs-self-learning) | 2026-07-20 | github, trending, opensource
+- [Canner/WrenAI](https://github.com/Canner/WrenAI) | 2026-07-20 | github, trending, opensource
+- [lyogavin/airllm](https://github.com/lyogavin/airllm) | 2026-07-20 | github, trending, opensource
+- [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) | 2026-07-20 | github, trending, opensource
+- [Flowseal/zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube) | 2026-07-20 | github, trending, opensource
+- [MoonshotAI/kimi-cli](https://github.com/MoonshotAI/kimi-cli) | 2026-07-20 | github, trending, opensource
+- [trycua/cua](https://github.com/trycua/cua) | 2026-07-20 | github, trending, opensource
+- [1jehuang/jcode](https://github.com/1jehuang/jcode) | 2026-07-20 | github, trending, opensource
+- [AstrBotDevs/AstrBot](https://github.com/AstrBotDevs/AstrBot) | 2026-07-20 | github, trending, opensource
+- [microsoft/terminal](https://github.com/microsoft/terminal) | 2026-07-20 | github, trending, opensource
+- [PostHog/posthog](https://github.com/PostHog/posthog) | 2026-07-20 | github, trending, opensource
+- [github/copilot-sdk](https://github.com/github/copilot-sdk) | 2026-07-20 | github, trending, opensource
+- [andrewrabert/jellium-desktop](https://github.com/andrewrabert/jellium-desktop) | 2026-07-20 | github, trending, opensource
+- [KnockOutEZ/wigolo](https://github.com/KnockOutEZ/wigolo) | 2026-07-20 | github, trending, opensource
+- [jamiepine/voicebox](https://github.com/jamiepine/voicebox) | 2026-07-20 | github, trending, opensource
+- [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) | 2026-07-20 | github, trending, opensource
+- [kvcache-ai/ktransformers](https://github.com/kvcache-ai/ktransformers) | 2026-07-20 | github, trending, opensource
+- [tirth8205/code-review-graph](https://github.com/tirth8205/code-review-graph) | 2026-07-20 | github, trending, opensource
+- [topoteretes/cognee](https://github.com/topoteretes/cognee) | 2026-07-14 | github, trending, opensource
+- [ocornut/imgui](https://github.com/ocornut/imgui) | 2026-07-14 | github, trending, opensource
+- [iptv-org/iptv](https://github.com/iptv-org/iptv) | 2026-07-14 | github, trending, opensource
+- [gabime/spdlog](https://github.com/gabime/spdlog) | 2026-07-14 | github, trending, opensource
+- [n0-computer/iroh](https://github.com/n0-computer/iroh) | 2026-07-14 | github, trending, opensource
+- [simplex-chat/simplex-chat](https://github.com/simplex-chat/simplex-chat) | 2026-07-14 | github, trending, opensource
+- [interviewstreet/hiring-agent](https://github.com/interviewstreet/hiring-agent) | 2026-07-14 | github, trending, opensource
+- [kunchenguid/no-mistakes](https://github.com/kunchenguid/no-mistakes) | 2026-07-14 | github, trending, opensource
+- [catchorg/Catch2](https://github.com/catchorg/Catch2) | 2026-07-14 | github, trending, opensource
+- [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 2026-07-14 | github, trending, opensource
+- [GoogleCloudPlatform/knowledge-catalog](https://github.com/GoogleCloudPlatform/knowledge-catalog) | 2026-07-14 | github, trending, opensource
+- [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 2026-07-14 | github, trending, opensource
+- [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 2026-07-14 | github, trending, opensource
+- [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 2026-07-14 | github, trending, opensource
+- [argoproj/argo-cd](https://github.com/argoproj/argo-cd) | 2026-07-14 | github, trending, opensource
+- [vxcontrol/pentagi](https://github.com/vxcontrol/pentagi) | 2026-07-14 | github, trending, opensource
+- [ruvnet/RuView](https://github.com/ruvnet/RuView) | 2026-07-14 | github, trending, opensource
+- [alibaba/page-agent](https://github.com/alibaba/page-agent) | 2026-07-14 | github, trending, opensource
+- [usestrix/strix](https://github.com/usestrix/strix) | 2026-07-14 | github, trending, opensource
+- [facebook/astryx](https://github.com/facebook/astryx) | 2026-07-14 | github, trending, opensource
+- [tt-a1i/archify](https://github.com/tt-a1i/archify) | 2026-07-14 | github, trending, opensource
+- [stablyai/orca](https://github.com/stablyai/orca) | 2026-07-14 | github, trending, opensource
+- [bradautomates/claude-video](https://github.com/bradautomates/claude-video) | 2026-07-14 | github, trending, opensource
+- [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 2026-07-14 | github, trending, opensource
+- [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute) | 2026-07-14 | github, trending, opensource
+- [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | 2026-07-14 | github, trending, opensource
+- [ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) | 2026-07-14 | github, trending, opensource
+- [openai/codex-plugin-cc](https://github.com/openai/codex-plugin-cc) | 2026-07-14 | github, trending, opensource
+- [TencentCloud/CubeSandbox](https://github.com/TencentCloud/CubeSandbox) | 2026-07-14 | github, trending, opensource
+- [Zackriya-Solutions/meetily](https://github.com/Zackriya-Solutions/meetily) | 2026-07-14 | github, trending, opensource
+- [abseil/abseil-cpp](https://github.com/abseil/abseil-cpp) | 2026-07-14 | github, trending, opensource
+- [wonderwhy-er/DesktopCommanderMCP](https://github.com/wonderwhy-er/DesktopCommanderMCP) | 2026-07-14 | github, trending, opensource
+- [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | 2026-07-14 | github, trending, opensource
+- [github/spec-kit](https://github.com/github/spec-kit) | 2026-07-14 | github, trending, opensource
+- [hasaneyldrm/exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset) | 2026-07-14 | github, trending, opensource
+- [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 2026-07-14 | github, trending, opensource
+- [Raphire/Win11Debloat](https://github.com/Raphire/Win11Debloat) | 2026-07-14 | github, trending, opensource
+- [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | 2026-07-14 | github, trending, opensource
+- [Shubhamsaboo/awesome-llm-apps](https://github.com/Shubhamsaboo/awesome-llm-apps) | 2026-07-14 | github, trending, opensource
+- [moeru-ai/airi](https://github.com/moeru-ai/airi) | 2026-07-14 | github, trending, opensource
+- [HKUDS/Vibe-Trading](https://github.com/HKUDS/Vibe-Trading) | 2026-07-14 | github, trending, opensource
+- [OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut) | 2026-07-14 | github, trending, opensource
+- [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | 2026-07-09 | github, trending, opensource
+- [mauriceboe/TREK](https://github.com/mauriceboe/TREK) | 2026-07-09 | github, trending, opensource
+- [t8y2/dbx](https://github.com/t8y2/dbx) | 2026-07-09 | github, trending, opensource
+- [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | 2026-07-09 | github, trending, opensource
+- [n0-computer/iroh](https://github.com/n0-computer/iroh) | 2026-07-09 | github, trending, opensource
+- [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 2026-07-09 | github, trending, opensource
+- [interviewstreet/hiring-agent](https://github.com/interviewstreet/hiring-agent) | 2026-07-09 | github, trending, opensource
+- [simplex-chat/simplex-chat](https://github.com/simplex-chat/simplex-chat) | 2026-07-09 | github, trending, opensource
+- [iptv-org/iptv](https://github.com/iptv-org/iptv) | 2026-07-09 | github, trending, opensource
+- [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 2026-07-09 | github, trending, opensource
+- [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 2026-07-09 | github, trending, opensource
+- [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 2026-07-09 | github, trending, opensource
+- [apple/container](https://github.com/apple/container) | 2026-07-09 | github, trending, opensource
+- [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 2026-07-09 | github, trending, opensource
+- [browser-use/video-use](https://github.com/browser-use/video-use) | 2026-07-09 | github, trending, opensource
+- [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | 2026-07-09 | github, trending, opensource
+- [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 2026-07-09 | github, trending, opensource
+- [stablyai/orca](https://github.com/stablyai/orca) | 2026-07-09 | github, trending, opensource
+- [xbtlin/ai-berkshire](https://github.com/xbtlin/ai-berkshire) | 2026-07-09 | github, trending, opensource
+- [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | 2026-07-09 | github, trending, opensource
+- [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 2026-07-09 | github, trending, opensource
+- [altic-dev/FluidVoice](https://github.com/altic-dev/FluidVoice) | 2026-07-09 | github, trending, opensource
+- [immich-app/immich](https://github.com/immich-app/immich) | 2026-07-09 | github, trending, opensource
+- [hasaneyldrm/exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset) | 2026-07-09 | github, trending, opensource
+- [dotnet/skills](https://github.com/dotnet/skills) | 2026-07-09 | github, trending, opensource
+- [huggingface/speech-to-speech](https://github.com/huggingface/speech-to-speech) | 2026-07-09 | github, trending, opensource
+- [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute) | 2026-07-09 | github, trending, opensource
+- [ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) | 2026-07-09 | github, trending, opensource
+- [alibaba/page-agent](https://github.com/alibaba/page-agent) | 2026-07-09 | github, trending, opensource
+- [openai/codex-plugin-cc](https://github.com/openai/codex-plugin-cc) | 2026-07-09 | github, trending, opensource
+- [facebook/astryx](https://github.com/facebook/astryx) | 2026-07-09 | github, trending, opensource
+- [usestrix/strix](https://github.com/usestrix/strix) | 2026-07-09 | github, trending, opensource
+- [Zackriya-Solutions/meetily](https://github.com/Zackriya-Solutions/meetily) | 2026-07-09 | github, trending, opensource
+- [TencentCloud/CubeSandbox](https://github.com/TencentCloud/CubeSandbox) | 2026-07-09 | github, trending, opensource
+- [bradautomates/claude-video](https://github.com/bradautomates/claude-video) | 2026-07-09 | github, trending, opensource
+- [huxingyi/autoremesher](https://github.com/huxingyi/autoremesher) | 2026-07-09 | github, trending, opensource
+- [wonderwhy-er/DesktopCommanderMCP](https://github.com/wonderwhy-er/DesktopCommanderMCP) | 2026-07-09 | github, trending, opensource
+- [Diolinux/PhotoGIMP](https://github.com/Diolinux/PhotoGIMP) | 2026-07-09 | github, trending, opensource
+- [alibaba/zvec](https://github.com/alibaba/zvec) | 2026-07-09 | github, trending, opensource
+- [obra/superpowers](https://github.com/obra/superpowers) | 2026-07-09 | github, trending, opensource
+- [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 2026-07-09 | github, trending, opensource
+- [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | 2026-07-09 | github, trending, opensource
+- [argoproj/argo-cd](https://github.com/argoproj/argo-cd) | 2026-07-09 | github, trending, opensource
+- [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 2026-07-09 | github, trending, opensource
+- [prisma/prisma](https://github.com/prisma/prisma) | 2026-07-09 | github, trending, opensource
+- [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | 2026-07-09 | github, trending, opensource
+- [ruvnet/RuView](https://github.com/ruvnet/RuView) | 2026-07-09 | github, trending, opensource
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 2026-07-09 | github, trending, opensource
+- [n0-computer/iroh](https://github.com/n0-computer/iroh) | 2026-07-02 | github, trending, opensource
+- [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | 2026-07-02 | github, trending, opensource
+- [roboflow/supervision](https://github.com/roboflow/supervision) | 2026-07-02 | github, trending, opensource
+- [OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut) | 2026-07-02 | github, trending, opensource
+- [t8y2/dbx](https://github.com/t8y2/dbx) | 2026-07-02 | github, trending, opensource
+- [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | 2026-07-02 | github, trending, opensource
+- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 2026-07-02 | github, trending, opensource
+- [openai/plugins](https://github.com/openai/plugins) | 2026-07-02 | github, trending, opensource
+- [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 2026-07-02 | github, trending, opensource
+- [lfnovo/open-notebook](https://github.com/lfnovo/open-notebook) | 2026-07-02 | github, trending, opensource
+- [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 2026-07-02 | github, trending, opensource
+- [iptv-org/iptv](https://github.com/iptv-org/iptv) | 2026-07-02 | github, trending, opensource
+- [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 2026-07-02 | github, trending, opensource
+- [apple/container](https://github.com/apple/container) | 2026-07-02 | github, trending, opensource
+- [BuilderIO/agent-native](https://github.com/BuilderIO/agent-native) | 2026-07-02 | github, trending, opensource
+- [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | 2026-07-02 | github, trending, opensource
+- [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | 2026-07-02 | github, trending, opensource
+- [jamiepine/voicebox](https://github.com/jamiepine/voicebox) | 2026-07-02 | github, trending, opensource
+- [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | 2026-07-02 | github, trending, opensource
+- [NanmiCoder/MediaCrawler](https://github.com/NanmiCoder/MediaCrawler) | 2026-07-02 | github, trending, opensource
+- [alibaba/page-agent](https://github.com/alibaba/page-agent) | 2026-07-02 | github, trending, opensource
+- [interviewstreet/hiring-agent](https://github.com/interviewstreet/hiring-agent) | 2026-07-02 | github, trending, opensource
+- [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 2026-07-02 | github, trending, opensource
+- [topoteretes/cognee](https://github.com/topoteretes/cognee) | 2026-07-02 | github, trending, opensource
+- [stablyai/orca](https://github.com/stablyai/orca) | 2026-07-02 | github, trending, opensource
+- [ripienaar/free-for-dev](https://github.com/ripienaar/free-for-dev) | 2026-07-02 | github, trending, opensource
+- [Robbyant/lingbot-map](https://github.com/Robbyant/lingbot-map) | 2026-07-02 | github, trending, opensource
+- [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | 2026-07-02 | github, trending, opensource
+- [kunchenguid/no-mistakes](https://github.com/kunchenguid/no-mistakes) | 2026-07-02 | github, trending, opensource
+- [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 2026-07-02 | github, trending, opensource
+- [google-labs-code/design.md](https://github.com/google-labs-code/design.md) | 2026-07-02 | github, trending, opensource
+- [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 2026-07-02 | github, trending, opensource
+- [simplex-chat/simplex-chat](https://github.com/simplex-chat/simplex-chat) | 2026-07-02 | github, trending, opensource
+- [xbtlin/ai-berkshire](https://github.com/xbtlin/ai-berkshire) | 2026-07-02 | github, trending, opensource
+- [yikart/AiToEarn](https://github.com/yikart/AiToEarn) | 2026-07-02 | github, trending, opensource
+- [browser-use/video-use](https://github.com/browser-use/video-use) | 2026-07-02 | github, trending, opensource
+- [TencentCloud/CubeSandbox](https://github.com/TencentCloud/CubeSandbox) | 2026-07-02 | github, trending, opensource
+- [CoreBunch/Instatic](https://github.com/CoreBunch/Instatic) | 2026-07-02 | github, trending, opensource
+- [altic-dev/FluidVoice](https://github.com/altic-dev/FluidVoice) | 2026-07-02 | github, trending, opensource
+- [0xNyk/council-of-high-intelligence](https://github.com/0xNyk/council-of-high-intelligence) | 2026-07-02 | github, trending, opensource
+- [ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) | 2026-07-02 | github, trending, opensource
+- [refactoringhq/tolaria](https://github.com/refactoringhq/tolaria) | 2026-07-02 | github, trending, opensource
+- [microsoft/AI-For-Beginners](https://github.com/microsoft/AI-For-Beginners) | 2026-07-02 | github, trending, opensource
+- [Unclecheng-li/VulnClaw](https://github.com/Unclecheng-li/VulnClaw) | 2026-07-02 | github, trending, opensource
+- [Mebus/cupp](https://github.com/Mebus/cupp) | 2026-07-02 | github, trending, opensource
+- [togatoga/karukan](https://github.com/togatoga/karukan) | 2026-07-02 | github, trending, opensource
+- [logto-io/logto](https://github.com/logto-io/logto) | 2026-07-02 | github, trending, opensource
+- [allenai/olmocr](https://github.com/allenai/olmocr) | 2026-07-02 | github, trending, opensource
+- [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute) | 2026-07-02 | github, trending, opensource
+- [facebook/astryx](https://github.com/facebook/astryx) | 2026-07-02 | github, trending, opensource
+- [hasaneyldrm/exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset) | 2026-07-02 | github, trending, opensource
+- [HKUDS/Vibe-Trading](https://github.com/HKUDS/Vibe-Trading) | 2026-07-02 | github, trending, opensource
+- [usestrix/strix](https://github.com/usestrix/strix) | 2026-07-02 | github, trending, opensource

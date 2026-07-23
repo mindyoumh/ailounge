@@ -344,7 +344,6 @@ const UI_DESIGN_PROMPTS = [
 ];
 
 export async function ingestCommunityPrompts(): Promise<number> {
-  const db = getDb();
   console.log("  Fetching community prompts from open-prompt-library...");
 
   let entries: unknown[];
@@ -358,13 +357,9 @@ export async function ingestCommunityPrompts(): Promise<number> {
   }
 
   const MAX_COMMUNITY = 300;
-  db.prepare("DELETE FROM prompts WHERE source = 'community'").run();
-  const insert = db.prepare(`
-    INSERT INTO prompts (title, content, category, description, source, external_id, source_url, output_description, model_recommendation)
-    VALUES (@title, @content, @category, @description, 'community', @external_id, @source_url, @output_description, @model_recommendation)
-  `);
+  await getDb().from("prompts").delete().eq("source", "community");
 
-  let count = 0;
+  const toInsert: Record<string, unknown>[] = [];
   for (const entry of entries.slice(0, MAX_COMMUNITY)) {
     const e = entry as { act?: string; prompt?: string; folder?: string; slug?: string; source?: string; path?: string };
     if (!e.prompt || !e.act) continue;
@@ -380,83 +375,70 @@ export async function ingestCommunityPrompts(): Promise<number> {
     const description = `From the ${category} category in the open-prompt-library community collection`;
     const modelRec = e.source && e.source !== "Awesome ChatGPT Prompts" ? e.source : null;
 
-    try {
-      insert.run({
-        title,
-        content,
-        category,
-        description,
-        external_id: externalId,
-        source_url: sourceUrl,
-        output_description: null,
-        model_recommendation: modelRec,
-      });
-      count++;
-    } catch {
-      // duplicate — skip
-    }
+    toInsert.push({
+      title,
+      content,
+      category,
+      description,
+      source: "community",
+      external_id: externalId,
+      source_url: sourceUrl,
+      output_description: null,
+      model_recommendation: modelRec,
+    });
   }
 
-  console.log(`  ✅ Inserted ${count} community prompts (capped at ${MAX_COMMUNITY})`);
-  return count;
+  if (toInsert.length > 0) {
+    const { error } = await getDb().from("prompts").insert(toInsert);
+    if (error) console.error("  ❌ Failed to insert community prompts:", error.message);
+  }
+
+  console.log(`  ✅ Inserted ${toInsert.length} community prompts (capped at ${MAX_COMMUNITY})`);
+  return toInsert.length;
 }
 
-export function ingestCuratedExtras(): number {
-  const db = getDb();
-  const insert = db.prepare(`
-    INSERT OR IGNORE INTO prompts (title, content, category, description, input_fields, output_description, model_recommendation, source, external_id, is_featured)
-    VALUES (@title, @content, @category, @description, @input_fields, @output_description, @model_recommendation, 'curated', @external_id, 0)
-  `);
-
+export async function ingestCuratedExtras(): Promise<number> {
   let count = 0;
   for (const p of CURATED_EXTRAS) {
-    try {
-      insert.run({
-        title: p.title,
-        content: p.content,
-        category: p.category,
-        description: p.description,
-        input_fields: p.input_fields,
-        output_description: p.output_description,
-        model_recommendation: p.model_recommendation,
-        external_id: hashContent(p.title + p.content),
-      });
-      count++;
-    } catch {
-      // skip
-    }
+    const { error } = await getDb().from("prompts").upsert({
+      title: p.title,
+      content: p.content,
+      category: p.category,
+      description: p.description,
+      input_fields: p.input_fields,
+      output_description: p.output_description,
+      model_recommendation: p.model_recommendation,
+      source: "curated",
+      external_id: hashContent(p.title + p.content),
+      is_featured: 0,
+    }, { onConflict: "source, external_id", ignoreDuplicates: true });
+    if (!error) count++;
   }
   console.log(`  ✅ Inserted ${count} additional curated prompts`);
   return count;
 }
 
-export function ingestUiDesignPrompts(): number {
-  const db = getDb();
-  db.prepare("DELETE FROM prompts WHERE source = 'ui_design'").run();
-  const insert = db.prepare(`
-    INSERT INTO prompts (title, content, category, description, input_fields, output_description, model_recommendation, source, source_url, external_id, is_featured)
-    VALUES (@title, @content, @category, @description, @input_fields, @output_description, @model_recommendation, 'ui_design', @source_url, @external_id, 0)
-  `);
+export async function ingestUiDesignPrompts(): Promise<number> {
+  await getDb().from("prompts").delete().eq("source", "ui_design");
 
-  let count = 0;
-  for (const p of UI_DESIGN_PROMPTS) {
-    try {
-      insert.run({
-        title: p.title,
-        content: p.content,
-        category: p.category,
-        description: p.description,
-        input_fields: p.input_fields,
-        output_description: p.output_description,
-        model_recommendation: p.model_recommendation,
-        source_url: p.source_url,
-        external_id: hashContent(p.title + p.content),
-      });
-      count++;
-    } catch {
-      // skip
-    }
-  }
+  const toInsert = UI_DESIGN_PROMPTS.map((p) => ({
+    title: p.title,
+    content: p.content,
+    category: p.category,
+    description: p.description,
+    input_fields: p.input_fields,
+    output_description: p.output_description,
+    model_recommendation: p.model_recommendation,
+    source: "ui_design",
+    source_url: p.source_url,
+    external_id: hashContent(p.title + p.content),
+    is_featured: 0,
+  }));
+
+  const { error } = await getDb().from("prompts").insert(toInsert);
+  if (error) console.error("  ❌ Failed to insert UI design prompts:", error.message);
+
+  const count = error ? 0 : toInsert.length;
   console.log(`  ✅ Inserted ${count} UI design prompts`);
   return count;
 }
@@ -466,25 +448,26 @@ async function main() {
   console.log("📝 Ingesting prompts");
   console.log("=".repeat(60));
 
-  // Always migrate first to ensure schema is up-to-date
-  const { migrate } = await import("@/src/db/schema");
-  migrate();
-
-  ingestCuratedExtras();
-  ingestUiDesignPrompts();
+  await ingestCuratedExtras();
+  await ingestUiDesignPrompts();
   await ingestCommunityPrompts();
 
-  const db = getDb();
-  const total = (db.prepare("SELECT COUNT(*) as count FROM prompts").get() as { count: number }).count;
-  const bySource = db.prepare("SELECT source, COUNT(*) as count FROM prompts GROUP BY source ORDER BY source").all() as {
-    source: string;
-    count: number;
-  }[];
+  const { count: total } = await getDb()
+    .from("prompts")
+    .select("*", { count: "exact", head: true });
+  const { data: bySource } = await getDb()
+    .from("prompts")
+    .select("source");
+
+  const sourceCounts = new Map<string, number>();
+  for (const row of bySource ?? []) {
+    sourceCounts.set(row.source, (sourceCounts.get(row.source) ?? 0) + 1);
+  }
 
   console.log("\n📊 Prompt Library Summary:");
-  console.log(`  Total prompts: ${total}`);
-  for (const row of bySource) {
-    console.log(`  ${row.source.padEnd(12)} ${row.count}`);
+  console.log(`  Total prompts: ${total ?? 0}`);
+  for (const [source, count] of sourceCounts) {
+    console.log(`  ${source.padEnd(12)} ${count}`);
   }
 
   closeDb();

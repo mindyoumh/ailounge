@@ -1,6 +1,6 @@
 # `components/logs/` — Log Analysis Dashboard Components
 
-6 components used by the Log Analysis Dashboard at `app/logs/page.tsx`.
+9 components used by the Log Analysis Dashboard at `app/logs/page.tsx`.
 
 Supports two log sources: **Acuity** (filename prefixed `acuity_`) and **Zoho** (any other `.csv`).
 
@@ -55,6 +55,34 @@ Compact color legend for error pattern severity levels.
 - **Props**: `className?: string` — for margin/spacing control
 - Placed inside the Top Error Patterns card, above the pattern list
 
+### `DateFilter`
+
+Date range selector for filtering log analysis results.
+
+- Two date inputs (Start / End) with native `<input type="date">`
+- Calls `onChange(start, end)` callback on any date change
+- Clears both fields via a "Clear" button
+- **Props**: `start: string`, `end: string`, `onChange: (start: string, end: string) => void`
+- Has `"use client"` for event handlers and state
+
+### `PatternSearch`
+
+Search input for filtering error patterns by keyword.
+
+- Text input with search icon, calls `onChange(value)` on keystroke
+- Shows clear button when value is non-empty
+- **Props**: `value: string`, `onChange: (value: string) => void`
+- Has `"use client"` for event handlers
+
+### `SeverityFilter`
+
+Dropdown filter for error pattern severity levels.
+
+- Select element with options: All, High, Medium, Low
+- Calls `onChange(severity)` on selection change
+- **Props**: `value: string`, `onChange: (value: string) => void`
+- Has `"use client"` for event handlers
+
 ### `PatternDrillDown`
 
 Slide-in panel that shows detailed information about a specific error pattern.
@@ -79,3 +107,6 @@ Slide-in panel that shows detailed information about a specific error pattern.
 | `SourceBreakdown` | `@nivo/pie` |
 | `PatternDrillDown` | `@/lib/utils` (cn), `lucide-react` |
 | `SeverityLegend` | `@/lib/utils` (cn) |
+| `DateFilter` | none (native inputs) |
+| `PatternSearch` | `lucide-react` (Search, X) |
+| `SeverityFilter` | none (native select) |

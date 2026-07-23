@@ -21,7 +21,7 @@ Each tracked repo displays as a card with:
 - **Issues**: open issue count with spike badge when >1.5x previous count
 - **Last activity**: time-ago timestamp
 - **Notes**: inline-editable notes field (click to edit, Enter/blur to save, Escape to cancel)
-- **Delete**: hover-reveal trash button with confirmation dialog
+- **Delete**: hover-reveal trash button with confirmation dialog (available for `lead` and `dev` roles only)
 
 ### Add Repository
 
@@ -48,15 +48,15 @@ Each tracked repo displays as a card with:
 ## Data Flow
 
 ```
-User adds repo → POST /api/repo-radar → GitHub API (info, release, PRs, issues) → SQLite → UI refresh
+User adds repo → POST /api/repo-radar → GitHub API (info, release, PRs, issues) → Supabase PostgreSQL → UI refresh
 
-User clicks Refresh → POST /api/repo-radar/refresh → refreshAll() → GitHub API per repo → SQLite → UI refresh
+User clicks Refresh → POST /api/repo-radar/refresh → refreshAll() → GitHub API per repo → Supabase PostgreSQL → UI refresh
 
-Page load → GET /api/repo-radar → SQLite → card grid
+Page load → GET /api/repo-radar → Supabase PostgreSQL → card grid
 
-Edit notes → PATCH /api/repo-radar/[id] → SQLite → UI update
+Edit notes → PATCH /api/repo-radar/[id] → Supabase PostgreSQL → UI update
 
-Delete repo → DELETE /api/repo-radar/[id] → SQLite → card removed
+Delete repo → DELETE /api/repo-radar/[id] → Supabase PostgreSQL → card removed
 ```
 
 ## API Dependencies

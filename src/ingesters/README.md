@@ -1,13 +1,25 @@
 # `src/ingesters/` — Feed Ingestion Pipeline
 
-Fetches, parses, and stores feed items from multiple sources. Every ingester writes to **both** SQLite (via `lib/db.upsertEntry`) and markdown (via `lib/markdown.appendToFeed`).
+Fetches, parses, and stores feed items from multiple sources. Every ingester writes to **both** Supabase PostgreSQL (via `lib/db.upsertEntry`) and markdown (via `lib/markdown.appendToFeed`).
 
 ## Architecture
 
 ```
+  ┌─────────────────────┐  ┌──────────────────────┐  ┌─────────────────────┐
+  │  GitHub Actions Cron│  │  GitHub Actions Cron │  │  GitHub Actions Cron│
+  │  ingest-rss.yml     │  │  ingest-hn-trending  │  │  ingest-repo-radar  │
+  │  every 12h          │  │  every 4h            │  │  every 6h           │
+  │  INGEST_SOURCES=rss │  │  INGEST_SOURCES=hn,  │  │  INGEST_SOURCES=    │
+  │                     │  │   github_trending    │  │   repo_radar        │
+  └─────────┬───────────┘  └──────────┬───────────┘  └──────────┬──────────┘
+            │                        │                         │
+            └────────────────────────┼─────────────────────────┘
+                                     ▼
                     ┌─────────────────────┐
                     │   run-all.ts         │
                     │  (orchestrator)      │
+                    │  respects            │
+                    │  INGEST_SOURCES env  │
                     └──────┬──────────┬────┘
                            │          │
                     ┌──────┤          ├──────┐
@@ -20,7 +32,7 @@ Fetches, parses, and stores feed items from multiple sources. Every ingester wri
                     ┌─────────┴─────────┐
                     ▼                   ▼
               lib/db.ts           lib/markdown.ts
-           (SQLite upsert)      (append to .md)
+           (Supabase upsert)      (append to .md)
 ```
 
 > `manual-feeds/` is **not** part of the `run-all` orchestrator. Run it separately via `npm run ingest:manual`.
@@ -29,7 +41,7 @@ Fetches, parses, and stores feed items from multiple sources. Every ingester wri
 
 ### `rss/` ✅ Done
 
-Fetches 20 RSS/Atom feed URLs, parses with a regex-based parser (no external deps), writes to SQLite + markdown.
+Fetches 20 RSS/Atom feed URLs, parses with a regex-based parser (no external deps), writes to Supabase + markdown.
 
 **Source:** `'rss'`
 
@@ -44,7 +56,7 @@ Fetches 20 RSS/Atom feed URLs, parses with a regex-based parser (no external dep
 - DevOps (DevOps.com, The New Stack)
 - GitHub (GitHub blog, GitHub Engineering)
 
-**Date filter:** Only writes to markdown if `published_at >= 2026-01-01`. Always writes to SQLite.
+**Date filter:** Only writes to markdown if `published_at >= 2026-01-01`. Always writes to Supabase.
 
 ```bash
 npm run ingest:rss
@@ -60,7 +72,7 @@ Fetches top 20 stories from the [HN Algolia API](https://hn.algolia.com/api) (`s
 - Calls `https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=20`
 - Strips `Ask HN:`, `Show HN:`, `Tell HN:` prefixes from titles
 - Falls back to `https://news.ycombinator.com/item?id={objectID}` when no URL
-- Writes both to `05-hacker-news.md` and SQLite with score (points)
+- Writes both to `05-hacker-news.md` and Supabase with score (points)
 
 ```bash
 npm run ingest:hn
@@ -77,7 +89,7 @@ Fetches GitHub Trending repos directly via RSS, no longer reads intermediate mar
 - Parses with a regex-based RSS parser (same pattern as the RSS ingester)
 - Deduplicates results across the 3 feeds
 - Category set to `github` for all entries
-- Writes both to `04-github-trending.md` and SQLite (entries >= 2026-01-01 to markdown)
+- Writes both to `04-github-trending.md` and Supabase (entries >= 2026-01-01 to markdown)
 
 **Note:** The legacy Python scraper (`src/scraper.py`) still exists but is separate — this ingester no longer depends on it. The old `ideas/trending.md` file has been removed.
 
@@ -87,7 +99,7 @@ npm run ingest:trending
 
 ### `manual-feeds/` ✅ Done (`'manual'`, standalone)
 
-Parses `docs/feeds/*.md` files and upserts entries into SQLite.
+Parses `docs/feeds/*.md` files and upserts entries into Supabase.
 
 **Format parsed:** `- [Title](URL) | YYYY-MM-DD | tag1, tag2`
 
@@ -133,7 +145,7 @@ npm run ingest:prompts
 
 ### `repo-radar/` ✅ Done (`'repo_radar'`, in orchestrator)
 
-Refreshes all tracked repos by fetching the latest GitHub API data.
+Refreshes all tracked repos by fetching the latest GitHub API data. Uses `GH_ACCESS_TOKEN` env var for authenticated requests (reduces rate limiting).
 
 **Source:** `'repo_radar'`
 
@@ -156,7 +168,13 @@ npx tsx src/ingesters/repo-radar/index.ts
 
 ### `run-all.ts`
 
-Runs 4 ingesters sequentially (hn, github_trending, rss, repo_radar). The prompts ingester is standalone — not included here because it manages its own data (prompts table) separate from the feed. Tracks status in `kv_store`:
+Runs 4 ingesters sequentially (hn, github_trending, rss, repo_radar). The prompts ingester is standalone — not included here because it manages its own data (prompts table) separate from the feed.
+
+**Env var support:** `INGEST_SOURCES` controls which ingesters run. If set (e.g. `INGEST_SOURCES=hn,github_trending`), only those sources execute. Used by GitHub Actions cron workflows for per-source scheduling. When unset, all 4 ingesters run.
+
+**Engagement scoring:** Only recalculated when all sources run (no `INGEST_SOURCES` filter). Per-source cron runs skip engagement recalculation.
+
+Tracks status in `kv_store`:
 
 | Key | Value |
 |-----|-------|
@@ -166,9 +184,25 @@ Runs 4 ingesters sequentially (hn, github_trending, rss, repo_radar). The prompt
 | `ingest:elapsed_ms:*` | Execution time in ms |
 | `ingest:status:all` | `'ok'` or `'degraded'` |
 
-Prints a summary table after execution.
+Prints a per-source summary table after execution.
 
-**Exports `runAll()`** — also called by `POST /api/ingest` for on-demand ingestion from the dashboard. Accepts `{ closeDb?: boolean }` option.
+**Exports `runAll()`** — accepts `{ closeDb?: boolean }` option. Called by `POST /api/ingest` for on-demand ingestion (legacy — deprecated in favor of GH Actions cron).
+
+### GitHub Actions Cron (replaces browser IngestButton)
+
+The old `IngestButton` component and `ingest.yml` workflow were removed. Ingestion now runs on 3 scheduled GitHub Actions workflows:
+
+| Workflow | Schedule | `INGEST_SOURCES` |
+|----------|----------|------------------|
+| `.github/workflows/ingest-rss.yml` | Every 12h (`0 */12 * * *`) | `rss` |
+| `.github/workflows/ingest-hn-trending.yml` | Every 4h (`0 */4 * * *`) | `hn,github_trending` |
+| `.github/workflows/ingest-repo-radar.yml` | Every 6h (`0 */6 * * *`) | `repo_radar` |
+
+Each workflow:
+1. Checks out repo
+2. Installs deps (`npm ci`)
+3. Runs `npx tsx src/ingesters/run-all.ts` with the `INGEST_SOURCES` env var
+4. Requires `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, and `GH_ACCESS_TOKEN` secrets
 
 ```bash
 npm run ingest

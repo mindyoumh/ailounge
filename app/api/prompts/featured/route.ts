@@ -1,23 +1,36 @@
-import { getDb } from "@/src/db/client";
+import { serviceClient } from "@/src/db/service-client";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const db = getDb();
+  const { count } = await serviceClient
+    .from("prompts")
+    .select("*", { count: "exact", head: true })
+    .eq("is_featured", 1)
+    .eq("source", "curated");
 
-  const dayOfYear = Math.floor(
-    (Date.now() - new Date(Date.now()).getTime()) / 86400000 +
-      (Date.UTC(new Date().getFullYear(), 0, 0) - 0) / 86400000,
-  );
-
-  const count = db.prepare("SELECT COUNT(*) as count FROM prompts WHERE is_featured = 1 AND source = 'curated'").get() as { count: number };
-
-  if (count.count === 0) {
-    const anyPrompt = db.prepare("SELECT * FROM prompts WHERE source = 'curated' ORDER BY usage_count DESC LIMIT 1").get();
-    return Response.json({ item: anyPrompt ?? null });
+  if (!count || count === 0) {
+    const { data } = await serviceClient
+      .from("prompts")
+      .select("*")
+      .eq("source", "curated")
+      .order("usage_count", { ascending: false })
+      .limit(1)
+      .single();
+    return Response.json({ item: data ?? null });
   }
 
-  const offset = dayOfYear % count.count;
-  const item = db.prepare("SELECT * FROM prompts WHERE is_featured = 1 AND source = 'curated' ORDER BY id LIMIT 1 OFFSET ?").get(offset);
-  return Response.json({ item: item ?? null });
+  const dayOfYear = Math.floor(
+    (Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000,
+  );
+  const offset = dayOfYear % count;
+  const { data } = await serviceClient
+    .from("prompts")
+    .select("*")
+    .eq("is_featured", 1)
+    .eq("source", "curated")
+    .order("id")
+    .range(offset, offset);
+
+  return Response.json({ item: (data ?? [])[0] ?? null });
 }

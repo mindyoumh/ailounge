@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { MessageSquare, Plus, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
@@ -132,120 +133,120 @@ function AddPromptForm({ onAdded }: { onAdded: () => void }) {
 
   return (
     <div className="mb-6">
-      <Button
-        variant="outline"
-        size="sm"
+      <button
         onClick={() => setOpen(!open)}
-        className="gap-1.5"
+        className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-2 text-xs font-medium text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-foreground"
       >
-        <Plus className="h-4 w-4" />
+        <Plus className="h-3.5 w-3.5" />
         {open ? "Cancel" : "Add Prompt"}
-      </Button>
+      </button>
       {open && (
-        <div className="mt-4 rounded-xl border bg-card p-5 space-y-4 animate-slide-up">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Title *
-              </label>
-              <Input
-                value={form.title}
-                onChange={set("title")}
-                placeholder="e.g. Code Review Checklist"
-              />
-              {errors.title && (
-                <p className="mt-1 text-xs text-destructive">{errors.title}</p>
-              )}
+        <Card className="mt-4 border-primary/30 animate-slide-down">
+          <CardContent className="pt-6 space-y-4">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Title *
+                </label>
+                <Input
+                  value={form.title}
+                  onChange={set("title")}
+                  placeholder="e.g. Code Review Checklist"
+                />
+                {errors.title && (
+                  <p className="mt-1 text-xs text-destructive">{errors.title}</p>
+                )}
+              </div>
+              <div>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Category *
+                </label>
+                <select
+                  value={form.category}
+                  onChange={set("category")}
+                  className="flex h-10 w-full rounded-lg border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <option value="">Select a category</option>
+                  {CATEGORIES.filter((c) => c.value).map((cat) => (
+                    <option key={cat.value} value={cat.value}>
+                      {cat.label}
+                    </option>
+                  ))}
+                </select>
+                {errors.category && (
+                  <p className="mt-1 text-xs text-destructive">
+                    {errors.category}
+                  </p>
+                )}
+              </div>
+              <div className="sm:col-span-2">
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Content *
+                </label>
+                <textarea
+                  value={form.content}
+                  onChange={set("content")}
+                  placeholder="Paste the full prompt text here..."
+                  rows={4}
+                  className="flex w-full rounded-lg border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-y"
+                />
+                {errors.content && (
+                  <p className="mt-1 text-xs text-destructive">
+                    {errors.content}
+                  </p>
+                )}
+              </div>
+              <div>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Description
+                </label>
+                <Input
+                  value={form.description}
+                  onChange={set("description")}
+                  placeholder="Brief description of use case"
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Input Fields
+                </label>
+                <Input
+                  value={form.input_fields}
+                  onChange={set("input_fields")}
+                  placeholder="Comma-separated, e.g. code, language"
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Output Description
+                </label>
+                <Input
+                  value={form.output_description}
+                  onChange={set("output_description")}
+                  placeholder="e.g. Returns rewritten code"
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Model Recommendation
+                </label>
+                <Input
+                  value={form.model_recommendation}
+                  onChange={set("model_recommendation")}
+                  placeholder="e.g. Claude 4 Sonnet"
+                />
+              </div>
             </div>
-            <div>
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Category *
-              </label>
-              <select
-                value={form.category}
-                onChange={set("category")}
-                className="flex h-10 w-full rounded-lg border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                <option value="">Select a category</option>
-                {CATEGORIES.filter((c) => c.value).map((cat) => (
-                  <option key={cat.value} value={cat.value}>
-                    {cat.label}
-                  </option>
-                ))}
-              </select>
-              {errors.category && (
-                <p className="mt-1 text-xs text-destructive">
-                  {errors.category}
-                </p>
-              )}
+            <div className="flex justify-end gap-2 pt-3 border-t">
+              <Button variant="outline" onClick={() => setOpen(false)}>
+                Cancel
+              </Button>
+              <Button size="sm" onClick={handleSubmit} disabled={submitting}>
+                {submitting ? "Adding..." : "Add Prompt"}
+              </Button>
             </div>
-            <div className="sm:col-span-2">
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Content *
-              </label>
-              <textarea
-                value={form.content}
-                onChange={set("content")}
-                placeholder="Paste the full prompt text here..."
-                rows={4}
-                className="flex w-full rounded-lg border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-y"
-              />
-              {errors.content && (
-                <p className="mt-1 text-xs text-destructive">
-                  {errors.content}
-                </p>
-              )}
-            </div>
-            <div>
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Description
-              </label>
-              <Input
-                value={form.description}
-                onChange={set("description")}
-                placeholder="Brief description of use case"
-              />
-            </div>
-            <div>
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Input Fields
-              </label>
-              <Input
-                value={form.input_fields}
-                onChange={set("input_fields")}
-                placeholder="Comma-separated, e.g. code, language"
-              />
-            </div>
-            <div>
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Output Description
-              </label>
-              <Input
-                value={form.output_description}
-                onChange={set("output_description")}
-                placeholder="e.g. Returns rewritten code"
-              />
-            </div>
-            <div>
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Model Recommendation
-              </label>
-              <Input
-                value={form.model_recommendation}
-                onChange={set("model_recommendation")}
-                placeholder="e.g. Claude 4 Sonnet"
-              />
-            </div>
-          </div>
-          <div className="flex justify-end gap-2 pt-2 border-t">
-            <Button variant="outline" size="sm" onClick={() => setOpen(false)}>
-              Cancel
-            </Button>
-            <Button size="sm" onClick={handleSubmit} disabled={submitting}>
-              {submitting ? "Adding..." : "Add Prompt"}
-            </Button>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       )}
     </div>
   );
@@ -338,14 +339,14 @@ export default function PromptsPage() {
   const srcMeta = SOURCE_META[source] ?? SOURCE_META[""];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-1">
+    <div className="mx-auto max-w-7xl px-4 md:px-6 py-6 md:py-8">
+      <div className="flex items-start justify-between gap-4 flex-wrap mb-6">
+        <div className="flex-1 min-w-0">
           <h1 className="text-3xl font-bold tracking-tight">Prompt Library</h1>
+          <p className="text-sm text-muted-foreground mt-1">
+            {items.length} prompts &middot; {srcMeta.label}: {srcMeta.subtitle}
+          </p>
         </div>
-        <p className="text-sm text-muted-foreground">
-          {items.length} prompts &middot; {srcMeta.label}: {srcMeta.subtitle}
-        </p>
       </div>
 
       {/* Add Prompt Form */}

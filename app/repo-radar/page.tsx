@@ -18,11 +18,13 @@ import {
   Activity,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { useUser } from "@/components/auth-provider";
 
 interface RepoItem {
   id: number;
@@ -157,6 +159,7 @@ function ConfirmDialog({
 }
 
 export default function RepoRadarPage() {
+  const { role } = useUser();
   const [items, setItems] = useState<RepoItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -272,34 +275,29 @@ export default function RepoRadarPage() {
   const lastRefresh = items.length > 0 ? items[0].last_refreshed_at : null;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-3">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Repo Radar</h1>
-            <p className="text-sm text-muted-foreground">
-              {loading ? "Loading..." : `${items.length} repos tracked`}
-              {lastRefresh && !loading
-                ? ` · Last refreshed ${timeAgo(lastRefresh)}`
-                : ""}
-            </p>
-          </div>
+    <div className="mx-auto max-w-7xl px-4 md:px-6 py-6 md:py-8">
+      <div className="flex items-start justify-between gap-4 flex-wrap mb-6">
+        <div className="flex-1 min-w-0">
+          <h1 className="text-3xl font-bold tracking-tight">Repo Radar</h1>
+          <p className="text-sm text-muted-foreground mt-1">
+            {loading ? "Loading..." : `${items.length} repos tracked`}
+            {lastRefresh && !loading
+              ? ` · Last refreshed ${timeAgo(lastRefresh)}`
+              : ""}
+          </p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button
-            variant="outline"
-            size="sm"
+        <div className="flex items-center gap-2 shrink-0">
+          <button
             onClick={() => setShowAdd(!showAdd)}
-            className="gap-1.5"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-2 text-xs font-medium text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-foreground"
           >
-            <Plus className="h-4 w-4" />
+            <Plus className="h-3.5 w-3.5" />
             Add
-          </Button>
+          </button>
           <Button
             size="sm"
             onClick={handleRefresh}
             disabled={refreshing || loading}
-            className="gap-1.5"
           >
             <RefreshCw
               className={cn("h-4 w-4", refreshing && "animate-spin")}
@@ -323,40 +321,42 @@ export default function RepoRadarPage() {
       )}
 
       {showAdd && (
-        <div className="mb-8 rounded-xl border bg-card p-4 animate-slide-down">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
-            <div className="flex-1">
-              <label className="mb-1.5 block text-sm font-medium">
-                Add Repository
-              </label>
-              <Input
-                placeholder="owner/repo (e.g., vercel/next.js)"
-                value={addInput}
-                onChange={(e) => {
-                  setAddInput(e.target.value);
-                  setAddError("");
-                }}
-                onKeyDown={(e) => e.key === "Enter" && handleAdd()}
-              />
-              {addError && (
-                <p className="mt-1 text-xs text-destructive">{addError}</p>
-              )}
+        <Card className="mb-6 border-primary/30 animate-slide-down">
+          <CardContent className="pt-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
+              <div className="flex-1">
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Repository
+                </label>
+                <Input
+                  placeholder="owner/repo (e.g., vercel/next.js)"
+                  value={addInput}
+                  onChange={(e) => {
+                    setAddInput(e.target.value);
+                    setAddError("");
+                  }}
+                  onKeyDown={(e) => e.key === "Enter" && handleAdd()}
+                />
+                {addError && (
+                  <p className="mt-1 text-xs text-destructive">{addError}</p>
+                )}
+              </div>
+              <Button
+                onClick={handleAdd}
+                disabled={adding}
+                size="sm"
+                className="gap-1.5 shrink-0"
+              >
+                {adding ? (
+                  <RefreshCw className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Plus className="h-4 w-4" />
+                )}
+                Add
+              </Button>
             </div>
-            <Button
-              onClick={handleAdd}
-              disabled={adding}
-              size="sm"
-              className="gap-1.5"
-            >
-              {adding ? (
-                <RefreshCw className="h-4 w-4 animate-spin" />
-              ) : (
-                <Plus className="h-4 w-4" />
-              )}
-              Add
-            </Button>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       )}
 
       {loading && (
@@ -400,6 +400,7 @@ export default function RepoRadarPage() {
               key={item.id}
               item={item}
               index={i}
+              role={role}
               editingNotes={editingNotes}
               notesText={notesText}
               onStartEdit={(id, notes) => {
@@ -429,6 +430,7 @@ export default function RepoRadarPage() {
 function RepoCard({
   item,
   index,
+  role,
   editingNotes,
   notesText,
   onStartEdit,
@@ -439,6 +441,7 @@ function RepoCard({
 }: {
   item: RepoItem;
   index: number;
+  role: string | null;
   editingNotes: number | null;
   notesText: string;
   onStartEdit: (id: number, notes: string | null) => void;
@@ -596,13 +599,15 @@ function RepoCard({
             </button>
           )}
         </div>
-        <button
-          onClick={onDelete}
-          className="ml-2 shrink-0 rounded-md p-1.5 text-muted-foreground opacity-0 transition-all hover:bg-destructive/10 hover:text-destructive focus:opacity-100 group-hover:opacity-100"
-          aria-label={`Remove ${item.full_name}`}
-        >
-          <Trash2 className="h-4 w-4" />
-        </button>
+        {role !== "intern" && (
+          <button
+            onClick={onDelete}
+            className="ml-2 shrink-0 rounded-md p-1.5 text-muted-foreground md:opacity-0 transition-all hover:bg-destructive/10 hover:text-destructive focus:opacity-100 md:group-hover:opacity-100"
+            aria-label={`Remove ${item.full_name}`}
+          >
+            <Trash2 className="h-4 w-4" />
+          </button>
+        )}
       </div>
     </div>
   );

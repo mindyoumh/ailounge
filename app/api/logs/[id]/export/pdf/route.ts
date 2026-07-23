@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDb } from "@/src/db/client";
+import { serviceClient } from "@/src/db/service-client";
 import { PDFDocument, PDFPage, PDFFont, rgb, StandardFonts } from "pdf-lib";
 
 export const dynamic = "force-dynamic";
@@ -536,23 +536,30 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params;
-  const db = getDb();
+  const numId = Number(id);
 
-  const analysis = db
-    .prepare("SELECT * FROM log_analyses WHERE id = ?")
-    .get(id) as Record<string, unknown> | undefined;
+  const { data: analysis } = await serviceClient
+    .from("log_analyses")
+    .select("*")
+    .eq("id", numId)
+    .single();
 
   if (!analysis) {
     return NextResponse.json({ error: "Analysis not found" }, { status: 404 });
   }
 
-  const patterns = db
-    .prepare("SELECT * FROM log_patterns WHERE analysis_id = ? ORDER BY count DESC")
-    .all(id) as Record<string, unknown>[];
-
-  const anomalies = db
-    .prepare("SELECT * FROM log_anomalies WHERE analysis_id = ? ORDER BY deviation DESC")
-    .all(id) as Record<string, unknown>[];
+  const { data: patternsData } = await serviceClient
+    .from("log_patterns")
+    .select("*")
+    .eq("analysis_id", numId)
+    .order("count", { ascending: false });
+  const { data: anomaliesData } = await serviceClient
+    .from("log_anomalies")
+    .select("*")
+    .eq("analysis_id", numId)
+    .order("deviation", { ascending: false });
+  const patterns = (patternsData ?? []) as Record<string, unknown>[];
+  const anomalies = (anomaliesData ?? []) as Record<string, unknown>[];
 
   let methodsList: { method: string; count: number }[] = [];
   try {

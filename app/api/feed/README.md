@@ -16,8 +16,10 @@ List feed items with filtering and pagination.
 | `category` | string | — | Filter by category |
 | `tag` | string | — | Filter by tag substring (LIKE) |
 | `q` | string | — | Search title substring (LIKE) |
-| `is_read` | `"0"` / `"1"` | — | Filter read/unread |
-| `is_pinned` | `"0"` / `"1"` | — | Filter pinned/unpinned |
+| `is_read` | `"0"` / `"1"` | — | Filter read/unread (via `user_feed_states`) |
+| `is_pinned` | `"0"` / `"1"` | — | Filter pinned/unpinned (via `user_feed_states`) |
+| `sort` | string | — | `"relevance"` — sorts by `ai_relevance_score DESC, published_at DESC` |
+| `min_score` | number | — | Minimum `ai_relevance_score` filter |
 | `limit` | number | 50 | Max items (capped at 200) |
 | `offset` | number | 0 | Pagination offset |
 
@@ -32,7 +34,9 @@ List feed items with filtering and pagination.
 }
 ```
 
-Items are ordered by `is_pinned DESC, published_at DESC, fetched_at DESC`.
+Items are ordered by `published_at DESC, fetched_at DESC` by default. When `sort=relevance`, items are ordered by `ai_relevance_score DESC NULLS LAST, published_at DESC`.
+
+Read/pin filtering: global `is_pinned`/`is_read` columns were replaced with per-user state in `user_feed_states` table. When a user is authenticated, read/pin filters query this table. When `is_pinned=1`, only items with entries in `user_feed_states` are returned. When `is_read=0`, items with read states are excluded.
 
 ### `POST /api/feed`
 
@@ -60,7 +64,7 @@ Insert a new feed item.
 | 400 | `{ "error": "title and url are required" }` |
 | 409 | `{ "error": "Duplicate entry (source + url already exists)" }` |
 
-UNIQUE constraint on `(source, url)` prevents duplicates. `published_at` defaults to `datetime('now')`.
+UNIQUE constraint on `(source, url)` prevents duplicates. `published_at` defaults to `NOW()`.
 
 ---
 
@@ -84,7 +88,7 @@ Update specific fields on a feed item.
 }
 ```
 
-`is_read` and `is_pinned` are coerced to 0/1 integers.
+`is_read` and `is_pinned` are coerced to 0/1 integers and written to `user_feed_states` for authenticated users, or directly on the feed_items row for anonymous users.
 
 **Responses:**
 

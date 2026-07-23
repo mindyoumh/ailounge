@@ -117,15 +117,15 @@ export default function InternTasksPage() {
     <div className="min-h-screen">
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-6 md:py-8">
         {/* Header */}
-        <div className="animate-fade-in flex items-center justify-between gap-3 flex-wrap mb-8">
-          <div>
+        <div className="flex items-start justify-between gap-4 flex-wrap mb-6">
+          <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
-              <BookOpen className="h-5 w-5 text-accent-vibrant" />
+              <BookOpen className="h-5 w-5 text-accent-vibrant shrink-0" />
               <h1 className="text-3xl font-bold tracking-tight">
                 Intern Safe Task Board
               </h1>
             </div>
-            <p className="text-muted-foreground text-sm mt-1">
+            <p className="text-sm text-muted-foreground mt-1">
               Safe, isolated tasks for learning and contributing
             </p>
           </div>
@@ -182,7 +182,7 @@ export default function InternTasksPage() {
               </Select>
             </div>
 
-            <span className="text-xs text-muted-foreground ml-auto">
+            <span className="text-xs text-muted-foreground sm:ml-auto sm:text-right">
               Showing {filtered.length} of {INTERN_TASKS.length} tasks
             </span>
           </div>

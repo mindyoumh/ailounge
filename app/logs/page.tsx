@@ -619,15 +619,22 @@ function LogsContent() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 md:px-6 py-6 md:py-8">
-      <div className="mb-6 flex items-center justify-between flex-wrap gap-3">
-        <div className="flex items-center gap-3">
-          <ScrollText className="h-5 w-5 text-accent-vibrant" />
-          <h1 className="text-3xl font-bold tracking-tight">Log Analysis</h1>
+      <div className="flex items-start justify-between gap-4 flex-wrap mb-6">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <ScrollText className="h-5 w-5 text-accent-vibrant shrink-0" />
+            <h1 className="text-3xl font-bold tracking-tight">Log Analysis</h1>
+          </div>
         </div>
-        <Button onClick={() => setShowUpload(!showUpload)}>
-          <Plus className="h-4 w-4" />
-          New Analysis
-        </Button>
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={() => setShowUpload(!showUpload)}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-2 text-xs font-medium text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-foreground"
+          >
+            <Plus className="h-3.5 w-3.5" />
+            New Analysis
+          </button>
+        </div>
       </div>
 
       {showUpload && (

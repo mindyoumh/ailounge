@@ -46,7 +46,7 @@ export async function ingestGithubTrending(): Promise<void> {
   let skipped = 0;
 
   for (const item of unique) {
-    const result = upsertEntry({
+    const result = await upsertEntry({
       source: "github_trending",
       category: "github",
       title: item.title,

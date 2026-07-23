@@ -12,7 +12,7 @@ REST API for tracking GitHub repositories. Integrates with the GitHub REST API (
 ### `POST /api/repo-radar` — Add a new repo
 
 - **Body**: `{ owner: string, repo: string }`
-- **Pipeline**: Validates → checks duplicate → GitHub API (repo info, latest release, recent PRs, recent issues) → detects breaking changes & security advisories → inserts into SQLite
+- **Pipeline**: Validates → checks duplicate → GitHub API (repo info, latest release, recent PRs, recent issues) → detects breaking changes & security advisories → inserts into Supabase PostgreSQL
 - **Response** `201`: `{ ok: true, item: RepoRadarItem }`
 - **Errors** `400`: missing owner/repo. `404`: repository not found. `409`: already tracked. `429`: rate limited
 
@@ -25,7 +25,8 @@ REST API for tracking GitHub repositories. Integrates with the GitHub REST API (
 
 ### `DELETE /api/repo-radar/[id]` — Remove a repo
 
-- Hard delete from SQLite
+- **Role required:** `lead` or `dev` (gated by `requireRole(request, ["lead", "dev"])`)
+- Hard delete from Supabase PostgreSQL
 - **Response**: `{ ok: true }`
 - **Error** `404`: repo not found
 
@@ -38,7 +39,7 @@ REST API for tracking GitHub repositories. Integrates with the GitHub REST API (
 
 ## GitHub API Integration
 
-- **Rate limiting**: unauthenticated GitHub API — 60 requests/hour. Refreshing many repos may hit limits
+- **Rate limiting**: uses `GH_ACCESS_TOKEN` env var for authenticated requests (5000 requests/hour). Falls back to unauthenticated (60 requests/hour) if no token set
 - **405 method not allowed**: DELETE/PATCH return errors for missing items
 - **User-Agent**: `my-ailounge/1.0`
 

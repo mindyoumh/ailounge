@@ -5,6 +5,278 @@
 
 ## June 2026
 
+- [OVHCloud Managed Kubernetes Review](https://www.eucloudcost.com/blog/ovhcloud-cluster/) | 2026-06-25 | hn, discussion
+- [Open Source Maintainers Need a Spam Filter for AI Labor](https://www.vincentschmalbach.com/open-source-maintainers-need-a-spam-filter-for-ai-labor/) | 2026-06-25 | hn, discussion
+- [10x More Selective](https://yosefk.com/blog/10x-more-selective.html) | 2026-06-25 | hn, discussion
+- [The AI Coding Era Makes Boring Tests More Valuable](https://www.vincentschmalbach.com/the-ai-coding-era-makes-boring-tests-more-valuable/) | 2026-06-25 | hn, discussion
+- [Got access to Gemini's actual thinking](https://news.ycombinator.com/item?id=48670944) | 2026-06-25 | hn, discussion
+- [Will AI replace technical writers?](https://willaireplacetechnicalwriters.com/) | 2026-06-25 | hn, discussion
+- [Long distance Uber alternative (for passengers and drivers)](https://localsride.com/en) | 2026-06-25 | hn, discussion
+- [You are leaving tech, what's next?](https://www.seattletimes.com/business/local-business/older-tech-workers-are-tapping-out-early-heres-what-that-looks-like/) | 2026-06-25 | hn, discussion
+- [We Made Trading Signals Microsecond-Level Easy – 100 Factors in 40µs](https://medium.com/@DolphinDB_Inc/we-just-made-trading-signals-microsecond-level-easy-100-factors-in-40%C2%B5s-d13c78f41dac) | 2026-06-25 | hn, discussion
+- [Warrior Cats Name Generator](https://warriorcatsnamegenerator.net/) | 2026-06-25 | hn, discussion
+- [Calculate Real-Time Implied Volatility for Commodity Options](https://medium.com/@DolphinDB_Inc/how-we-built-a-real-time-implied-volatility-engine-for-commodity-options-da1b6ad73297) | 2026-06-25 | hn, discussion
+- [A Y2K bug surfaced 26 years late today](https://old.reddit.com/r/sysadmin/comments/1uetdyw/a_y2k_bug_surfaced_26_years_late_today/) | 2026-06-25 | hn, discussion
+- [Qualcomm Investor Day 2026 Data Center Announcements CPUs](https://www.servethehome.com/qualcomm-investor-day-2026-data-center-announcements-cpus-ai-accelerators-and-more/) | 2026-06-25 | hn, discussion
+- [US fighter pilot avoids British trial after raping a woman in England](https://www.theguardian.com/uk-news/ng-interactive/2026/jun/25/us-fighter-pilot-strangled-woman-england-why-military-trial) | 2026-06-25 | hn, discussion
+- [Claude Opus 4.5 vs. GLM-5.2](https://gopeekapp.blogspot.com/2026/06/glm-52-vs-claude-opus-45.html) | 2026-06-25 | hn, discussion
+- [Rcarmo/kata: Repetition makes perfect](https://github.com/rcarmo/kata) | 2026-06-25 | hn, discussion
+- [UMLBot: Converting natural language and code excerpts to editable UML diagrams](https://www.sciencedirect.com/science/article/pii/S2352711026002815) | 2026-06-25 | hn, discussion
+- [Monolith Rift, a brutalist corridor of light and impossible scale](https://sand-morph.up.railway.app/monolith-rift) | 2026-06-25 | hn, discussion
+- [Best Alternative for Zendesk, Intercom, and Freshdesk](https://news.ycombinator.com/item?id=48671083) | 2026-06-25 | hn, discussion
+- [How to Build 1-Minute OHLC Bars from Non-Uniform Market Snapshot Data](https://medium.com/@DolphinDB_Inc/how-to-build-1-minute-ohlc-bars-from-non-uniform-market-snapshot-data-00d218863ea4) | 2026-06-25 | hn, discussion
+- [LoveInvoice – a free invoice tool for freelancers and small businesses](https://loveinvoice.com) | 2026-06-25 | hn, discussion
+- [Half-Life 2 in a Browser](https://hl2.slqnt.dev/) | 2026-06-25 | hn, discussion
+- [AI-website-cloner-template: Clone any website using AI coding agents](https://github.com/JCodesMore/ai-website-cloner-template) | 2026-06-25 | hn, discussion
+- [Vibecoded app giving you the vibes](https://wristbreak.app) | 2026-06-25 | hn, discussion
+- [Measuring Is Not Enough Anymore](https://fi-le.net/evals/) | 2026-06-25 | hn, discussion
+- [The Empty Field That Wasn't: GPS, OTAD and Two Decades of Encrypted Broadcasts](https://sjmurdoch.github.io/gps-special-messages/) | 2026-06-25 | hn, discussion
+- [Japanese Language AI Tutor in 3D classroom](https://unihongo.com) | 2026-06-25 | hn, discussion
+- [Questions](https://forms.cloud.microsoft/r/PZDe3Z3Nzdhttps://forms.cloud.microsoft/r/PZDe3Z3Nzd) | 2026-06-25 | hn, discussion
+- [Robert Schiller: This Doommaxxing Has Got to Stop](https://www.nytimes.com/2026/06/22/opinion/ai-doom-jobs-economy.html) | 2026-06-25 | hn, discussion
+- [Make AI Boring Again](https://charitydotwtf.substack.com/p/make-ai-boring-again) | 2026-06-25 | hn, discussion
+- [Wikipedia advocacy shapes LLM values](https://arxiv.org/abs/2606.24890) | 2026-06-25 | hn, discussion
+- [Show HN:Another alternative against Codex Record and Replay](https://www.visualbuild.me) | 2026-06-25 | hn, discussion
+- [The Tokenpocalypse:Companies Are Scrambling to Stop Spending So Much on AI](https://www.404media.co/the-tokenpocalypse-is-here-companies-are-scrambling-to-stop-spending-so-much-on-ai/) | 2026-06-25 | hn, discussion
+- [VSCode Blogs](https://code.visualstudio.com/blogs) | 2026-06-25 | hn, discussion
+- [Is AI Coming for Our Jobs?](https://jacobin.com/2026/02/ai-technology-productivity-growth-job-loss) | 2026-06-25 | hn, discussion
+- [Did AI write this article?](https://www.economist.com/graphic-detail/2026/06/16/did-ai-write-this-article) | 2026-06-25 | hn, discussion
+- [Cogent France: « perform an orderly shutdown of your equipment »](https://www.mail-archive.com/frnog@frnog.org/msg80526.html) | 2026-06-25 | hn, discussion
+- [With crossplanes, Helm is all you need](https://medium.com/zencity-engineering/now-the-infrastructure-is-boring-too-and-thats-still-a-compliment-aa4b13c0b347) | 2026-06-25 | hn, discussion
+- [DRAM Price Fixing Scandal](https://en.wikipedia.org/wiki/DRAM_price_fixing_scandal) | 2026-06-25 | hn, discussion
+- [Optimal Journaling Book Choice?](https://news.ycombinator.com/item?id=48669910) | 2026-06-25 | hn, discussion
+- [Lippmann Photography](https://www.jonhilty.com/lippmann) | 2026-06-24 | hn, discussion
+- [The Rolling Coup](https://www.thenation.com/article/politics/trump-rolling-coup/) | 2026-06-24 | hn, discussion
+- [Statement from Five Eyes agencies on cyber risk](https://www.ncsc.gov.uk/news/the-ai-shift-in-cyber-risk-why-leaders-must-act-now) | 2026-06-24 | hn, discussion
+- [Lippmann Color Plates](https://www.eastman.org/event/workshops/lippmann-color-plates) | 2026-06-24 | hn, discussion
+- [Conspiracy Theories, Spontaneous Orders, and Global Politics [pdf]](https://isonomiaquarterly.com/wp-content/uploads/2025/11/massimino-pfwo.pdf) | 2026-06-24 | hn, discussion
+- [Fork.ai – branch any AI answer into a mind map instead of a chat log](https://forkai.in) | 2026-06-24 | hn, discussion
+- [The Junior Developer Problem Is Becoming a Senior Developer Problem](https://www.vincentschmalbach.com/the-junior-developer-problem-is-becoming-a-senior-developer-problem/) | 2026-06-24 | hn, discussion
+- [OpenAI spending hit $34B last year ahead of planned IPO](https://www.ft.com/content/e15b0d7e-ff6b-4f16-ba7a-4068feddb828) | 2026-06-24 | hn, discussion
+- [Trump Gets Negative Reviews Internationally as Fewer Say US Is Reliable Partner](https://www.pewresearch.org/global/2026/06/23/trump-gets-negative-reviews-internationally-as-fewer-say-u-s-is-a-reliable-partner/) | 2026-06-24 | hn, discussion
+- [TSMC: 36.1 A 32Gb/s 10.5Tb/s/mm 0.6pJ/b UCIe-Compliant Low-Latency Interface 3nm](https://ieeexplore.ieee.org/document/10904767) | 2026-06-24 | hn, discussion
+- [Sakana Fugu Ultra promises to deliver "the best frontier-level performance"](https://www.theverge.com/ai-artificial-intelligence/953904/sakana-fugu-ai) | 2026-06-24 | hn, discussion
+- [Built this to grow my SaaS's social media channels](https://www.clickcast.tech/) | 2026-06-24 | hn, discussion
+- [Performance of WebAssembly Runtimes in 2026](https://00f.net/2026/06/23/webassembly-runtimes-2026/) | 2026-06-24 | hn, discussion
+- [Pizza wheels are bad and Japanese toilets are great](https://www.noahpinion.blog/p/pizza-wheels-are-bad-japanese-toilets) | 2026-06-24 | hn, discussion
+- [Mayors Push Data Center Rules to Protect Infrastructure](https://fivetakes.news/40-mayors-worldwide-endorse-a-pact-to-shape-data-center-development-ap-news) | 2026-06-24 | hn, discussion
+- [Distribution of Lightning](https://en.wikipedia.org/wiki/Distribution_of_lightning) | 2026-06-24 | hn, discussion
+- [A Dark Dimension Could Link Two of the Universe's Great Unknowns](https://www.quantamagazine.org/a-dark-dimension-could-link-two-of-the-universes-great-unknowns-20260622/) | 2026-06-24 | hn, discussion
+- [MSc Thesis – The Limits of Generalized Sync](https://aaltodoc.aalto.fi/server/api/core/bitstreams/d485ca46-ef01-41bc-ae4c-d468afb209a8/content) | 2026-06-24 | hn, discussion
+- [Anthropic-Cybersecurity-Skills:817 structured cybersecurity skills for AI agents](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | 2026-06-24 | hn, discussion
+- [Deltatensors – store model fine-tunes as compressed weight deltas](https://github.com/AaravGaurdev/deltatensors) | 2026-06-24 | hn, discussion
+- [The Untold Story of an Acid Medium](https://mitpress.mit.edu/9780262048507/blotter/) | 2026-06-24 | hn, discussion
+- [How do you test AI-generated code?](https://news.ycombinator.com/item?id=48655020) | 2026-06-24 | hn, discussion
+- [Axiomatic CSS and Lobotomized Owls](https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/) | 2026-06-24 | hn, discussion
+- [Source-available post-quantum messenger – crypto core on GitHub](https://github.com/VeilusDigital/PhantomChatCrypto) | 2026-06-24 | hn, discussion
+- [The Filings, magnetic field lines you can stir like black sand](https://sand-morph.up.railway.app/the-filings) | 2026-06-24 | hn, discussion
+- [Age of Agents](https://github.com/agentsmill/age-of-agents) | 2026-06-24 | hn, discussion
+- [How important is college after AI?](https://news.ycombinator.com/item?id=48655137) | 2026-06-24 | hn, discussion
+- [New AI tools in darktable 5.6](https://www.darktable.org/2026/06/meet-darktable-5.6-ai-tools/) | 2026-06-24 | hn, discussion
+- [Why tech stocks are getting hammered](https://www.latimes.com/business/story/2026-06-23/why-tech-stocks-are-getting-hammered-on-wall-street) | 2026-06-24 | hn, discussion
+- [Instantiating UI Components with Distinguishing Variations [pdf]](https://static.barik.net/barik/publications/chi2026/vaithilingam_celestial_chi26.pdf) | 2026-06-24 | hn, discussion
+- [Glimm: Shader Driven Page Transitions](https://glimm.dev/) | 2026-06-24 | hn, discussion
+- [Should I launch a form limiter app on the Google Workspace Marketplace? (2025)](https://developerwithacat.com/blog/062025/google-workspace-marketplace-startups-part3/) | 2026-06-24 | hn, discussion
+- [Scroll haptics and sfx for scrolling on Mac](https://snick.vercel.app) | 2026-06-24 | hn, discussion
+- [Vibe Code Is Legacy Code Before It Ships](https://www.vincentschmalbach.com/vibe-code-is-legacy-code-before-it-ships/) | 2026-06-24 | hn, discussion
+- [Qwen-AgentWorld: Language World Models for General Agents](https://github.com/QwenLM/Qwen-AgentWorld) | 2026-06-24 | hn, discussion
+- [Yahoo deleted all my emails. Now what?](https://news.ycombinator.com/item?id=48655248) | 2026-06-24 | hn, discussion
+- [Tips for Show HNs](https://hackertimes.com/item?id=22336638) | 2026-06-24 | hn, discussion
+- [Cargo ship's chief engineer charged in 2024 Francis Scott Key bridge collapse](https://abcnews.com/US/wireStory/cargo-ships-chief-engineer-charged-2024-francis-scott-133982265) | 2026-06-24 | hn, discussion
+- [Child care is becoming more affordable](https://www.economist.com/graphic-detail/2026/06/23/child-care-is-becoming-more-affordable) | 2026-06-24 | hn, discussion
+- [Qwen-AgentWorld: Language World Models for General Agents](https://arxiv.org/abs/2606.24597) | 2026-06-24 | hn, discussion
+- [Procman, a TUI for run Procfile based app locally](https://github.com/a-chacon/procman) | 2026-06-24 | hn, discussion
+- [How the war on terror primed America for autocracy](https://www.economist.com/by-invitation/2026/06/02/how-the-war-on-terror-primed-america-for-autocracy) | 2026-06-24 | hn, discussion
+- [Bash Line Editor: a command line editor written in pure Bash](https://github.com/akinomyoga/ble.sh) | 2026-06-24 | hn, discussion
+- [How Quake Ruined Id Software](https://twitter.com/SandyofCthulhu/status/2069592209645785294) | 2026-06-24 | hn, discussion
+- [The Teensy Executable Revisited](https://www.muppetlabs.com/~breadbox/software/tiny/revisit.html) | 2026-06-24 | hn, discussion
+- [Kevin Warsh's Press Conference Collides into 30 Years of Michael Woodford](https://newsletter.mikekonczal.com/p/kevin-warshs-press-conference-collides) | 2026-06-24 | hn, discussion
+- [InSight: Self-Guided Skill Acquisition via Steerable VLAs](https://insight-vla.github.io/) | 2026-06-24 | hn, discussion
+- ["Fix" MacBook Neo Cursor Lag: Record 1 Pixel of the Screen Every 10 Seconds](https://gist.github.com/retroplasma/ec21767d0a8380c7ea9c2fbee1c7d6bf) | 2026-06-24 | hn, discussion
+- [Congress Clears Housing Bill, Cementing a Rare Bipartisan Feat](https://www.nytimes.com/2026/06/23/us/politics/congress-housing-bill.html) | 2026-06-24 | hn, discussion
+- [2026: The year of the node based editor](https://medium.com/@fadimantium/2026-the-year-of-the-node-based-editor-941f0f15d467) | 2026-06-24 | hn, discussion
+- [RRB-Trees: Efficient Immutable Vectors](https://infoscience.epfl.ch/server/api/core/bitstreams/e5d662ea-1e8d-4dda-b917-8cbb8bb40bf9/content) | 2026-06-24 | hn, discussion
+- [Ten years on, Brexit's economic impact is becoming clearer](https://www.bbc.co.uk/news/articles/cyv0m164m84o) | 2026-06-24 | hn, discussion
+- [Mythos model found vulnerabilities in classified US Government systems](https://apnews.com/article/anthropic-mythos-ai-classified-systems-vulnerabilities-testing-3e8762c0527c4d8ed657cbe48c84a718) | 2026-06-24 | hn, discussion
+- [Technology-Driven Moral Panics](https://techlashed.org/) | 2026-06-24 | hn, discussion
+- [I built an open source VAD that beats Silero, Pyannote, and WebRTC](https://github.com/monishmal3375/nova-vad) | 2026-06-24 | hn, discussion
+- [Ions, a distributed reasoning graph built from evidence backed claims](https://github.com/nomad505050/ions-genesis) | 2026-06-24 | hn, discussion
+- [Raspberry Pi Pico W as USB Wi-Fi Adapter](https://gitlab.com/baiyibai/pico-usb-wifi) | 2026-06-24 | hn, discussion
+- [Legibility of Effort](https://eieio.games/blog/legibility-of-effort/) | 2026-06-24 | hn, discussion
+- [King's study finds AI chose nuclear signalling in 95% of simulated crises](https://www.kcl.ac.uk/news/artificial-intelligence-under-nuclear-pressure-first-large-scale-kings-study-reveals-how-ai-models-reason-and-escalate-under-crisis) | 2026-06-23 | hn, discussion
+- [A 3D world you grow from your phone's camera flash](https://phronesis.world/similar) | 2026-06-23 | hn, discussion
+- [I Bought the Trump Phone [video]](https://www.youtube.com/watch?v=b1ytw85Npt8) | 2026-06-23 | hn, discussion
+- [The AI Tarpit: Why You Can't Stop Reading Your Code](https://www.williamangel.net/blog/2026/06/22/The-AI-Tarpit-Why-You-Cant-Stop-Reading-Your-Code.html) | 2026-06-23 | hn, discussion
+- [The System Moved On, but It Didn't Forget](https://webmnem.here.now/system-moved-on-but-it-didnt-forget/) | 2026-06-23 | hn, discussion
+- [Reddit account history viewer, even for deleted posts](https://deletedby.com) | 2026-06-23 | hn, discussion
+- [Nonstop Trading, Lots of Leverage. How 'Perp Futures' Are Changing Wall Street](https://www.wsj.com/finance/commodities-futures/nonstop-trading-loads-of-leverage-how-perp-futures-are-shaking-up-wall-street-59682069) | 2026-06-23 | hn, discussion
+- [Open-source security auditors for Supabase, Strapi, Hasura and Ollama](https://github.com/Perufitlife/awesome-backend-security) | 2026-06-23 | hn, discussion
+- [Spartan Programming](https://spartan.wiki) | 2026-06-23 | hn, discussion
+- [GLM-5.2 is the step change for open agents](https://www.interconnects.ai/p/glm-52-is-the-step-change-for-open) | 2026-06-23 | hn, discussion
+- [Vim Adventures – learning Vim by playing a game](https://www.youtube.com/watch?v=GVjtUK5JEw0) | 2026-06-23 | hn, discussion
+- [Seedance 2.5, generating a complete 30-second video in one go](https://twitter.com/xiaohu/status/2069236441964818508) | 2026-06-23 | hn, discussion
+- [That I'm Using .NET](https://medium.com/c-sharp-programming/7-ways-that-im-using-net-93c669143cc8) | 2026-06-23 | hn, discussion
+- [Gaussian splats on visionOS Beta](https://developer.apple.com/documentation/visionos/gaussian-splats-on-visionos) | 2026-06-23 | hn, discussion
+- [UK considers forcing social media firms to prioritise trusted news](https://www.reuters.com/legal/litigation/uk-considers-forcing-social-media-firms-prioritise-trusted-news-2026-06-22/) | 2026-06-23 | hn, discussion
+- [What If the Work We're Busy Automating Is Needless?](https://www.oftwominds.com/blogjune26/needless-work6-26.html) | 2026-06-23 | hn, discussion
+- [The systemic decay of tech hiring](https://thoughtspile.github.io/2026/06/22/systemic-decay-of-hiring/) | 2026-06-23 | hn, discussion
+- [Iran war triggers global race to build oil reserves](https://www.reuters.com/commentary/reuters-open-interest/iran-war-triggers-global-race-build-oil-reserves-2026-06-22/) | 2026-06-23 | hn, discussion
+- [No AI data centres in my backyard, please](https://hey.paris/posts/ai-data-centres-tasmania/) | 2026-06-23 | hn, discussion
+- [LoomStack – Helping engineering orgs scale AI-driven development](https://loomstack.co/) | 2026-06-23 | hn, discussion
+- [Homogenization](https://www.avraam.dev/blog/homogenization) | 2026-06-22 | hn, discussion
+- [Value of mid-tier USA-manufactured knives](https://www.paragon-knives.com/) | 2026-06-22 | hn, discussion
+- [A site where people pay me money for no reason](https://payfornoreason.com) | 2026-06-22 | hn, discussion
+- [GateMem: Benchmarking Memory Governance in Multi-Principal Shared-Memory Agents](https://rzhub.github.io/GateMem/project.html) | 2026-06-22 | hn, discussion
+- [Britain's prime minister to step down, Burnham puts himself forward as successor](https://www.reuters.com/world/uk-politics-live-starmer-expected-announce-he-will-resign-prime-minister-2026-06-22/) | 2026-06-22 | hn, discussion
+- [Duckle a drag-and-drop visual pipeline designer](https://github.com/slothflowlabs/duckle) | 2026-06-22 | hn, discussion
+- [Convert HTML to WordPress](https://statictowp.com) | 2026-06-22 | hn, discussion
+- [I evolved 1,513 strategies to snipe memecoins; 0 survived an honest backtest](https://moai.studio/blog/posts/your-backtest-is-lying.html) | 2026-06-22 | hn, discussion
+- [Security Is Not a Technical Problem](https://blog.miloslavhomer.cz/security-is-a-political-problem/) | 2026-06-22 | hn, discussion
+- [Zombie Unicorns Are Haunting Silicon Valley](https://www.economist.com/business/2026/06/21/zombie-unicorns-are-haunting-silicon-valley) | 2026-06-22 | hn, discussion
+- [SpaceX handed lowest possible ESG rating by MSCI](https://www.ft.com/content/a0dd4ea7-ef3d-4460-a96c-8c6975a053e3) | 2026-06-22 | hn, discussion
+- [What is your opinion on TUI applications](https://news.ycombinator.com/item?id=48628274) | 2026-06-22 | hn, discussion
+- [Open source AI projects from Banco Santander](https://github.com/SantanderAI) | 2026-06-22 | hn, discussion
+- [I Do Not Recommend Google Hardware](https://xn--gckvb8fzb.com/i-do-not-recommend-google-hardware/) | 2026-06-22 | hn, discussion
+- [A 0.5s periodic hitch in my local screen stream turned out to be macOS AWDL](https://github.com/jo-duchan/tapflow) | 2026-06-22 | hn, discussion
+- [Baker Motor Vehicle](https://en.wikipedia.org/wiki/Baker_Motor_Vehicle) | 2026-06-22 | hn, discussion
+- [System call instrumentation on Linux/x86-64 using memory-indirect calls](https://www.humprog.org/~stephen/blog/2026/06/15/) | 2026-06-22 | hn, discussion
+- [Manticore Search 27.1.5: Auth, sharding, conversational and faster vector search](https://manticoresearch.com/blog/manticore-search-27-1-5/) | 2026-06-22 | hn, discussion
+- [Rive, Fast and reliable background jobs in Go](https://github.com/riverqueue/river) | 2026-06-22 | hn, discussion
+- [A Prometheus exporter for Shelly Gen 2 devices](https://github.com/veerendra2/shelly_device_exporter) | 2026-06-22 | hn, discussion
+- [We taught a map to read the water – from orbit, not from a crowd](https://www.bassfinity.com/blog/intelligence-map-launch-see-the-water-before-you-launch) | 2026-06-22 | hn, discussion
+- [A Collection of 30 Open Source Chess Applications](https://github.com/HollowLeaf1981/chessboardmagic-os) | 2026-06-22 | hn, discussion
+- [The Reason Bosses Want You Back in the Office Full Time](https://www.nytimes.com/2026/06/22/opinion/office-work-wfh-bosses.html) | 2026-06-22 | hn, discussion
+- [An update on FortiBleed – what's happening with victim orgs](https://doublepulsar.com/an-update-on-fortibleed-whats-happening-with-victim-orgs-c0671a50e7f4) | 2026-06-22 | hn, discussion
+- [LLMs do not merely reflect the bias of their training, they police it](https://twitter.com/brianroemmele/status/1991714955339657384) | 2026-06-22 | hn, discussion
+- [Epidurals Are a Miracle Technology](https://worksinprogress.co/issue/the-wonder-of-epidurals/) | 2026-06-22 | hn, discussion
+- [Complete OS Rewritten in JavaScript](https://dustinbrett.com/) | 2026-06-22 | hn, discussion
+- [Judging beautiful docs, AI fatigue, and tool slop](https://idratherbewriting.com/blog/judging-beautiful-docs-ai-fatigue-podcast) | 2026-06-22 | hn, discussion
+- [Uniform](https://news.ycombinator.com/item?id=48628525) | 2026-06-22 | hn, discussion
+- [The deepest and longest subsea road tunnel](https://www.technologyreview.com/2026/06/22/1138821/inside-worlds-deepest-longest-subsea-road-tunnel/) | 2026-06-22 | hn, discussion
+- [Bipartite Matching Is in NC](https://eccc.weizmann.ac.il/report/2026/100/download/) | 2026-06-22 | hn, discussion
+- [ShipFast: Production-ready deploy templates for devs who hate DevOps](https://dpaste.com/94VY3XYU9) | 2026-06-22 | hn, discussion
+- [Absolute State of Unreal 2026](https://www.joewintergreen.com/absolute-state-of-unreal-2026/) | 2026-06-22 | hn, discussion
+- [Lloyd's Lab: Accelerating innovation in the insurance industry (2023) [pdf]](https://assets.lloyds.com/media/dc22cd29-1c4e-441c-a872-e1bf5ce9142a/Lloyds%20Lab_impact%20report_FINAL.pdf) | 2026-06-22 | hn, discussion
+- [Hundred Hour Workweek](https://jeremynixon.net/100-hr-workweek) | 2026-06-22 | hn, discussion
+- [ILX Launcher – a developer cockpit for Python apps (hot reload, crash capture)](https://github.com/ilxstudio/ILX-Launcher) | 2026-06-22 | hn, discussion
+- [Timesharing on the MIT Weather Radar PDP-8/IX](https://retrocomputingforum.com/t/timesharing-on-the-mit-weather-radar-pdp-8-ix/5569) | 2026-06-22 | hn, discussion
+- [China targets U.S. firms in retaliation for Pentagon blacklist](https://www.cnbc.com/2026/06/22/china-trade-curbs-us-companies-export-controls-procurement-exclusion-pentagon-list-.html) | 2026-06-22 | hn, discussion
+- [Niaid funded Wuhan Institute of Virology coronavirus gain-of-function research](https://www.dni.gov/index.php/newsroom/press-releases/press-releases-2026/4166-pr-11-26) | 2026-06-22 | hn, discussion
+- [Magpie-search – a federated search engine for LLM's/agents](https://github.com/xfloukiex-lab/magpie-search) | 2026-06-22 | hn, discussion
+- [SC law legalizes pinball for youth, ending decades-old prohibition](https://scdailygazette.com/2026/06/17/sc-law-legalizes-pinball-for-youth-ending-decades-old-prohibition/) | 2026-06-22 | hn, discussion
+- [How do you process asynchronous tasks today?](https://meerkatagents.com/) | 2026-06-22 | hn, discussion
+- [Samsung Electronics brings ChatGPT and Codex to employees](https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/) | 2026-06-22 | hn, discussion
+- [Chinas War on Female Delusion](https://mamathemagazine.com/chinas-war-on-female-delusion/) | 2026-06-22 | hn, discussion
+- [About the writing process (or lack thereof)](https://www.thefoxfirepub.com/blog/blog-post-title-four-lr658-tcthp-wf5mw-mx4m8-tgp6b) | 2026-06-22 | hn, discussion
+- [Stop Fearing Incidental Findings](https://ostro.ws/post-healthcare) | 2026-06-22 | hn, discussion
+- [2Flights – Track your flights; delays and stats (iOS/Android)](https://2flights.io) | 2026-06-22 | hn, discussion
+- [Sharing a Good One](https://news.ycombinator.com/item?id=48625695) | 2026-06-22 | hn, discussion
+- [Cini, an app to rank movies and shows](https://news.ycombinator.com/item?id=48625709) | 2026-06-22 | hn, discussion
+- [Japan to raise visa fees for foreign nationals](https://www.japantimes.co.jp/news/2026/06/20/japan/japan-raise-visa-fees/) | 2026-06-22 | hn, discussion
+- [Do you have an unusual income source](https://news.ycombinator.com/item?id=48625774) | 2026-06-22 | hn, discussion
+- [Favorite Sorting Algorithm?](https://news.ycombinator.com/item?id=48625785) | 2026-06-22 | hn, discussion
+- [Danish privacy activist Lars Andersen raided by police](https://xcancel.com/LarsAnders1620/status/2068208864747540516#m) | 2026-06-22 | hn, discussion
+- [Canadian government spent $46.8M on a secret Palantir contract](https://theijf.org/brief/canadian-palantir-contract-amendments-obd) | 2026-06-22 | hn, discussion
+- [Local-first LaTeX editor – open-source](https://apps.microsoft.com/detail/9p6038j2bxtp?hl=en-US&gl=US) | 2026-06-22 | hn, discussion
+- [What will AI coding look like when today's CS freshmen graduate?](https://news.ycombinator.com/item?id=48624855) | 2026-06-22 | hn, discussion
+- [AI Watchdog](https://www.theatlantic.com/category/ai-watchdog/) | 2026-06-22 | hn, discussion
+- [Chile turned to China for an undersea cable. The U.S. said no](https://restofworld.org/2026/chile-china-america-google-cable/) | 2026-06-22 | hn, discussion
+- [Manticore Search 27.1.5](https://manticoresearch.com/blog/manticore-search-27-1-5/) | 2026-06-22 | hn, discussion
+- [Extreme Time Value of Money: Late-Stage Career Planning (2021)](https://newsletter.kentbeck.com/p/extreme-time-value-of-money-late) | 2026-06-22 | hn, discussion
+- [Fugu: Learn to assemble, route, and coordinate expert agents [pdf]](https://github.com/SakanaAI/fugu/blob/main/Fugu_technical_report.pdf) | 2026-06-22 | hn, discussion
+- [Speculation Is All You Need](https://modal.com/blog/spec-is-all-u-need) | 2026-06-22 | hn, discussion
+- [WebGPU feature detection was not enough to run small LLMs on phones](https://ludion.ai/blog/webgpu-reports-vs-reality/) | 2026-06-22 | hn, discussion
+- [Therapy ferrets used to kill rats at UK's largest children's prison](https://www.theguardian.com/society/2026/jun/21/therapy-ferrets-kill-rats-uk-largest-children-prison-wetherby) | 2026-06-22 | hn, discussion
+- [Geopolitical jitters push Europe's internet registry away from cloud strategy](https://www.theregister.com/networks/2026/06/19/geopolitical-jitters-push-europes-internet-registry-away-from-cloud-first-strategy/5258704) | 2026-06-22 | hn, discussion
+- [Typevia live LaTeX editing with AI assistance](https://www.typevia.com/) | 2026-06-22 | hn, discussion
+- [HyperSnatch – local-first evidence workstation for Windows](https://github.com/Z3r0DayZion-install/hypersnatch/releases/tag/v1.6.11) | 2026-06-22 | hn, discussion
+- [Trump Ally Wins Colombia Election, Heralding Pro-Market Turn](https://www.bloomberg.com/news/articles/2026-06-22/trump-ally-wins-colombian-election-heralding-pro-business-swing) | 2026-06-22 | hn, discussion
+- [Progressive Disclosure](https://en.wikipedia.org/wiki/Progressive_disclosure) | 2026-06-22 | hn, discussion
+- [Open-source Notion-style personal site / blog](https://github.com/terryds/notion-style-personal-site) | 2026-06-22 | hn, discussion
+- [The Story of the UK General Strike](https://www.nationalarchives.gov.uk/explore-the-collection/stories/the-general-strike/) | 2026-06-22 | hn, discussion
+- [Why Gen Z Is Nostalgic for a Digital World They Never Knew](https://decodingvibes.com/blog/genz-and-frutiger-aero/) | 2026-06-22 | hn, discussion
+- [The Flat Curve Society](https://steve-yegge.medium.com/the-flat-curve-society-36c8b01eb33b) | 2026-06-22 | hn, discussion
+- [See if you are in the weights of super intelligence](https://intheweights.com/) | 2026-06-21 | hn, discussion
+- [Ethereum: Still Chasing Sovereignty](https://twitter.com/i/status/2068429073429287373) | 2026-06-21 | hn, discussion
+- [Continuous Quaternion Delta Encoding](https://biochainai.substack.com/p/the-math-of-motion-visualizing-continuous) | 2026-06-21 | hn, discussion
+- [The Omnipod 5 insulin pump has been cracked by open source developers](https://nightscout.github.io/omnipod-five/) | 2026-06-21 | hn, discussion
+- [Windows UI evolution: Clicking an unassociated file](https://movq.de/blog/postings/2026-06-20/0/POSTING-en.html) | 2026-06-21 | hn, discussion
+- [Improvements to Std:Format in C++26](https://mariusbancila.ro/blog/2026/06/19/improvements-to-stdformat-in-c26/) | 2026-06-21 | hn, discussion
+- [shared verified memory for AI agents: one learns, all recall](https://kage-core.com/) | 2026-06-21 | hn, discussion
+- [Where Do India's IPO-Bound Founders Come From?](https://www.dealflowiq.com/p/what-indias-ipo-founders-actually) | 2026-06-21 | hn, discussion
+- [Built a rival to the largest fanfiction platforms – alone, at 17](https://obaid.wtf/jotbook/2026/06/20/built-a-rival-to-the-worlds-largest-fanfiction-platforms.html) | 2026-06-21 | hn, discussion
+- [All 4,582 abhangs of Sant Tukaram, translated and theme-mapped with AI](https://sant.ajinkya.ai/tukaram) | 2026-06-21 | hn, discussion
+- [Now that your newsletter is AI-generated, I've Unsubscribed](https://idiallo.com/blog/unsubscribed-from-ai-generated-newsletters) | 2026-06-21 | hn, discussion
+- [Quikdown – 17 KB bidirectional Markdown parser and rich-fence editor](https://github.com/deftio/quikdown) | 2026-06-21 | hn, discussion
+- [Notedog – Git-friendly portable Markdown journal, edit from a laptop](https://notedog.run/) | 2026-06-21 | hn, discussion
+- [Pyor – A desktop PR reviewer for the diffs GitHub chokes on](https://news.ycombinator.com/item?id=48616239) | 2026-06-21 | hn, discussion
+- [Domvault – self-hostable second brain with consent-based note sharing](https://github.com/dys5315/domvault) | 2026-06-21 | hn, discussion
+- ["My Way" Killings](https://en.wikipedia.org/wiki/My_Way_killings) | 2026-06-21 | hn, discussion
+- [Europeans should learn to love the air conditioner](https://www.economist.com/europe/2026/06/18/europeans-should-learn-to-love-the-air-conditioner) | 2026-06-21 | hn, discussion
+- [The Wonderful Walkabouts of Harmen Hoek](https://jeffpolman.com/2024/04/30/the-wonderful-walkabouts-of-harmen-hoek/) | 2026-06-21 | hn, discussion
+- [Asked ChatGPT to disable the copy.fail module, it enabled it instead](https://chatgpt.com/share/6a37877e-73c8-83e9-bd53-28bd136fc259) | 2026-06-21 | hn, discussion
+- [Moving beyond fiat-based: A tensor-network model for resource-abundance](https://github.com/TribeWarez/REALMS) | 2026-06-21 | hn, discussion
+- [AI and the Great CMS Unbundling](https://dri.es/ai-and-the-great-cms-unbundling) | 2026-06-20 | hn, discussion
+- [We record because we have forgotten how to remember](https://pilgrimsage.substack.com/p/the-lowest-frequency) | 2026-06-20 | hn, discussion
+- [TV Player for Rocket Launches](https://github.com/sighmon/SpaceX-TV) | 2026-06-20 | hn, discussion
+- [China will have a Fable 5-class AI model before next year](https://www.tomshardware.com/tech-industry/artificial-intelligence/elon-musk-says-that-china-will-have-a-fable-5-class-ai-model-probably-q1-next-year-ceo-of-chinese-anthropic-rival-says-it-wont-take-that-long) | 2026-06-20 | hn, discussion
+- [The Punctum and the Blind Field](https://theholbrookreport.com/reports/punctum-and-the-blind-field/) | 2026-06-20 | hn, discussion
+- [Chromium Embedded Framework (CEF)](https://github.com/chromiumembedded/cef) | 2026-06-20 | hn, discussion
+- [Bureaulogy – formation, evolution, and perpetuation of bureaucracies](https://grantslatton.com/bureaulogy) | 2026-06-20 | hn, discussion
+- [Stocks Porfolio in a URL and Favicon](https://stocksreader.com/) | 2026-06-20 | hn, discussion
+- [Trapped in a Waymo: SF passenger recounts terrifying construction zone ordeal](https://abc7news.com/post/waymo-recall-san-francisco-man-recounts-terrifying-moment-when-robotaxi-goes-haywire-construction-zone/19328050/) | 2026-06-20 | hn, discussion
+- [Compress tool outputs, logs, files, RAG chunks before LLM for 60-95% less tokens](https://github.com/chopratejas/headroom) | 2026-06-20 | hn, discussion
+- [Designing a backyard deck for my house](https://blog.cosmin.cloud/posts/diy-deck.html) | 2026-06-20 | hn, discussion
+- [The New Calculus of AI-Based Coding](https://blog.joemag.dev/2025/10/the-new-calculus-of-ai-based...) | 2026-06-20 | hn, discussion
+- [Study: Conservatives are dying at higher rates than liberals](https://www.fastcompany.com/91561329/widening-health-gap-between-liberals-and-conservatives) | 2026-06-20 | hn, discussion
+- [EAS Alarm at midnight caused by a hacker in Brazil](https://www.reddit.com/r/mildlyinfuriating/s/wLRv2s1u5k) | 2026-06-20 | hn, discussion
+- [GenAIDojo](https://www.genaidojo.io/) | 2026-06-20 | hn, discussion
+- [What's a simple app you'd build if you had a weekend?](https://news.ycombinator.com/item?id=48606533) | 2026-06-20 | hn, discussion
+- [I wrote a Rust book ending with a Redis clone](https://shankhan3.gumroad.com/l/dnwmtp) | 2026-06-20 | hn, discussion
+- [Bun 1.4 coming July 7th](https://twitter.com/jarredsumner/status/2068059134952677887) | 2026-06-20 | hn, discussion
+- [Virtual whiteboard for sketching hand-drawn like diagrams](https://github.com/excalidraw/excalidraw) | 2026-06-20 | hn, discussion
+- [Gizmodo breached, hosting malware and no action taken for hours](https://old.reddit.com/r/cybersecurity_help/comments/1uajrup/beware_gizmodo_captcha_malware_attempt/) | 2026-06-20 | hn, discussion
+- [Apple has started replacing macOS names with version numbers](https://9to5mac.com/2026/06/16/apple-has-started-replacing-macos-names-with-version-numbers-in-several-ways/) | 2026-06-18 | hn, discussion
+- [Nim Conf 2026 (Online, Sat June 20)](https://conf.nim-lang.org/) | 2026-06-18 | hn, discussion
+- [We cut >60% of tokens from agentic tasks by removing repeated context](https://parcle.ai/) | 2026-06-18 | hn, discussion
+- [What competitor signal has been most useful for you?](https://news.ycombinator.com/item?id=48580548) | 2026-06-18 | hn, discussion
+- [Remembering Robert A.F. Thurman (1941-2026)](https://www.lionsroar.com/robert-thurman-and-the-karmic-kingdom-of-buddhology/) | 2026-06-18 | hn, discussion
+- [Occupancy Math on the AMD MI355X: A From-First-Principles Guide](https://indianspeedster.github.io/blog/occupancy-math-mi355x/) | 2026-06-18 | hn, discussion
+- [FP8 GEMM Optimization on AMD CDNA4 Architecture](https://rocm.blogs.amd.com/software-tools-optimization/cdna4-gemm-kernels/README.html) | 2026-06-18 | hn, discussion
+- [Remote Code Execution in Libssh2](https://vuldb.com/cve/CVE-2026-55200) | 2026-06-18 | hn, discussion
+- [EPFL launches the first open medical LLMs](https://actu.epfl.ch/news/epfl-launches-the-world-s-first-fully-open-medical/) | 2026-06-18 | hn, discussion
+- [Trading Places (2023)](https://www.tabletmag.com/sections/news/articles/trading-places) | 2026-06-18 | hn, discussion
+- [Privacy-Preserving Age Verification–and Its Limitations [pdf]](https://www.cs.columbia.edu/~smb/papers/age-verify.pdf) | 2026-06-18 | hn, discussion
+- [SteamOS Linux 3.8 released as stable](https://store.steampowered.com/news/app/1675200/view/697641379212298072) | 2026-06-18 | hn, discussion
+- [Interesting Google AI Results](https://www.google.com/search?q=nvm) | 2026-06-18 | hn, discussion
+- [Simpler, older version of Stonehenge found three miles from famous site](https://www.bbc.co.uk/news/articles/clyxw8550y8o) | 2026-06-18 | hn, discussion
+- [GLM-5.2 is probably the most powerful text-only open weights LLM](https://simonwillison.net/2026/Jun/17/glm-52/) | 2026-06-18 | hn, discussion
+- ['Most famous tree in the world': Sherwood Forest's 1000-year-old Major oak dies](https://www.theguardian.com/environment/2026/jun/18/most-famous-tree-world-sherwood-forest-ancient-major-oak-dies) | 2026-06-18 | hn, discussion
+- [The Next Computing Revolution May Come from Stacking Chips Like Skyscrapers](https://scitechdaily.com/the-next-computing-revolution-may-come-from-stacking-chips-like-skyscrapers/) | 2026-06-18 | hn, discussion
+- [YaFF – High-performance C++ serialization library](https://github.com/yandex/yaff) | 2026-06-18 | hn, discussion
+- [BBC to axe Radio 4's The World Tonight after more than 50 years](https://www.theguardian.com/media/2026/jun/17/bbc-boss-compulsory-redundancies-cuts) | 2026-06-18 | hn, discussion
+- [Cervical cancer mortality trends following HPV vaccination in England, 2001–24](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(26)00918-9/fulltext) | 2026-06-18 | hn, discussion
+- [AATF – An open spec for recording why AI agents make decisions](https://github.com/wdh107/agent-audit-trail) | 2026-06-16 | hn, discussion
+- [Firefox 152 Now Available with JPEG-XL Support](https://www.phoronix.com/news/Firefox-152-Download) | 2026-06-16 | hn, discussion
+- [ShopFoundry – Turn Etsy listings into better titles, tags and descriptions](https://www.shopfoundry.app/) | 2026-06-16 | hn, discussion
+- [EU AI: the fables we told ourselves](https://pleias.ai/blog/fable-eu) | 2026-06-16 | hn, discussion
+- [DOJ Lawyers Argue xAI Is 'Vital' for National Security in NAACP Lawsuit](https://www.wired.com/story/doj-lawyers-argue-xai-vital-national-security-naacp-lawsuit/) | 2026-06-16 | hn, discussion
+- [In the Matter of OpenAI vs. LangGraph (2025)](https://www.latent.space/p/oai-v-langgraph) | 2026-06-16 | hn, discussion
+- [What was the last thing you built on Fable 5](https://news.ycombinator.com/item?id=48550139) | 2026-06-16 | hn, discussion
+- [I built a notes app powered by the model that powers Apple Intelligence](https://apps.apple.com/us/app/fog-on-device-ai-notes/id6760272134) | 2026-06-16 | hn, discussion
+- [What one country's experiment says about attempts to boost birth rates](https://www.bbc.co.uk/news/articles/c5yzdr4ygdno) | 2026-06-16 | hn, discussion
+- [Note on Rio 3.5 Open](https://twitter.com/IplanRio_rj/status/2066693494769348946) | 2026-06-16 | hn, discussion
+- [Phoenix mostly doesn't drink Colorado River water](https://signaldoctrine.substack.com/p/the-allocation) | 2026-06-16 | hn, discussion
+- [Optique 1.1.0: Command discovery, value parsers, and ordered grammars](https://github.com/dahlia/optique/discussions/834) | 2026-06-16 | hn, discussion
+- [Real-Time NYC rat map](https://ratflow.nyc/) | 2026-06-16 | hn, discussion
+- [Is CPU design hitting a (soft) speed limit?](https://news.ycombinator.com/item?id=48550327) | 2026-06-16 | hn, discussion
+- [The Fable 5 Export Controls root of takedown request](https://www.lutasecurity.com/post/the-fable-5-export-controls-harm-us-cyber-defense) | 2026-06-16 | hn, discussion
+- [Half of Bitcoin in circulation is underwater for the first time since 2022](https://sherwood.news/crypto/half-of-the-bitcoin-supply-in-circulation-is-underwater-for-the-first-time-since-2022/) | 2026-06-16 | hn, discussion
+- [Asia is now buying America and nobody is talking about it](https://asia.nikkei.com/opinion/asia-is-now-buying-america-and-nobody-is-talking-about-it) | 2026-06-16 | hn, discussion
+- [EU Icons for labelling AI-generated content](https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content) | 2026-06-16 | hn, discussion
+- [OpenAI Losses Increased Nearly 8X in 2025, with Spending Hitting $34B](https://www.wheresyoured.at/exclusive-openai-financials/) | 2026-06-16 | hn, discussion
+- [Pokémon Showdown Live Battle Assistant](https://github.com/AbhishekR3/ps-local) | 2026-06-16 | hn, discussion
+- [Cross-Modal Representation Alignment for Time-to-Event Modeling](https://arxiv.org/abs/2606.15038) | 2026-06-16 | hn, discussion
 - [The Talk Show: Live from WWDC 2026 [video]](https://www.youtube.com/watch?v=OtRgxqMuUY8) | 2026-06-16 | hn, discussion
 - [Woodrow Wilson: America's worst president for free speech](https://expression.fire.org/p/woodrow-wilson-americas-worst-president) | 2026-06-16 | hn, discussion
 - [Vance: Iran can have access to $300B reconstruction fund](https://thehill.com/homenews/administration/5924963-vance-iran-300b-reconstruction-fund/) | 2026-06-16 | hn, discussion
@@ -65,3 +337,85 @@
 - [Malicious npm Packages Detected Across Red Hat Cloud Services](https://news.ycombinator.com/item?id=48356625) | 2026-06-01 | hn, discussion, engineering
 - [A 10 Year Old Xeon Is All You Need](https://news.ycombinator.com/item?id=48353348) | 2026-06-01 | hn, discussion, engineering
 
+
+## July 2026
+- [Happy Voluntary Lobotomy Day, Microsoft](https://www.uplevel.pro/p/happy-voluntary-lobotomy-day-microsoft) | 2026-07-02 | hn, discussion
+- [Can Seedance 2.0 Draw in 2D? The Anime Animation Playbook](https://www.atlascloud.ai/blog/guides/seedance-2.0-animation-2d) | 2026-07-20 | hn, discussion
+- [Mark Walter's Insurers, Guggenheim Probed by Prosecutors](https://www.bloomberg.com/news/articles/2026-07-20/billionaire-mark-walter-s-firms-probed-by-federal-prosecutors) | 2026-07-20 | hn, discussion
+- [Smart Business solutions helping businesses succeed (blog post)](https://www.portotheme.com/the-smart-solutions-helping-businesses-succeed-in-2026/) | 2026-07-20 | hn, discussion
+- [Why do we love music? (2018)](https://pmc.ncbi.nlm.nih.gov/articles/PMC6353111/) | 2026-07-20 | hn, discussion
+- [Provena: Open-Source Library for AI Agent Context Governance](https://github.com/rajfirke/provena) | 2026-07-20 | hn, discussion
+- [A Star Orbiting Our Galaxy's Supermassive Black Hole Tests Limits of Relativity](https://www.universetoday.com/articles/a-star-orbiting-our-galaxys-supermassive-black-hole-tests-the-limits-of-relativity) | 2026-07-20 | hn, discussion
+- [FIFA World Cup-A Technological Revolution and New Standard for Live Broadcasting](https://vimegs.com/fifa-world-cup-2026-a-technological-revolution-and-new-standard-for-live-sports-broadcasting/) | 2026-07-20 | hn, discussion
+- [ascdraw: Editor for ASCII/UTF-8 diagrams (in 144FPS)](https://github.com/exlee/ascdraw) | 2026-07-20 | hn, discussion
+- [A Linux Kernel 0-day Journey – From a limited UAF to Physical Memory R/W](https://1day.dev/posts/linux-kernel-0day.html) | 2026-07-20 | hn, discussion
+- [The Dark Energy Camera's New Image Is Reminiscent of van Gogh](https://www.universetoday.com/articles/the-dark-energy-cameras-new-image-is-reminiscent-of-van-gogh) | 2026-07-20 | hn, discussion
+- [Drinking with Datalog](https://ianthehenry.com/posts/drinking-with-datalog/) | 2026-07-20 | hn, discussion
+- [Free FIRE calculators that run entirely in the browser](https://firecalculatorhq.com/) | 2026-07-20 | hn, discussion
+- [The creepiest 'sales demo' of all time](https://www.appenmedia.com/opinion/letter-to-the-editor-the-creepiest-sales-demo-of-all-time/article_a8f0cc6c-29d3-41f7-8668-8a855f760efb.html) | 2026-07-20 | hn, discussion
+- [FreeCAD at Siemens [video]](https://www.youtube.com/watch?v=r-De57aHcIc) | 2026-07-20 | hn, discussion
+- [A New Storytelling Tool](https://ab.neudice.eu/) | 2026-07-20 | hn, discussion
+- [South Korean SMR-powered container ship design certified](https://www.world-nuclear-news.org/articles/korean-smr-powered-container-ship-design-certified) | 2026-07-20 | hn, discussion
+- [If you're running LLM bots on HN, can you at least report results?](https://news.ycombinator.com/item?id=48984609) | 2026-07-20 | hn, discussion
+- [Recallfox – remember everything you learn](https://recallfox.com) | 2026-07-20 | hn, discussion
+- [Sixty: A 60-second daily puzzle circuit](https://sixty.redvectorgames.com/) | 2026-07-20 | hn, discussion
+- [The World Hum Map and Database Project](https://www.thehum.info/) | 2026-07-20 | hn, discussion
+- [Human Fear in Emacs](https://en.andros.dev/blog/b70b058a/human-fear-in-emacs/) | 2026-07-14 | hn, discussion
+- [My Intel Brief](https://myintelbrief.com/) | 2026-07-14 | hn, discussion
+- [Software as Craft: A First Look at Syntropy](https://noteflakes.com/articles/2026-06-13-syntropy) | 2026-07-14 | hn, discussion
+- [European Parliament MCP Server – Political Intelligence for AI Agents](https://github.com/Hack23/European-Parliament-MCP-Server) | 2026-07-14 | hn, discussion
+- [Context bombs: stopping AI attackers in their tracks](https://agentic.tracebit.com/context-bombs/) | 2026-07-14 | hn, discussion
+- [Themis – Self-hosted AI code reviews with your own keys and models](https://github.com/Zaimwa9/themis) | 2026-07-14 | hn, discussion
+- [The Last Picture Show: A Conversation with George Lucas](https://a-rabbitsfoot.com/editorial/confessions/the-last-picture-show-a-conversation-with-george-lucas/) | 2026-07-14 | hn, discussion
+- [I want to build an OTT app. Where should I start?](https://news.ycombinator.com/item?id=48903017) | 2026-07-14 | hn, discussion
+- [DriftTrip – A Virtual Road Trip](https://drifttrip.connelly.casa/) | 2026-07-14 | hn, discussion
+- [Weakening copyright to benefit AI would betray Australian Labor party's ethos](https://www.theguardian.com/australia-news/2026/jul/14/ed-husic-tells-labor-to-get-tougher-on-ai-companies-as-letting-them-self-regulate-doomed-to-fail) | 2026-07-14 | hn, discussion
+- [Anthropic banned my thirteen 20x accounts, what now?](https://news.ycombinator.com/item?id=48903047) | 2026-07-14 | hn, discussion
+- [Netflix accidentally shipped a Claude.md file](https://www.reddit.com/r/AgentsOfAI/s/GYaEDTim0U) | 2026-07-14 | hn, discussion
+- [There's an Ancient Solution to Our Modern Crisis of Attention](https://www.nytimes.com/2026/07/12/opinion/attention-crisis-seneca.html) | 2026-07-14 | hn, discussion
+- [Why frontier labs are scaling-pilled](https://invertedpassion.substack.com/p/why-frontier-labs-are-scaling-pilled) | 2026-07-14 | hn, discussion
+- [Indian scientists produce most detailed 3D atlas of the human brainstem](https://www.bbc.com/news/articles/cg53l737v1qo) | 2026-07-14 | hn, discussion
+- [I built a small transcription tool for non-English videos](https://transcrevervideo.com) | 2026-07-14 | hn, discussion
+- [The Lies They're Telling Towns and Tribes About the Benefits of AI Data Centers](https://karlbode.com/the-lies-theyre-telling-towns-and-tribes-about-the-benefits-of-ai-data-centers/) | 2026-07-14 | hn, discussion
+- [Benchmark your eng team's AI agent maturity in 5 minutes](https://agent-benchmarks.com/software-factory/) | 2026-07-14 | hn, discussion
+- [Helicone allows users to write SQL directly to a shared ClickHouse](https://www.justintorre.com/blogs/clickhouse-rls-query-parameters) | 2026-07-14 | hn, discussion
+- [Patent for Electric Motor Platform Without Rare-Earth Minerals](https://auto.economictimes.indiatimes.com/news/auto-technology/) | 2026-07-14 | hn, discussion
+- [Bonnie Tyler latest: Legendary rock singer dies 'unexpectedly' in Portugal](https://news.sky.com/story/bonnie-tyler-latest-legendary-rock-singer-dies-in-portugal-13542742) | 2026-07-09 | hn, discussion
+- [The Traverse of the GR20](https://mongr20.com/en/) | 2026-07-09 | hn, discussion
+- [China Weighs Limits on the AI Models American Companies Love](https://www.wsj.com/tech/ai/china-weighs-limits-on-the-ai-models-american-companies-love-c3ad8f2b) | 2026-07-09 | hn, discussion
+- [If Microsoft sold off Xbox, who would even buy it?](https://www.theverge.com/games/962837/microsoft-xbox-spin-off-sell-divest-layoffs-asha-sharma) | 2026-07-09 | hn, discussion
+- [Ved AI Voice Assistant](https://github.com/Krish6190/Ved-Test) | 2026-07-09 | hn, discussion
+- [M64 Controller Review](https://retrododo.com/m64-controller-review-the-n64-remote-perfected/) | 2026-07-09 | hn, discussion
+- [Humm – free, private realtime speech-to-text](https://humm.so/) | 2026-07-09 | hn, discussion
+- [My Thoughts on the Bun Rust Rewrite](https://andrewkelley.me/post/my-thoughts-bun-rust-rewrite.html) | 2026-07-09 | hn, discussion
+- [Questions for the Team During Onboarding](https://simonwillison.net/2026/Mar/6/ally-piechowski/) | 2026-07-09 | hn, discussion
+- [The Fediverse Grew Up. Its Sign-Up Page Didn't](https://casually.onl/article?slug=fediverse-grew-up-2026) | 2026-07-09 | hn, discussion
+- [San Francisco homes sell for $1M above asking price amid AI boom](https://www.theguardian.com/us-news/2026/jul/07/san-francisco-home-sale-prices-ai) | 2026-07-09 | hn, discussion
+- [Grok 4.5 Benchmark Results](https://artificialanalysis.ai/models/grok-4-5) | 2026-07-09 | hn, discussion
+- [The UK plans to ban romantic AI chatbots for under-18s](https://blog.uehiro.ox.ac.uk/2026/06/the-uk-plans-to-ban-romantic-ai-chatbots-for-under-18s-young-people-have-bigger-worries-about-ai/) | 2026-07-09 | hn, discussion
+- [Tuta is making it easier to migrate all your emails to Tuta Mail](https://www.neowin.net/news/tuta-is-making-it-easier-to-migrate-all-your-emails-to-tuta-mail/) | 2026-07-09 | hn, discussion
+- [Relm – local LLMs as base-R objects, with interpretability](https://github.com/Vadale/R-ebirth) | 2026-07-09 | hn, discussion
+- [How to avoid dementia – what the science says](https://www.nature.com/articles/d41586-026-02098-z) | 2026-07-09 | hn, discussion
+- [Ask HK: Does it feel like the top modals routinely dismiss your opinion/advice?](https://news.ycombinator.com/item?id=48843420) | 2026-07-09 | hn, discussion
+- [Process Is a Tool, Not a Virtue](https://blog.kevingoldsmith.com/2026/03/18/process-is-a-tool-not-a-virtue/) | 2026-07-09 | hn, discussion
+- [The AI risk in marketing stacks inside orgs](https://singulr.ai/blog/the-hidden-ai-risk-in-your-marketing-stack-shadow-ai-automation-pipelines-and-the-hidden-data-leaks) | 2026-07-09 | hn, discussion
+- [Bonnie Tyler, singer of Total Eclipse of the Heart, dies aged 75](https://www.bbc.com/news/articles/cg5pd9z2487o) | 2026-07-09 | hn, discussion
+- [Timescapes of Non-Human Experience](https://www.sciencedirect.com/science/article/pii/S1364661326001087?dgcid=author#f0005) | 2026-07-02 | hn, discussion
+- [Does anyone use Google's Jules?](https://news.ycombinator.com/item?id=48764451) | 2026-07-02 | hn, discussion
+- [Incident with Pages GitHub](https://www.githubstatus.com/incidents/5bnwwg9tzd4q) | 2026-07-02 | hn, discussion
+- [Wordgard Release 0.1](https://marijnhaverbeke.nl/blog/wordgard-0.1.html) | 2026-07-02 | hn, discussion
+- [Banks Get Bids on $49B Paramount Debt Well Before Sale](https://www.bloomberg.com/news/articles/2026-07-02/banks-get-bids-on-49-billion-paramount-debt-well-before-sale) | 2026-07-02 | hn, discussion
+- [HealthChain – Python SDK to connect AI models to live EHR systems](https://github.com/healthchainai/HealthChain) | 2026-07-02 | hn, discussion
+- [MoltHub](https://moithub.com) | 2026-07-02 | hn, discussion
+- [TokenBudgeting: Our Conversations with Enterprises on Token Spend](https://newsletter.semianalysis.com/p/tokenbudgeting-our-conversations) | 2026-07-02 | hn, discussion
+- [Clinch – I intercept iOS app opens to interrupt doomscrolling](https://apps.apple.com/us/app/clinch-break-the-scroll/id6777446562) | 2026-07-02 | hn, discussion
+- [Bank of England explores trading 'kill switches' to contain AI meltdowns](https://www.computerweekly.com/news/366645329/Bank-of-England-explores-trading-kill-switches-to-contain-AI-meltdowns) | 2026-07-02 | hn, discussion
+- [Katri Vala (1901-1944)](https://authorscalendar.info/kvala.htm) | 2026-07-02 | hn, discussion
+- [After 30 years with Linux, I gave Windows 11 a chance and found 9 clear problems](https://www.zdnet.com/article/i-ditched-linux-for-windows-11-9-big-problems/) | 2026-07-02 | hn, discussion
+- [China has 400 private space companies. the West is barely paying attention](https://fortune.com/2026/07/02/china-private-space-industry-landspace-geely-spacex-rainer-zitelmann/) | 2026-07-02 | hn, discussion
+- [The Parrot in the Machine](https://www.nybooks.com/articles/2025/07/24/the-parrot-in-the-machine-the-ai-con-bender-hanna/) | 2026-07-02 | hn, discussion
+- [The Mental Models I Use to Work with AI](https://metedata.substack.com/p/015-the-mental-models-i-use-to-work) | 2026-07-02 | hn, discussion
+- [Neurosky EEG Pov TikTok](https://github.com/eegG0D/neurosky-eeg-pov-tiktok) | 2026-07-02 | hn, discussion
+- [Postgres Sorting at Scale Needs More Than Order By](https://www.tigerdata.com/blog/postgres-sorting-at-scale-order-by) | 2026-07-02 | hn, discussion
+- [Trump admin and Anthropic haven't discussed the gov't taking a stake in it](https://www.reuters.com/business/trump-administration-anthropic-have-not-discussed-government-taking-stakes-firm-2026-07-02/) | 2026-07-02 | hn, discussion
+- [Day 1: C# 15 Collection Expressions Just Got Superpowers – with()](https://medium.com/c-sharp-programming/day-1-csharp-15-collection-expressions-just-got-superpowers-with-explained-fb0324d88bda) | 2026-07-02 | hn, discussion

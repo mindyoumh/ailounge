@@ -51,24 +51,24 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.97 0.005 240);
+  --background: oklch(0.96 0.018 75);
   --foreground: oklch(0.145 0 0);
-  --card: oklch(0.99 0.003 240);
+  --card: oklch(0.985 0.012 75);
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
+  --popover: oklch(0.99 0.008 75);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0.042 265.755);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.965 0.001 286.375);
+  --secondary: oklch(0.95 0.015 75);
   --secondary-foreground: oklch(0.205 0.042 265.755);
-  --muted: oklch(0.955 0.005 240);
+  --muted: oklch(0.945 0.015 75);
   --muted-foreground: oklch(0.556 0.019 286.375);
-  --accent: oklch(0.945 0.015 240);
+  --accent: oklch(0.935 0.018 75);
   --accent-foreground: oklch(0.205 0.042 265.755);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.008 240);
-  --input: oklch(0.92 0.008 240);
+  --border: oklch(0.90 0.015 80);
+  --input: oklch(0.90 0.015 80);
   --ring: oklch(0.205 0.042 265.755);
   --accent-vibrant: oklch(0.65 0.15 220);
   --accent-vibrant-foreground: oklch(0.985 0 0);
@@ -78,8 +78,8 @@
   --accent-orange: #ea580c;
   --accent-red: #dc2626;
   --accent-yellow: #ca8a04;
-  --surface-2: oklch(0.965 0.001 286.375);
-  --dot-color: rgba(0, 0, 0, 0.05);
+  --surface-2: oklch(0.95 0.015 75);
+  --dot-color: rgba(160, 140, 120, 0.08);
 }
 
 .dark {

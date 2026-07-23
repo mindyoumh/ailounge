@@ -1,14 +1,15 @@
-import { getDb } from "../../db/client";
+import { serviceClient } from "../../db/service-client";
 import { refreshSingleRepo, type RepoRadarItem } from "../../lib/repo-radar";
 
 export async function ingestRepoRadar(): Promise<void> {
-  const db = getDb();
+  const { data: items } = await serviceClient
+    .from("repo_radar_items")
+    .select("*")
+    .eq("is_active", 1);
 
-  const items = db.prepare(
-    "SELECT * FROM repo_radar_items WHERE is_active = 1",
-    ).all() as unknown as RepoRadarItem[];
+  const repoItems = (items ?? []) as RepoRadarItem[];
 
-  if (items.length === 0) {
+  if (repoItems.length === 0) {
     console.log("  ⏭  No repos to refresh");
     return;
   }
@@ -16,24 +17,22 @@ export async function ingestRepoRadar(): Promise<void> {
   let updated = 0;
   let errors = 0;
 
-  for (const item of items) {
+  for (const item of repoItems) {
     const result = await refreshSingleRepo(item);
     if (result.ok) updated++;
     else errors++;
   }
 
-  db.prepare(
-    "INSERT OR REPLACE INTO kv_store (key, value) VALUES (?, ?)",
-  ).run("ingest:last_run:repo_radar", new Date().toISOString());
-  db.prepare(
-    "INSERT OR REPLACE INTO kv_store (key, value) VALUES (?, ?)",
-  ).run("ingest:status:repo_radar", errors === 0 ? "ok" : "degraded");
-  db.prepare(
-    "INSERT OR REPLACE INTO kv_store (key, value) VALUES (?, ?)",
-  ).run("ingest:count:repo_radar", String(items.length));
-  db.prepare(
-    "INSERT OR REPLACE INTO kv_store (key, value) VALUES (?, ?)",
-  ).run("ingest:elapsed_ms:repo_radar", "0");
+  const now = new Date().toISOString();
+  const kvEntries = [
+    { key: "ingest:last_run:repo_radar", value: now },
+    { key: "ingest:status:repo_radar", value: errors === 0 ? "ok" : "degraded" },
+    { key: "ingest:count:repo_radar", value: String(repoItems.length) },
+    { key: "ingest:elapsed_ms:repo_radar", value: "0" },
+  ];
+  for (const e of kvEntries) {
+    await serviceClient.from("kv_store").upsert(e, { onConflict: "key" });
+  }
 
   console.log(`  📡 repo_radar: refreshed ${updated} repos${errors ? `, ${errors} errors` : ""}`);
 }

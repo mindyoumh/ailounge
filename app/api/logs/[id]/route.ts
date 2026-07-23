@@ -1,60 +1,76 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDb } from "@/src/db/client";
+import { serviceClient } from "@/src/db/service-client";
+import { requireRole } from "@/src/lib/auth-helpers";
 
 export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params;
-  const db = getDb();
+  const numId = Number(id);
 
-  const analysis = db
-    .prepare("SELECT * FROM log_analyses WHERE id = ?")
-    .get(id) as Record<string, unknown> | undefined;
+  const { data: analysis } = await serviceClient
+    .from("log_analyses")
+    .select("*")
+    .eq("id", numId)
+    .single();
 
   if (!analysis) {
     return NextResponse.json({ error: "Analysis not found" }, { status: 404 });
   }
 
-  const errorCount = (
-    db
-      .prepare("SELECT COUNT(*) as count FROM log_errors WHERE analysis_id = ? AND is_error = 1")
-      .get(id) as { count: number }
-  ).count;
+  const [
+    { count: errorCount },
+    { count: patternCount },
+    { count: anomalyCount },
+    { data: errorRows },
+  ] = await Promise.all([
+    serviceClient.from("log_errors").select("*", { count: "exact", head: true }).eq("analysis_id", numId).eq("is_error", 1),
+    serviceClient.from("log_patterns").select("*", { count: "exact", head: true }).eq("analysis_id", numId),
+    serviceClient.from("log_anomalies").select("*", { count: "exact", head: true }).eq("analysis_id", numId),
+    serviceClient.from("log_errors").select("timestamp").eq("analysis_id", numId).eq("is_error", 1).order("timestamp"),
+  ]);
 
-  const patternCount = (
-    db
-      .prepare("SELECT COUNT(*) as count FROM log_patterns WHERE analysis_id = ?")
-      .get(id) as { count: number }
-  ).count;
+  const dailyCounts: { day: string; count: number }[] = [];
+  const dayMap = new Map<string, number>();
+  for (const row of errorRows ?? []) {
+    const day = row.timestamp ? row.timestamp.substring(0, 10) : "unknown";
+    dayMap.set(day, (dayMap.get(day) ?? 0) + 1);
+  }
+  for (const [day, count] of dayMap) {
+    dailyCounts.push({ day, count });
+  }
+  dailyCounts.sort((a, b) => a.day.localeCompare(b.day));
 
-  const anomalyCount = (
-    db
-      .prepare("SELECT COUNT(*) as count FROM log_anomalies WHERE analysis_id = ?")
-      .get(id) as { count: number }
-  ).count;
-
-  const dailyCounts = db
-    .prepare(
-      "SELECT substr(timestamp,1,10) as day, COUNT(*) as count FROM log_errors WHERE analysis_id = ? AND is_error = 1 GROUP BY day ORDER BY day",
-    )
-    .all(id) as { day: string; count: number }[];
-
-  return NextResponse.json({ ...analysis, errorCount, patternCount, anomalyCount, dailyCounts });
+  return NextResponse.json({
+    ...analysis,
+    errorCount: errorCount ?? 0,
+    patternCount: patternCount ?? 0,
+    anomalyCount: anomalyCount ?? 0,
+    dailyCounts,
+  });
 }
 
 export async function DELETE(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
+  const err = await requireRole(req, ["lead", "dev"]);
+  if (err) return err;
+
   const { id } = await params;
-  const db = getDb();
+  const numId = Number(id);
 
-  const result = db.prepare("DELETE FROM log_analyses WHERE id = ?").run(id);
+  const { data: existing } = await serviceClient
+    .from("log_analyses")
+    .select("id")
+    .eq("id", numId)
+    .single();
 
-  if (result.changes === 0) {
+  if (!existing) {
     return NextResponse.json({ error: "Analysis not found" }, { status: 404 });
   }
 
+  await serviceClient.from("log_analyses").delete().eq("id", numId);
   return NextResponse.json({ ok: true });
 }

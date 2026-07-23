@@ -9,7 +9,7 @@ REST API for uploading CSV log files and retrieving parsed analysis results. Sup
 - **Content-Type**: `multipart/form-data`
 - **Body**: `file` field, `.csv` only
 - **Source detection**: `acuity_*.csv` → `"acuity"`, otherwise `"zoho"`
-- **Pipeline**: CSV → `csv-parse/sync` → `parseLogCsv()` → column detection → error extraction → pattern grouping → anomaly detection → SQLite inserts (4 tables)
+- **Pipeline**: CSV → `csv-parse/sync` → `parseLogCsv()` → column detection → error extraction → pattern grouping → anomaly detection → Supabase PostgreSQL inserts (4 tables)
 - **Response** `201`: `{ id, source, total_rows, error_count, ... }`
 - **Errors** `400`: "No file provided", "Only CSV files are accepted", or parse failure message
 
@@ -26,6 +26,7 @@ REST API for uploading CSV log files and retrieving parsed analysis results. Sup
 
 ### `DELETE /api/logs/[id]` — Remove analysis
 
+- **Role required:** `lead` or `dev` (gated by `requireRole(request, ["lead", "dev"])`)
 - Cascading delete — removes the analysis row plus all related `log_errors`, `log_patterns`, `log_anomalies` rows
 - **Response**: `{ ok: true }`
 - **Error** `404`: analysis not found
@@ -57,6 +58,12 @@ REST API for uploading CSV log files and retrieving parsed analysis results. Sup
 - Returns error rows matching the pattern, ordered by `timestamp DESC`
 - Uses same two-step matching strategy (exact `pattern_key`, fallback `error_type LIKE`)
 - **Response**: `{ items: [...], total, limit, offset }`
+
+### `GET /api/logs/[id]/trend` — Daily error trend
+
+- Returns daily error counts grouped by date for the analysis
+- Used by the `ErrorTrendChart` component for the Nivo bar chart
+- **Response**: `{ trend: [{ date: string, count: number }] }`
 
 ### `GET /api/logs/[id]/anomalies` — Statistical spikes
 

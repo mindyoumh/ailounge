@@ -13,8 +13,8 @@ Do not rebuild these. Extend them.
 
 | Already in repo                                                         | Path                                     | Status                                                                                                               |
 | ----------------------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| SQLite schema (8 tables: `feed_items`, `kv_store`, `watchlist_items`, `log_analyses`, `log_errors`, `log_patterns`, `log_anomalies`, `repo_radar_items`) | `src/db/schema.ts` | ✅ Done |
-| DB client (`getDb()` singleton, WAL mode)                               | `src/db/client.ts`                       | ✅ Done                                                                                                              |
+| Supabase PostgreSQL schema (10 tables + user_feed_states — migrated from SQLite in June 2026. DDL at `docs/supabase-schema.sql`, RLS at `docs/rls-policies.sql`) | `docs/supabase-schema.sql` (run in Supabase SQL editor), `src/db/schema.ts` (seed only) | ✅ Done |
+| DB client (`supabase` singleton via `@supabase/supabase-js`, was `getDb()` for `better-sqlite3`) | `src/db/client.ts` (re-exports `supabase`) | ✅ Done                                                                                                              |
 | Migration entry point                                                   | `src/db/migrate.ts`                      | ✅ Done                                                                                                              |
 | Manual feeds ingester (parses `docs/feeds/*.md`, standalone only)       | `src/ingesters/manual-feeds/index.ts`    | ✅ Done (not part of orchestrator — run via `npm run ingest:manual`)                                                 |
 | Hacker News ingester (HN Algolia API, top 20 stories)                   | `src/ingesters/hacker-news/index.ts`     | ✅ Done                                                                                                              |
@@ -25,11 +25,22 @@ Do not rebuild these. Extend them.
 | Feed format/tagging rules                                               | `docs/feeds/feeds-format-guide.md`       | ✅ Done                                                                                                              |
 | Intern task seed data (13 tasks)                                        | `src/config/intern-tasks.ts`             | ✅ Done                                                                                                              |
 | Shared utilities (DB writes, markdown append, analytics queries)        | `src/lib/`                               | ✅ Done                                                                                                              |
-| Dashboard widgets (AutomationStatus, BreakdownCard, IngestButton, StatCard) | `components/engineering-intelligence/` | ✅ Done                                                                                                              |
+| Dashboard widgets (BreakdownCard, IngestButton, StatCard) | `components/engineering-intelligence/` | ✅ Done (AutomationStatus replaced by IngestHealth in `components/briefing/`)                                                                                                   |
+| `user_roles` table (RBAC — auto-assign on signup, RLS policies at `docs/rls-policies.sql`)         | docs/rls-policies.sql                  | ✅ Done                                                                                                              |
+| `serviceClient` singleton (bypasses RLS via `SUPABASE_SERVICE_ROLE_KEY`)                            | src/db/service-client.ts               | ✅ Done                                                                                                              |
+| `requireRole()` middleware (3 DELETE endpoints: watchlist, repo-radar, logs)                        | src/lib/auth-helpers.ts                | ✅ Done                                                                                                              |
+| AuthProvider extended (`role`, `refreshRole()` added to context)                                    | components/auth-provider.tsx           | ✅ Done                                        |
 | shadcn/ui primitives (11 components)                                    | `components/ui/`                         | ✅ Done                                                                                                              |
 | Dark/light theme provider                                               | `components/theme-provider.tsx`          | ✅ Done                                                                                                              |
-| Navbar with active route + theme toggle                                 | `components/ui/navbar.tsx`               | ✅ Done                                                                                                              |
+| Sidebar with user info, 7 nav items, logout, quick stats               | `components/sidebar/sidebar.tsx`         | ✅ Done                                                                                                              |
+| Shell layout (hides sidebar on auth pages)                              | `components/shell.tsx`                   | ✅ Done                                                                                                              |
+| Auth middleware (route protection, public routes)                       | `proxy.ts`                               | ✅ Done                                                                                                              |
+| Login page (email/password + GitHub OAuth)                              | `app/login/page.tsx`                     | ✅ Done                                                                                                              |
+| Signup page (email/password)                                            | `app/signup/page.tsx`                    | ✅ Done                                                                                                              |
+| OAuth callback handler                                                  | `app/auth/callback/route.ts`             | ✅ Done                                                                                                              |
+| AuthProvider + useUser hook                                             | `components/auth-provider.tsx`           | ✅ Done                                                                                                              |
 | Page README docs (app/, src/, components/)                              | `*/README.md`                            | ✅ Done                                                                                                              |
+| Agent steerer files (OpenCode + Claude)                                 | `AGENTS.md`, `CLAUDE.md`                 | ✅ Done                                                                                                              |
 | Agent steerer files (OpenCode + Claude)                                 | `AGENTS.md`, `CLAUDE.md`                 | ✅ Done                                                                                                              |
 | Documentation hub                                                       | `docs/README.md`                         | ✅ Done                                                                                                              |
 | Log Analysis Dashboard (upload + explore Zoho/Acuity CSV logs)          | `app/logs/page.tsx`                      | ✅ Done                                                                                                              |
@@ -52,9 +63,9 @@ Do not rebuild these. Extend them.
 **Stack:**
 
 - Frontend: Next.js 16 (App Router), TypeScript, Tailwind CSS 4, Radix UI, Nivo (bar + pie charts), sonner (toast)
-- Data: SQLite via `better-sqlite3` (file at `data/dashboard.db`) — 9 tables
+- Data: **Supabase PostgreSQL** via `@supabase/supabase-js` — 10 tables (+ `user_feed_states`). Originally SQLite via `better-sqlite3` (file at `data/dashboard.db`); migrated June 2026. RLS policies at `docs/rls-policies.sql`.
 - Ingestion: TypeScript ingesters (`src/ingesters/*`) + one legacy Python scraper (`src/scraper.py`)
-- Backend "API": Next.js Route Handlers (`app/api/**/route.ts`) reading/writing SQLite directly —
+- Backend "API": Next.js Route Handlers (`app/api/**/route.ts`) reading/writing Supabase directly via `supabase.from()` —
   no separate server process required for MVP. Python is used for ingestion scripts only
   (scraping, RSS parsing, HN API calls), invoked via scheduled jobs, not as a running web server.
 
@@ -88,11 +99,14 @@ shipping Module 1.
 ### 2.1 What was built
 
 A single page (`/feed`) showing all `feed_items`, filterable by source/category/tag,
-with full-text search, manual curation (add/remove/pin), read tracking, and de-duplication.
+with full-text search, relevance sort, manual curation (add/remove/pin), read tracking,
+page-based pagination, and relevance scoring badges.
 
 ### 2.2 Data layer
 
-The schema already exists (`src/db/schema.ts`). Confirm it matches:
+The schema is defined in `docs/supabase-schema.sql` (PostgreSQL DDL — run once in Supabase SQL editor). Seed data is inserted via `npm run db:migrate` (`src/db/migrate.ts`). The original SQLite DDL and `src/db/schema.ts` migration were replaced during the June 2026 Supabase migration.
+
+Original SQLite schema for reference (now in PostgreSQL):
 
 ```sql
 feed_items (
@@ -113,29 +127,25 @@ feed_items (
 )
 ```
 
-Run `npx ts-node src/db/migrate.ts` to apply.
-
 ### 2.3 API routes (`app/api/feed/`) — ✅ All built
 
 | Route                        | Method   | Status  | Purpose                                                                                                                                                                      |
 | ---------------------------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app/api/feed/route.ts`      | `GET`    | ✅ Done | List feed items. Query params: `source`, `category`, `tag`, `q`, `is_read`, `is_pinned`, `limit`, `offset` — ordered by `is_pinned DESC, published_at DESC, fetched_at DESC` |
+| `app/api/feed/route.ts`      | `GET`    | ✅ Done | List feed items. Query params: `source`, `category`, `tag`, `q`, `is_read`, `is_pinned`, `sort`, `min_score`, `limit`, `offset` — ordered by `published_at DESC, fetched_at DESC` (or `ai_relevance_score DESC` when `sort=relevance`) |
 | `app/api/feed/route.ts`      | `POST`   | ✅ Done | Manually add a custom entry (`source: 'manual'`)                                                                                                                             |
 | `app/api/feed/[id]/route.ts` | `PATCH`  | ✅ Done | Update fields: `title`, `summary`, `tags`, `category`, `score`, `is_read`, `is_pinned`                                                                                       |
 | `app/api/feed/[id]/route.ts` | `DELETE` | ✅ Done | Remove an entry                                                                                                                                                              |
 | `app/api/ingest/route.ts`    | `POST`   | ✅ Done | Trigger on-demand ingestion, calls `runAll({ closeDb: false })`, returns `{ results, allOk }` JSON                                                                           |
 
-Full-text search uses `WHERE title LIKE @q` with `%` wildcards — meets <200ms on current data volume.
+Full-text search uses `supabase.ilike("title", "%{q}%")` — meets <200ms on current data volume.
 
 ### 2.4 UI components (shadcn/ui) — ✅ All built
 
-- **Filter bar**: source/category/status/pinned selects, search input, clear + refresh buttons.
-- **Feed list**: `Card` per item — source badge (color-coded), category badge, published date,
-  score, tags, title (links out), pin/read/delete action buttons (lucide-react icons).
-- **"New since last visit"** banner — compares `fetched_at` against `localStorage` timestamp,
-  shows count of new items.
+- **Filter bar**: source/category/status/pinned selects, relevance sort toggle (Target icon), search input, clear + refresh buttons.
+- **Feed list**: `Card` per item — source badge (color-coded), category badge, relevance badge (teal/amber/blue by score), published date, score, title (links out), tags (clickable hover effect), pin/read/delete action buttons (lucide-react icons).
+- **"New since last visit"** banner — compares `fetched_at` against `localStorage` timestamp, shows count of new items.
 - **Add Item form** — toggle-able form with title/URL/category/tags, posts to `POST /api/feed`.
-- **Pagination** — "Load more" button (50 items at a time).
+- **Pagination** — "Prev / Next" buttons with page indicator (`Page N / M`), 50 items per page.
 - **Loading states** — `CardSkeleton` placeholders during fetch.
 - **Empty/error states** — messages for no results, filter mismatch, or fetch failure.
 
@@ -143,6 +153,8 @@ Full-text search uses `WHERE title LIKE @q` with `%` wildcards — meets <200ms 
 
 - [x] All sources (manual, HN, GitHub Trending, RSS) visible in one filterable view
 - [x] Manual add / remove / pin persists across reloads
+- [x] Feed items can be sorted by relevance (watchlist-based scoring)
+- [x] Page-based pagination (50/page) with Prev/Next buttons
 - [x] Ingestion runs on demand via `npm run ingest` (see Section 6)
 - [x] No duplicate rows per `(source, url)` — enforced by the existing `UNIQUE` constraint
 - [x] Full-text title search returns matches under 200ms on a typical day's volume
@@ -158,18 +170,19 @@ A generated daily summary, built as a query/aggregation over `feed_items` — no
 
 ### 3.1 Sections (in order)
 
-1. **Important AI changes** — top N items where `category = 'ai'`, ordered by `score` desc / most recent
-2. **Relevant framework updates** — `category IN ('nextjs', 'django')`
-3. **Trending repos worth checking** — `source = 'github_trending'`, most recent batch
-4. **Security items** — `category = 'security'` or `tags LIKE '%cve%'`
-5. **One recommended tool/repo** — highest-scoring unread item from Repo Radar / AI Tooling Tracker (Module 4) — if Module 4 isn't built yet, pull from `feed_items` tagged `ai` + `tools`
-6. **One intern learning task** — pulled from Module 8's task list once it exists; until then, hardcode a small rotating list of 3–5 starter tasks in a config file (`src/config/intern-tasks.ts`)
+1. **Stack Summary** — clickable card showing watchlist total + high/medium/low risk counts (from `/api/stats`), links to `/watchlist`
+2. **Important AI changes** — top N items where `category = 'ai'`, ordered by `score` desc / most recent
+3. **Relevant framework updates** — `category IN ('nextjs', 'django')`
+4. **Trending repos worth checking** — `source = 'github_trending'`, most recent batch
+5. **Security items** — `category = 'security'` or `tags LIKE '%cve%'`
+6. **One recommended tool/repo** — highest-scoring unread item from Repo Radar / AI Tooling Tracker, or from `feed_items` tagged `ai` + `tools`
+7. **One intern learning task** — pulled from Module 8's task list (`src/config/intern-tasks.ts`)
 
 ### 3.2 Implementation notes
 
-- Build as a Server Component (`app/page.tsx`) that queries SQLite directly at request time —
-  no need for a separate "generation" job. "Daily generated" just means the data refreshes
-  whenever the ingesters run (Section 6); the page itself can render live on each request.
+- Build as a Server Component (`app/page.tsx`) that queries Supabase PostgreSQL directly at request time
+  (migrated from SQLite in June 2026) — no need for a separate "generation" job. "Daily generated" just means
+  the data refreshes whenever the ingesters run (Section 6); the page itself can render live on each request.
 - If page load becomes slow as `feed_items` grows, add a `dashboard_summary` cache table
   refreshed by the ingestion job — but don't pre-build this; only add it if you measure a
   real slowdown.
@@ -192,9 +205,10 @@ CREATE TABLE IF NOT EXISTS watchlist_items (
   category          TEXT,                    -- 'framework' | 'database' | 'infra' | 'ai-sdk'
   installed_version TEXT,
   latest_version    TEXT,
+  ecosystem         TEXT DEFAULT 'npm',      -- 'npm' | 'PyPI' | 'Go' | 'crates.io' | 'Maven' | 'NuGet' | 'RubyGems' | 'Packagist'
   risk_level        TEXT DEFAULT 'low',      -- 'low' | 'medium' | 'high'
   upgrade_notes     TEXT,
-  known_vulns       TEXT,                    -- JSON array of CVE ids/links
+  known_vulns       TEXT,                    -- JSON payload from OSV.dev (CVE array + summary + lastChecked)
   migration_link    TEXT,
   updated_at        TEXT DEFAULT (datetime('now'))
 );
@@ -207,14 +221,24 @@ DRF, PostgreSQL, Docker, AWS, Celery, Redis, GitHub Actions, Sentry, OpenAI/Anth
 
 ### 4.3 UI
 
-A `DataTable` (shadcn/ui) with columns: Name, Installed, Latest, Risk (colored badge), Notes,
-Last Updated. Risk badge color: green=low, yellow=medium, red=high.
+A `DataTable` (shadcn/ui) with columns: Name, Category, Installed (with "Drift" badge when versions differ), Latest, Vulns, Risk (colored badge), Notes, Updated, Migration link, Delete. Risk badge color: green=low, amber=medium, rose=high.
+
+Includes:
+- **Search input** — filters by name, category, or upgrade_notes
+- **Inline editing** — click any text cell to edit (blur/Enter saves, Escape cancels)
+- **"Drift" badge** — appears when `installed_version ≠ latest_version`
+- **Migration link** — icon button per row (dimmed when empty)
+- **Sort** — click any column header (active sort indicated by icon)
 
 ### 4.4 "Latest version" lookups
 
-Manual entry for MVP. Future automation: npm registry API (`https://registry.npmjs.org/<pkg>/latest`),
-PyPI JSON API (`https://pypi.org/pypi/<pkg>/json`) — both are simple unauthenticated GETs and
-fit naturally as a scheduled job (see Section 6).
+Automated via `src/lib/version-fetcher.ts` — supports 7 registries (npm, PyPI, Go, NuGet,
+crates.io, RubyGems). Triggers automatically on item add (`POST /api/watchlist`) and manually
+via fetch button (`POST /api/watchlist/[id]/version`). Ecosystem is auto-detected via
+`src/lib/ecosystem-detector.ts` and can be overridden in the expanded panel.
+
+Vulnerabilities are auto-checked via `src/lib/cve-matcher.ts` (OSV.dev API) on add and
+manually refreshed via `POST /api/watchlist/[id]/cve`.
 
 ---
 
@@ -225,11 +249,11 @@ fit naturally as a scheduled job (see Section 6).
 > Cron/scheduled automation is **deferred** — see [Appendix A](#appendix-a-deferred-cron-automation-options)
 > for the options that were explored (Render, Vercel Cron, etc.). For now, ingestion runs
 > **on-demand** via a single npm script. You run it whenever you want fresh data; the dashboard
-> just reads whatever is currently in `data/dashboard.db`.
+> reads from Supabase PostgreSQL (migrated from local SQLite `data/dashboard.db` in June 2026).
 
 ### 6.1 What was built
 
-A single entry point that runs all 3 ingesters sequentially (hn, github_trending, rss), with status tracking in `kv_store`:
+A single entry point that runs all 4 ingesters sequentially (hn, github_trending, rss, repo_radar), with status tracking in `kv_store`:
 
 - **File:** `src/ingesters/run-all.ts`
 - **Script:** `npm run ingest` (maps to `npx tsx src/ingesters/run-all.ts`)
@@ -249,16 +273,16 @@ The orchestrator runs each ingester one at a time and records:
 | `ingest:elapsed_ms:<source>` | `ingest:elapsed_ms:hn` | Execution time in ms              |
 | `ingest:status:all`          | `ingest:status:all`    | `'ok'` or `'degraded'`            |
 
-After all ingesters finish, it prints a summary table showing each source's status, count, and duration. This `kv_store` data is consumed by the `AutomationStatus` and `StatCard` dashboard widgets.
+After all ingesters finish, it prints a summary table showing each source's status, count, and duration. It also calls `recalcAllEngagementScores()` to update engagement-based relevance boosts. This `kv_store` data is consumed by the `IngestHealth` and `StatCard` dashboard widgets.
 
-Each ingester writes data to **both** SQLite (via `lib/db.upsertEntry`) and markdown (via `lib/markdown.appendToFeed`). The `UNIQUE (source, url)` constraint prevents duplicates on repeated runs.
+Each ingester writes data to **both** Supabase PostgreSQL (via `lib/db.upsertEntry`, which also calls `scoreRelevance()` for watchlist-based relevance scoring) and markdown (via `lib/markdown.appendToFeed`). The `UNIQUE (source, url)` constraint prevents duplicates on repeated runs.
 
 > Note: `manual-feeds/` ingester is no longer part of the orchestrator. Run it standalone via `npm run ingest:manual`.
 
 ### 6.2 Workflow while developing
 
 1. Make changes to an ingester (e.g. tweak `src/ingesters/hacker-news/index.ts`).
-2. Run `npm run ingest` to populate/update `data/dashboard.db`.
+2. Run `npm run ingest` to populate/update Supabase PostgreSQL (was `data/dashboard.db` before the June 2026 migration).
 3. Refresh the dashboard (`/feed`, `/`) to see the new data.
 4. Re-run `npm run ingest` any time you want to pull fresh data — safe to run repeatedly,
    duplicates are skipped via the `UNIQUE (source, url)` constraint.
@@ -293,17 +317,18 @@ The scraper still exists for Slack notifications but is separate from the dashbo
 ## 7. Current File Structure (actual)
 
 ```
-app/          → app/README.md        # 6 pages (/, /feed, /watchlist, /logs, /repo-radar, /prompts) + 10 API route groups (feed, watchlist, logs, ingest, repo-radar, stats, prompts)
-components/   → components/README.md # 10 shadcn/ui primitives + 7 briefing components + 2 prompt components + 4 dashboard widgets + 4 log components + sidebar + theme
-src/          → src/README.md        # 6 ingesters (4 in orchestrator + 1 standalone repo-radar + 1 standalone prompts) + DB (9 tables) + analytics + log-parser + repo-radar
+app/          → app/README.md        # 9 pages (/, /login, /signup, /feed, /watchlist, /logs, /intern-tasks, /repo-radar, /prompts) + auth callback + 10 API route groups (feed, watchlist, logs, ingest, repo-radar, stats, prompts)
+components/   → components/README.md # 10 shadcn/ui primitives + 8 briefing components + 2 prompt components + 4 dashboard widgets + 4 log components + command-palette + intern-tasks + sidebar + shell + auth-provider + theme
+src/          → src/README.md        # 6 ingesters (4 in orchestrator + 1 standalone repo-radar + 1 standalone prompts) + DB (9 tables + browser/server clients) + analytics + log-parser + repo-radar + relevance-scorer + engagement-scorer + retroactive-scorer
   ├── db/     → src/db/README.md
   ├── ingesters/ → src/ingesters/README.md
   ├── lib/    → src/lib/README.md
   └── config/ → src/config/README.md
 lib/          → cn() utility (clsx + twMerge) — for UI only
 scripts/      → clean-feed-files.ts, _check-db.ts
-data/         → dashboard.db (gitignored)
-docs/         → docs/README.md       # Onboarding, plans, research, feeds, audits
+data/         → dashboard.db (gitignored — legacy SQLite file, no longer used or generated)
+proxy.ts      → Auth middleware (route protection, public routes, PUBLIC_ROUTES + PUBLIC_API_ROUTES)
+docs/         → docs/README.md       # Onboarding, plans, research, feeds, audits, schema
 ```
 
 ---
@@ -317,9 +342,12 @@ docs/         → docs/README.md       # Onboarding, plans, research, feeds, aud
 | Step | What                                                      | Status |
 | ---- | --------------------------------------------------------- | ------ |
 | 1    | Schema: `feed_items`, `kv_store`, `watchlist_items`       | ✅     |
-| 2    | Feed API: GET (filters + pagination), POST, PATCH, DELETE | ✅     |
+| 2    | Stack Summary widget on homepage (fetches /api/stats, links to /watchlist) | `components/briefing/stack-summary.tsx` | ✅ Done                                                                                                              |
+| Command palette (Cmd+K, searches pages/feed/prompts/watchlist/radar)   | `components/command-palette.tsx`         | ✅ Done                                                                                                              |
+| Relevance scoring (watchlist-based, called from upsertEntry)            | `src/lib/relevance-scorer.ts`            | ✅ Done                                                                                                              |
+| Feed API: GET (filters + pagination + relevance sort), POST, PATCH, DELETE | ✅     |
 | 3    | `/feed` page with filter bar, search, pin/read/delete/add | ✅     |
-| 4    | All 3 ingesters: HN, GitHub Trending, RSS (manual standalone) | ✅     |
+| 4    | All 4 ingesters: HN, GitHub Trending, RSS, repo_radar (manual standalone) | ✅     |
 | 5    | `run-all.ts` orchestrator (exports `runAll()`) + `npm run ingest` | ✅     |
 | 6    | Confirmed `/feed` shows data from all sources             | ✅     |
 | 7    | Engineering Briefing homepage (5 sections + stats)        | ✅     |
@@ -336,7 +364,7 @@ docs/         → docs/README.md       # Onboarding, plans, research, feeds, aud
 | 18   | Repo Radar: page + API + GitHub client + ingester + seed data | ✅     |
 | 19   | Repo Radar README docs: app/repo-radar/, app/api/repo-radar/ | ✅     |
 | 20   | Sidebar with branding, nav, quick stats, theme toggle    | ✅     |
-| 21   | Briefing components (6): StatCard, FeedSection, FeaturedNews, FeedBreakdown, InternTasks, AutomationStatus | ✅     |
+| 21   | Briefing components (7): StatCard, FeedSection, FeaturedNews, FeedBreakdown, InternTasks, IngestHealth, StackSummary | ✅     |
 | 22   | Stats API (`GET /api/stats`) consumed by sidebar         | ✅     |
 | 23   | Theme revamp: dark palette, accent colors, dot grid bg, 3 font variables | ✅     |
 | 24   | Briefing/Sidebar/Stats README docs                       | ✅     |
@@ -347,10 +375,23 @@ docs/         → docs/README.md       # Onboarding, plans, research, feeds, aud
 | 29   | Prompt ingester: curated extras (14) + UI design (40) + community (up to 200) | ✅     |
 | 30   | FeaturedPrompt widget on homepage + sidebar "Prompts" nav link | ✅     |
 | 31   | Prompt Library README docs: page, API, components        | ✅     |
+| 32   | Auth system: login/signup pages, OAuth callback, proxy middleware | ✅     |
+| 33   | Command palette (Cmd+K): searches pages/feed/watchlist/radar/prompts | ✅     |
+| 34   | Relevance scoring: watchlist-based scoring at ingestion time | ✅     |
+| 35   | Stack summary widget on homepage                          | ✅     |
+| 36   | Feed pagination: page-based (Prev/Next) replaces infinite scroll | ✅     |
+| 37   | Watchlist enhancements: search, drift badge, vulns column, migration link | ✅     |
+| 38   | Auth-related README docs: login, signup, auth/callback, shell, auth-provider | ✅     |
+| 39   | Engagement scorer: pin/read-based relevance boost (relevance_base + pins×5 + reads×1, cap 100) | ✅     |
+| 40   | Retroactive scorer: re-scores existing feed items when watchlist grows | ✅     |
+| 41   | Ingestion status API (`GET /api/ingest/status`): per-source status + summary | ✅     |
+| 42   | IngestHealth widget: per-ingester health with source icons, ping dots, elapsed times | ✅     |
+| 43   | CVE matcher (OSV.dev), auto-fetch versions (7 registries), package search combobox, ecosystem auto-detection, manual CVE/version refresh endpoints | ✅     |
+| 44   | RBAC: user_roles table, auto-assign trigger on signup, is_lead() helper, RLS policies for all 10 tables, serviceClient bypasses RLS, role-aware UI (delete buttons hidden for intern) | ✅     |
 
 ### ✅ All Modules Complete
 
-**Modules 1, 2, 3, 5, 7, and 8 are all built.** The MVP is complete.
+**Modules 1, 2, 3, 5, 7, and 8 are all built.** The MVP is complete. Additional features built: command palette, relevance scoring, engagement scoring, retroactive scoring, StackSummary widget, feed pagination, watchlist enhancements, auth system, ingestion health panel.
 
 ### Bonus — Scheduled Ingestion (not yet implemented)
 

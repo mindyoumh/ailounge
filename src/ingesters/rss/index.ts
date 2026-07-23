@@ -31,7 +31,7 @@ export async function ingestRss(feeds?: RSSFeedConfig[]): Promise<void> {
 
       for (const item of items) {
         // Always archive to DB
-        const result = upsertEntry({
+        const result = await upsertEntry({
           source: "rss",
           category: feed.category,
           title: item.title,

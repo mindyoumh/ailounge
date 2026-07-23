@@ -20,7 +20,7 @@
 
 ## Server vs Client
 
-2 widgets are **Server Components** — they query SQLite directly or receive data via props:
+2 widgets are **Server Components** — they query Supabase PostgreSQL directly or receive data via props:
 
 - `AutomationStatus` — calls `getIngestionStatus()` which reads from `kv_store`
 - `StatCard` — pure presentational, receives `value`, `label`, `icon`, etc. as props

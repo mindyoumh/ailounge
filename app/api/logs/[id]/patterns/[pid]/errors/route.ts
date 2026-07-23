@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDb } from "@/src/db/client";
+import { serviceClient } from "@/src/db/service-client";
 
 export const dynamic = "force-dynamic";
 
@@ -7,83 +7,88 @@ function patternToLike(pid: string): string {
   return pid.replace(/[%_]/g, "\\$&").replace(/\{var\}/g, "%");
 }
 
-function resolvePatternKey(
-  db: ReturnType<typeof getDb>,
+async function resolvePatternKey(
   analysisId: number,
   pid: string,
-): string | null {
+): Promise<string | null> {
   const num = parseInt(pid, 10);
   if (!isNaN(num)) {
-    const row = db
-      .prepare("SELECT pattern_key FROM log_patterns WHERE id = ? AND analysis_id = ?")
-      .get(num, analysisId) as { pattern_key: string } | undefined;
+    const { data: row } = await serviceClient
+      .from("log_patterns")
+      .select("pattern_key")
+      .eq("id", num)
+      .eq("analysis_id", analysisId)
+      .single();
     if (row) return row.pattern_key;
   }
   return pid;
 }
 
-function countMatchingRows(
-  db: ReturnType<typeof getDb>,
+async function countMatchingRows(
   analysisId: number,
   patternKey: string,
-): number {
-  const byKey = db
-    .prepare("SELECT COUNT(*) AS cnt FROM log_errors WHERE analysis_id = ? AND pattern_key = ?")
-    .get(analysisId, patternKey) as { cnt: number };
-  if (byKey.cnt > 0) return byKey.cnt;
+): Promise<number> {
+  const { count: byKey } = await serviceClient
+    .from("log_errors")
+    .select("*", { count: "exact", head: true })
+    .eq("analysis_id", analysisId)
+    .eq("pattern_key", patternKey);
+  if (byKey && byKey > 0) return byKey;
 
   const prefix = patternToLike(patternKey.substring(0, 400)) + "%";
-  const byPrefix = db
-    .prepare(
-      "SELECT COUNT(*) AS cnt FROM log_errors WHERE analysis_id = ? AND pattern_key LIKE ? ESCAPE '\\'",
-    )
-    .get(analysisId, prefix) as { cnt: number };
-  if (byPrefix.cnt > 0) return byPrefix.cnt;
+  const { count: byPrefix } = await serviceClient
+    .from("log_errors")
+    .select("*", { count: "exact", head: true })
+    .eq("analysis_id", analysisId)
+    .like("pattern_key", prefix);
+  if (byPrefix && byPrefix > 0) return byPrefix;
 
   const like = patternToLike(patternKey);
-  const byLike = db
-    .prepare(
-      "SELECT COUNT(*) AS cnt FROM log_errors WHERE analysis_id = ? AND error_type LIKE ? ESCAPE '\\'",
-    )
-    .get(analysisId, like) as { cnt: number };
-  return byLike.cnt;
+  const { count: byLike } = await serviceClient
+    .from("log_errors")
+    .select("*", { count: "exact", head: true })
+    .eq("analysis_id", analysisId)
+    .like("error_type", like);
+  return byLike ?? 0;
 }
 
-function queryErrorRows(
-  db: ReturnType<typeof getDb>,
+async function queryErrorRows(
   analysisId: number,
   patternKey: string,
   limit: number,
   offset: number,
 ) {
-  const sql =
-    "SELECT id, method, action, content, error_type, error_code, raw_message, timestamp, is_error FROM log_errors WHERE analysis_id = ? AND %s ORDER BY timestamp LIMIT ? OFFSET ?";
+  const { data: byKey } = await serviceClient
+    .from("log_errors")
+    .select("id, method, action, content, error_type, error_code, raw_message, timestamp, is_error")
+    .eq("analysis_id", analysisId)
+    .eq("pattern_key", patternKey)
+    .order("timestamp")
+    .range(offset, offset + limit - 1);
 
-  const byKey = db
-    .prepare(sql.replace("%s", "pattern_key = ?"))
-    .all(analysisId, patternKey, limit, offset) as Array<{
-    id: number;
-    method: string;
-    action: string;
-    content: string;
-    error_type: string;
-    error_code: string;
-    raw_message: string;
-    timestamp: string;
-    is_error: number;
-  }>;
-  if (byKey.length > 0) return byKey;
+  if (byKey && byKey.length > 0) return byKey as any[];
 
   const prefix = patternToLike(patternKey.substring(0, 400)) + "%";
-  const byPrefix = db
-    .prepare(sql.replace("%s", "pattern_key LIKE ? ESCAPE '\\'"))
-    .all(analysisId, prefix, limit, offset) as typeof byKey;
-  if (byPrefix.length > 0) return byPrefix;
+  const { data: byPrefix } = await serviceClient
+    .from("log_errors")
+    .select("id, method, action, content, error_type, error_code, raw_message, timestamp, is_error")
+    .eq("analysis_id", analysisId)
+    .like("pattern_key", prefix)
+    .order("timestamp")
+    .range(offset, offset + limit - 1);
+
+  if (byPrefix && byPrefix.length > 0) return byPrefix as any[];
 
   const like = patternToLike(patternKey);
-  return db
-    .prepare(sql.replace("%s", "error_type LIKE ? ESCAPE '\\'"))
-    .all(analysisId, like, limit, offset) as typeof byKey;
+  const { data: byLike } = await serviceClient
+    .from("log_errors")
+    .select("id, method, action, content, error_type, error_code, raw_message, timestamp, is_error")
+    .eq("analysis_id", analysisId)
+    .like("error_type", like)
+    .order("timestamp")
+    .range(offset, offset + limit - 1);
+
+  return (byLike ?? []) as any[];
 }
 
 export async function GET(
@@ -95,23 +100,24 @@ export async function GET(
   const page = Math.max(1, parseInt(url.searchParams.get("page") || "1", 10));
   const limit = Math.min(100, Math.max(1, parseInt(url.searchParams.get("limit") || "50", 10)));
   const offset = (page - 1) * limit;
+  const numId = Number(id);
 
-  const db = getDb();
-
-  const analysis = db
-    .prepare("SELECT id FROM log_analyses WHERE id = ?")
-    .get(id) as { id: number } | undefined;
+  const { data: analysis } = await serviceClient
+    .from("log_analyses")
+    .select("id")
+    .eq("id", numId)
+    .single();
   if (!analysis) {
     return NextResponse.json({ error: "Analysis not found" }, { status: 404 });
   }
 
-  const patternKey = resolvePatternKey(db, Number(id), pid) ?? pid;
-  const total = countMatchingRows(db, Number(id), patternKey);
+  const patternKey = (await resolvePatternKey(numId, pid)) ?? pid;
+  const total = await countMatchingRows(numId, patternKey);
   if (total === 0) {
     return NextResponse.json({ error: "Pattern not found" }, { status: 404 });
   }
 
-  const rows = queryErrorRows(db, Number(id), patternKey, limit, offset);
+  const rows = await queryErrorRows(numId, patternKey, limit, offset);
 
   return NextResponse.json({
     rows,

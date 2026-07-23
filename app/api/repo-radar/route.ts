@@ -1,14 +1,14 @@
-import { getDb } from "@/src/db/client";
+import { serviceClient } from "@/src/db/service-client";
 import { fetchRepoInfo, fetchLatestRelease, fetchRecentPRs, fetchRecentIssues, detectBreakingChanges, detectSecurityAdvisory } from "@/src/lib/repo-radar";
-import { SEED_REPOS } from "@/src/config/repo-radar-seed";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const db = getDb();
-  const items = db
-    .prepare("SELECT * FROM repo_radar_items WHERE is_active = 1 ORDER BY stars DESC")
-    .all();
+  const { data: items } = await serviceClient
+    .from("repo_radar_items")
+    .select("*")
+    .eq("is_active", 1)
+    .order("stars", { ascending: false });
   return Response.json({ items });
 }
 
@@ -22,10 +22,11 @@ export async function POST(request: Request) {
 
     const fullName = `${owner}/${repo}`.toLowerCase();
 
-    const db = getDb();
-    const existing = db
-      .prepare("SELECT id FROM repo_radar_items WHERE full_name = ?")
-      .get(fullName) as { id: number } | undefined;
+    const { data: existing } = await serviceClient
+      .from("repo_radar_items")
+      .select("id")
+      .eq("full_name", fullName)
+      .maybeSingle();
 
     if (existing) {
       return Response.json({ error: "Repo already tracked" }, { status: 409 });
@@ -43,25 +44,8 @@ export async function POST(request: Request) {
       security = detectSecurityAdvisory(release.body);
     }
 
-    const result = db.prepare(`
-      INSERT INTO repo_radar_items (
-        owner, repo, full_name, description, url, language,
-        stars, stars_gained,
-        latest_release, latest_release_url, latest_release_date, latest_release_body,
-        breaking_changes, security_advisory,
-        open_issues, open_prs,
-        prs_opened_7d, prs_merged_7d, issues_opened_7d,
-        last_activity_at, last_refreshed_at
-      ) VALUES (
-        @owner, @repo, @full_name, @description, @url, @language,
-        @stars, @stars_gained,
-        @latest_release, @latest_release_url, @latest_release_date, @latest_release_body,
-        @breaking_changes, @security_advisory,
-        @open_issues, @open_prs,
-        @prs_opened_7d, @prs_merged_7d, @issues_opened_7d,
-        @last_activity_at, datetime('now')
-      )
-    `).run({
+    const now = new Date().toISOString();
+    const { data, error } = await serviceClient.from("repo_radar_items").insert({
       owner: owner.toLowerCase(),
       repo: repo.toLowerCase(),
       full_name: fullName,
@@ -82,13 +66,14 @@ export async function POST(request: Request) {
       prs_merged_7d: prs.merged,
       issues_opened_7d: issuesOpened,
       last_activity_at: info.pushed_at,
-    });
+      last_refreshed_at: now,
+      created_at: now,
+      updated_at: now,
+    }).select().single();
 
-    const item = db
-      .prepare("SELECT * FROM repo_radar_items WHERE id = ?")
-      .get(result.lastInsertRowid);
+    if (error) throw error;
 
-    return Response.json({ ok: true, item }, { status: 201 });
+    return Response.json({ ok: true, item: data }, { status: 201 });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     if (message.includes("rate limit")) {

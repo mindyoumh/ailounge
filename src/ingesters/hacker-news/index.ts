@@ -39,7 +39,7 @@ export async function ingestHackerNews(): Promise<void> {
       appendToFeed("05-hacker-news.md", title, url, publishedAt, tags);
 
       // Write to DB
-      const result = upsertEntry({
+      const result = await upsertEntry({
         source: "hn",
         category: "hn",
         title,

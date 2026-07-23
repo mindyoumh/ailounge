@@ -1,23 +1,21 @@
 import { migrate } from "../db/schema";
 import { getDb, closeDb } from "../db/client";
+import { recalcAllEngagementScores } from "../lib/engagement-scorer";
 import { ingestHackerNews } from "./hacker-news/index";
 import { ingestGithubTrending } from "./github-trending/index";
 import { ingestRss } from "./rss/index";
 import { ingestRepoRadar } from "./repo-radar/index";
 
-function setKv(key: string, value: string): void {
-  const db = getDb();
-  db.prepare(
-    "INSERT OR REPLACE INTO kv_store (key, value) VALUES (?, ?)",
-  ).run(key, value);
+async function setKv(key: string, value: string): Promise<void> {
+  await getDb().from("kv_store").upsert({ key, value }, { onConflict: "key" });
 }
 
-function countBySource(source: string): number {
-  const db = getDb();
-  const row = db
-    .prepare("SELECT COUNT(*) as count FROM feed_items WHERE source = ?")
-    .get(source) as { count: number };
-  return row.count;
+async function countBySource(source: string): Promise<number> {
+  const { count } = await getDb()
+    .from("feed_items")
+    .select("*", { count: "exact", head: true })
+    .eq("source", source);
+  return count ?? 0;
 }
 
 async function runTracked(
@@ -25,24 +23,24 @@ async function runTracked(
   source: string,
   fn: () => Promise<void>,
 ): Promise<{ ok: boolean; inserted: number; elapsed: number }> {
-  const before = countBySource(source);
+  const before = await countBySource(source);
   const start = Date.now();
   try {
     await fn();
-    const inserted = countBySource(source) - before;
+    const inserted = (await countBySource(source)) - before;
     const elapsed = Date.now() - start;
-    setKv(`ingest:last_run:${label}`, new Date().toISOString());
-    setKv(`ingest:status:${label}`, "ok");
-    setKv(`ingest:count:${label}`, String(inserted));
-    setKv(`ingest:elapsed_ms:${label}`, String(elapsed));
+    await setKv(`ingest:last_run:${label}`, new Date().toISOString());
+    await setKv(`ingest:status:${label}`, "ok");
+    await setKv(`ingest:count:${label}`, String(inserted));
+    await setKv(`ingest:elapsed_ms:${label}`, String(elapsed));
     console.log(`  ⏱  ${label} took ${elapsed}ms, inserted ${inserted} new items`);
     return { ok: true, inserted, elapsed };
   } catch (err) {
     const elapsed = Date.now() - start;
-    setKv(`ingest:last_run:${label}`, new Date().toISOString());
-    setKv(`ingest:status:${label}`, "error");
-    setKv(`ingest:count:${label}`, "0");
-    setKv(`ingest:elapsed_ms:${label}`, "0");
+    await setKv(`ingest:last_run:${label}`, new Date().toISOString());
+    await setKv(`ingest:status:${label}`, "error");
+    await setKv(`ingest:count:${label}`, "0");
+    await setKv(`ingest:elapsed_ms:${label}`, "0");
     console.error(`  ❌ ${label} failed:`, err);
     return { ok: false, inserted: 0, elapsed };
   }
@@ -60,16 +58,34 @@ export async function runAll(opts?: { closeDb?: boolean }): Promise<IngestResult
 
   migrate();
 
+  const sourcesEnv = process.env.INGEST_SOURCES;
+  const activeSources = sourcesEnv ? new Set(sourcesEnv.split(",").map(s => s.trim())) : null;
+
+  const ALL_SOURCES: [string, string, () => Promise<void>][] = [
+    ["hn", "hn", ingestHackerNews],
+    ["github_trending", "github_trending", ingestGithubTrending],
+    ["rss", "rss", ingestRss],
+    ["repo_radar", "repo_radar", ingestRepoRadar],
+  ];
+
   const results: IngestResults["results"] = {};
-  results.hn = await runTracked("hn", "hn", ingestHackerNews);
-  results.github_trending = await runTracked("github_trending", "github_trending", ingestGithubTrending);
-  results.rss = await runTracked("rss", "rss", ingestRss);
-  results.repo_radar = await runTracked("repo_radar", "repo_radar", ingestRepoRadar);
+  for (const [label, source, fn] of ALL_SOURCES) {
+    if (activeSources && !activeSources.has(label)) {
+      console.log(`  ⏭  ${label} skipped (not in INGEST_SOURCES)`);
+      continue;
+    }
+    results[label] = await runTracked(label, source, fn);
+  }
 
   const allOk = Object.values(results).every((r) => r.ok);
 
-  setKv("ingest:last_run:all", new Date().toISOString());
-  setKv("ingest:status:all", allOk ? "ok" : "degraded");
+  const engagementCount = sourcesEnv
+    ? 0
+    : await recalcAllEngagementScores();
+  console.log(`  📊 Engagement scores recalculated for ${engagementCount} items`);
+
+  await setKv("ingest:last_run:all", new Date().toISOString());
+  await setKv("ingest:status:all", allOk ? "ok" : "degraded");
 
   console.log("=".repeat(60));
 
@@ -79,6 +95,10 @@ export async function runAll(opts?: { closeDb?: boolean }): Promise<IngestResult
   console.log("  " + "─".repeat(55));
   for (const src of ["hn", "github_trending", "rss", "repo_radar"]) {
     const r = results[src];
+    if (!r) {
+      console.log(`  ⏭  ${src.padEnd(16)} skipped`);
+      continue;
+    }
     const count = r.ok ? String(r.inserted) : "ERR";
     const time = new Date().toLocaleTimeString();
     const icon = r.ok ? "✅" : "❌";

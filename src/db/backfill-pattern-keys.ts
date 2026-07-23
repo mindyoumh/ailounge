@@ -1,22 +1,48 @@
 import { getDb } from "./client";
-import { normalizeMessage } from "@/src/lib/log-parser";
+import { normalizeMessage } from "../lib/log-parser";
 
 const db = getDb();
-const nullRows = db.prepare("SELECT id, error_type FROM log_errors WHERE pattern_key IS NULL").all() as { id: number; error_type: string }[];
 
-if (nullRows.length === 0) {
-  console.log("No rows to backfill.");
-  process.exit(0);
-}
+async function main() {
+  const { data, error } = await db
+    .from("log_errors")
+    .select("id,error_type")
+    .is("pattern_key", null);
+
+  if (error) {
+    console.error(error);
+    process.exit(1);
+  }
+
+  const nullRows = (data ?? []) as { id: number; error_type: string | null }[];
+
+  if (nullRows.length === 0) {
+    console.log("No rows to backfill.");
+    process.exit(0);
+  }
 
   console.log(`Backfilling ${nullRows.length} rows...`);
 
-const update = db.prepare("UPDATE log_errors SET pattern_key = ? WHERE id = ?");
-let updated = 0;
-for (const row of nullRows) {
-  const key = normalizeMessage(row.error_type || "unknown");
-  update.run(key, row.id);
-  updated++;
+  let updated = 0;
+  for (const row of nullRows) {
+    const key = normalizeMessage(row.error_type || "unknown");
+    const { error: updateError } = await db
+      .from("log_errors")
+      .update({ pattern_key: key })
+      .eq("id", row.id);
+
+    if (updateError) {
+      console.error(updateError);
+      process.exit(1);
+    }
+
+    updated++;
+  }
+
+  console.log(`Updated ${updated} rows.`);
 }
 
-console.log(`Updated ${updated} rows.`);
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

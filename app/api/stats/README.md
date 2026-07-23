@@ -16,7 +16,11 @@ Single `GET` endpoint consumed by the Sidebar's Quick Stats panel. Returns aggre
   "lastIngest": "2026-06-24T12:00:00.000Z",
   "itemsToday": 7,
   "itemsThisWeek": 23,
-  "errors": 0
+  "errors": 0,
+  "stackTotal": 14,
+  "stackHigh": 1,
+  "stackMedium": 3,
+  "stackLow": 10
 }
 ```
 
@@ -24,9 +28,13 @@ Single `GET` endpoint consumed by the Sidebar's Quick Stats panel. Returns aggre
 |-------|------|--------|
 | `totalItems` | `number` | `SELECT COUNT(*) FROM feed_items WHERE source != 'manual'` |
 | `lastIngest` | `string\|null` | `getLastGlobalIngestion()` — reads `ingest:last_run:all` from `kv_store` |
-| `itemsToday` | `number` | `getItemsToday()` — filtered by `date(fetched_at) = date('now')` |
-| `itemsThisWeek` | `number` | `getItemsThisWeek()` — filtered by `fetched_at >= datetime('now', '-7 days')` |
+| `itemsToday` | `number` | `getItemsToday()` — filtered by `fetched_at` between today midnight and tomorrow midnight (JS `Date`) |
+| `itemsThisWeek` | `number` | `getItemsThisWeek()` — filtered by `fetched_at >= 7 days ago` (JS `Date`) |
 | `errors` | `number` | `getIngestionStatus()` count where `status === 'error'` |
+| `stackTotal` | `number` | `SELECT COUNT(*) FROM watchlist_items` |
+| `stackHigh` | `number` | Count of `watchlist_items` with `risk_level='high'` |
+| `stackMedium` | `number` | Count of `watchlist_items` with `risk_level='medium'` |
+| `stackLow` | `number` | Count of `watchlist_items` with `risk_level='low'` |
 
 ## Data Flow
 
@@ -34,12 +42,19 @@ Single `GET` endpoint consumed by the Sidebar's Quick Stats panel. Returns aggre
 Sidebar (client)
   └─ useEffect → fetch("/api/stats")
                     └─ GET /api/stats
-                         ├─ getDb().prepare("SELECT COUNT(*) ...").get()
+                         ├─ supabase.from("feed_items").select("*", { count: "exact", head: true })
+                         ├─ supabase.from("watchlist_items").select("*", { count: "exact", head: true })
+                         ├─ supabase.from("watchlist_items").select("risk_level")
                          ├─ getLastGlobalIngestion()
                          ├─ getItemsToday()
                          ├─ getItemsThisWeek()
                          └─ getIngestionStatus().filter(s => s.status === "error")
 ```
+
+## Consumed By
+
+- **Sidebar**: Quick Stats panel (4 rows: total items, last ingest, today, this week)
+- **Homepage**: `StackSummary` widget (shows stack total + high/medium/low risk counts, links to `/watchlist`)
 
 ## Re-exported Analytics Functions
 

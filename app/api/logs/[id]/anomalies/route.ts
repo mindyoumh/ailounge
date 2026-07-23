@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDb } from "@/src/db/client";
+import { serviceClient } from "@/src/db/service-client";
 import { normalizeMessage } from "@/src/lib/log-parser";
 
 export async function GET(
@@ -7,42 +7,51 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params;
-  const db = getDb();
+  const numId = Number(id);
   const includePatterns = req.nextUrl.searchParams.get("include_patterns") === "true";
   const fromDate = req.nextUrl.searchParams.get("from_date");
   const toDate = req.nextUrl.searchParams.get("to_date");
 
-  let sql = "SELECT * FROM log_anomalies WHERE analysis_id = ?";
-  const queryParams: (string | number)[] = [id];
+  let query = serviceClient
+    .from("log_anomalies")
+    .select("*")
+    .eq("analysis_id", numId);
+
   if (fromDate && toDate) {
-    sql += " AND detected_at >= ? AND detected_at <= ?";
-    queryParams.push(fromDate, toDate);
+    query = query.gte("detected_at", fromDate).lte("detected_at", toDate);
   }
-  sql += " ORDER BY deviation DESC";
 
-  const rows = db.prepare(sql).all(...queryParams) as Record<string, unknown>[];
+  const { data: rows } = await query.order("deviation", { ascending: false });
 
-  if (includePatterns && rows.length > 0) {
-    const getTopPatterns = db.prepare(`
-      SELECT error_type, COUNT(*) as cnt
-      FROM log_errors
-      WHERE analysis_id = ? AND substr(timestamp,1,10) = ?
-        AND is_error = 1
-      GROUP BY error_type
-      ORDER BY cnt DESC
-      LIMIT 3
-    `);
+  const anomalies = (rows ?? []) as Record<string, unknown>[];
 
-    for (const a of rows) {
-      const patterns = getTopPatterns.all(id, a.detected_at as string) as { error_type: string; cnt: number }[];
-      a.top_patterns = patterns.map((p) => ({
-        pattern_key: normalizeMessage(p.error_type),
-        raw_sample: p.error_type,
-        count: p.cnt,
-        percentage: parseFloat(((p.cnt / (a.error_count as number)) * 100).toFixed(1)),
+  if (includePatterns && anomalies.length > 0) {
+    for (const a of anomalies) {
+      const detectedAt = a.detected_at as string;
+      const { data: topErrors } = await serviceClient
+        .from("log_errors")
+        .select("error_type")
+        .eq("analysis_id", numId)
+        .eq("is_error", 1)
+        .gte("timestamp", detectedAt?.substring(0, 10) + "T00:00:00")
+        .lt("timestamp", detectedAt?.substring(0, 10) + "T23:59:59");
+
+      const typeCount = new Map<string, number>();
+      for (const e of topErrors ?? []) {
+        typeCount.set(e.error_type, (typeCount.get(e.error_type) ?? 0) + 1);
+      }
+      const sorted = Array.from(typeCount.entries())
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3);
+
+      a.top_patterns = sorted.map(([errorType, cnt]) => ({
+        pattern_key: normalizeMessage(errorType),
+        raw_sample: errorType,
+        count: cnt,
+        percentage: parseFloat(((cnt / (a.error_count as number)) * 100).toFixed(1)),
       }));
     }
   }
 
-  return NextResponse.json({ anomalies: rows });
+  return NextResponse.json({ anomalies });
 }

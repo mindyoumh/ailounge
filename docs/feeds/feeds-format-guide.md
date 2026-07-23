@@ -9,7 +9,7 @@ Every intern must follow this format exactly so the ingester can parse entries w
 
 When you or a teammate writes a news entry in one of these files, the **manual feeds ingester**
 (`src/ingesters/manual-feeds/index.ts`) reads the file daily, parses each entry,
-and upserts it into the `feed_items` SQLite table.
+and upserts it into the `feed_items` Supabase PostgreSQL table.
 
 The dashboard then displays it alongside auto-fetched sources (HN, RSS, GitHub Trending).
 

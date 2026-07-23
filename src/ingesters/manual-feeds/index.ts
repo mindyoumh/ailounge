@@ -72,7 +72,7 @@ export async function ingestManualFeeds(): Promise<void> {
         const parsed = parseEntry(line);
         if (!parsed) continue;
 
-        const result = upsertEntry({
+        const result = await upsertEntry({
           source: "manual",
           category,
           title: parsed.title,

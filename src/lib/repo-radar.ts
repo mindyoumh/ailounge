@@ -1,4 +1,4 @@
-import { getDb } from "../db/client";
+import { serviceClient } from "../db/service-client";
 
 export interface RepoRadarItem {
   id: number;
@@ -57,9 +57,13 @@ const GITHUB_API = "https://api.github.com";
 const userAgent = "my-ailounge/1.0";
 
 async function githubFetch(path: string): Promise<Response> {
-  const res = await fetch(`${GITHUB_API}${path}`, {
-    headers: { "User-Agent": userAgent, Accept: "application/vnd.github.v3+json" },
-  });
+  const headers: Record<string, string> = {
+    "User-Agent": userAgent,
+    Accept: "application/vnd.github.v3+json",
+  };
+  const token = process.env.GH_ACCESS_TOKEN;
+  if (token) headers.Authorization = `Bearer ${token}`;
+  const res = await fetch(`${GITHUB_API}${path}`, { headers });
   if (res.status === 403) {
     const rateLimit = res.headers.get("X-RateLimit-Remaining");
     const reset = res.headers.get("X-RateLimit-Reset");
@@ -208,49 +212,31 @@ export async function refreshSingleRepo(item: RepoRadarItem): Promise<{
     const prevIssues7d = item.issues_opened_7d || 0;
     const spike = prevIssues7d > 0 && issuesOpened > prevIssues7d * 1.5;
 
-    const db = getDb();
-    db.prepare(`
-      UPDATE repo_radar_items SET
-        description = @description,
-        language = @language,
-        stars = @stars,
-        stars_gained = @stars_gained,
-        latest_release = @latest_release,
-        latest_release_url = @latest_release_url,
-        latest_release_date = @latest_release_date,
-        latest_release_body = @latest_release_body,
-        breaking_changes = @breaking_changes,
-        security_advisory = @security_advisory,
-        open_issues = @open_issues,
-        open_prs = @open_prs,
-        prs_opened_7d = @prs_opened_7d,
-        prs_merged_7d = @prs_merged_7d,
-        issues_opened_7d = @issues_opened_7d,
-        issue_spike = @issue_spike,
-        last_activity_at = @last_activity_at,
-        last_refreshed_at = datetime('now'),
-        updated_at = datetime('now')
-      WHERE id = @id
-    `).run({
-      id: item.id,
-      description: info.description,
-      language: info.language,
-      stars: info.stargazers_count,
-      stars_gained: starsGained,
-      latest_release: release?.tag_name ?? null,
-      latest_release_url: release?.html_url ?? null,
-      latest_release_date: release?.published_at ?? null,
-      latest_release_body: release?.body ?? null,
-      breaking_changes: breaking,
-      security_advisory: security,
-      open_issues: info.open_issues_count,
-      open_prs: prs.opened + prs.merged,
-      prs_opened_7d: prs.opened,
-      prs_merged_7d: prs.merged,
-      issues_opened_7d: issuesOpened,
-      issue_spike: spike ? 1 : 0,
-      last_activity_at: info.pushed_at,
-    });
+    const now = new Date().toISOString();
+    await serviceClient
+      .from("repo_radar_items")
+      .update({
+        description: info.description,
+        language: info.language,
+        stars: info.stargazers_count,
+        stars_gained: starsGained,
+        latest_release: release?.tag_name ?? null,
+        latest_release_url: release?.html_url ?? null,
+        latest_release_date: release?.published_at ?? null,
+        latest_release_body: release?.body ?? null,
+        breaking_changes: breaking,
+        security_advisory: security,
+        open_issues: info.open_issues_count,
+        open_prs: prs.opened + prs.merged,
+        prs_opened_7d: prs.opened,
+        prs_merged_7d: prs.merged,
+        issues_opened_7d: issuesOpened,
+        issue_spike: spike ? 1 : 0,
+        last_activity_at: info.pushed_at,
+        last_refreshed_at: now,
+        updated_at: now,
+      })
+      .eq("id", item.id);
 
     return {
       ok: true,
@@ -271,32 +257,34 @@ export async function refreshAll(): Promise<{
   errors: number;
   results: { name: string; ok: boolean; error?: string; stars?: number; new_release?: string; breaking?: string | null; security?: string | null }[];
 }> {
-  const db = getDb();
-  const items = db.prepare(
-    "SELECT * FROM repo_radar_items WHERE is_active = 1 ORDER BY stars DESC",
-  ).all() as unknown as RepoRadarItem[];
+  const { data: items } = await serviceClient
+    .from("repo_radar_items")
+    .select("*")
+    .eq("is_active", 1)
+    .order("stars", { ascending: false });
+
+  const repoItems = (items ?? []) as RepoRadarItem[];
 
   let updated = 0;
   let errors = 0;
   const results: { name: string; ok: boolean; error?: string; stars?: number; new_release?: string; breaking?: string | null; security?: string | null }[] = [];
 
-  for (const item of items) {
+  for (const item of repoItems) {
     const result = await refreshSingleRepo(item);
     results.push({ ...result, name: item.full_name });
     if (result.ok) updated++;
     else errors++;
   }
 
-  const db2 = getDb();
-  db2.prepare(
-    "INSERT OR REPLACE INTO kv_store (key, value) VALUES (?, ?)",
-  ).run("repo_radar:last_refresh", new Date().toISOString());
-  db2.prepare(
-    "INSERT OR REPLACE INTO kv_store (key, value) VALUES (?, ?)",
-  ).run("repo_radar:status", errors === 0 ? "ok" : "degraded");
-  db2.prepare(
-    "INSERT OR REPLACE INTO kv_store (key, value) VALUES (?, ?)",
-  ).run("repo_radar:count", String(items.length));
+  const now = new Date().toISOString();
+  const kvEntries = [
+    { key: "repo_radar:last_refresh", value: now },
+    { key: "repo_radar:status", value: errors === 0 ? "ok" : "degraded" },
+    { key: "repo_radar:count", value: String(repoItems.length) },
+  ];
+  for (const e of kvEntries) {
+    await serviceClient.from("kv_store").upsert(e, { onConflict: "key" });
+  }
 
   return { updated, errors, results };
 }

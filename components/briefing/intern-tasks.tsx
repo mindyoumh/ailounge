@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { INTERN_TASKS } from "@/src/config/intern-tasks";
-import { Sparkles, BookOpen, ExternalLink, ArrowRight } from "lucide-react";
+import { BookOpen, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 interface FeedItem {
@@ -22,7 +22,6 @@ interface InternTasksProps {
   recommendedItem: FeedItem | null;
   todayTask: InternTaskData;
   tomorrowTask: InternTaskData;
-  delay?: number;
 }
 
 const DIFFICULTY_COLORS = {
@@ -40,7 +39,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   "git-workflow": "Git Workflow",
 };
 
-const CATEGORY_COLORS = {
+const CATEGORY_COLORS: Record<string, string> = {
   "synthetic-data": "bg-purple-500/10 text-purple-600 dark:text-purple-400",
   "mock-apis": "bg-blue-500/10 text-blue-600 dark:text-blue-400",
   "local-db": "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
@@ -49,143 +48,87 @@ const CATEGORY_COLORS = {
   "git-workflow": "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
 };
 
-export function InternTasks({
-  recommendedItem,
-  todayTask,
-  tomorrowTask,
-  delay = 0,
-}: InternTasksProps) {
+export function InternTasks({ recommendedItem, todayTask, tomorrowTask }: InternTasksProps) {
   return (
-    <div
-      className="animate-slide-up rounded-2xl border border-border/50 bg-card/50 backdrop-blur-xl transition-all duration-300 hover:shadow-lg"
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      <div className="border-b border-border/50 px-4 pt-4 pb-3">
-        <div className="flex items-center gap-2 mb-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-yellow-500/20">
-            <Sparkles className="h-3.5 w-3.5 text-yellow-600 dark:text-yellow-400" />
+    <div className="space-y-3">
+      {/* Recommended tool */}
+      {recommendedItem && (
+        <div className="rounded-xl border border-border bg-card p-4">
+          <div className="flex items-center gap-2 mb-2.5">
+            <div className="flex h-6 w-6 items-center justify-center rounded-md bg-accent/70">
+              <Sparkles className="h-3.5 w-3.5 text-muted-foreground" />
+            </div>
+            <h3 className="text-sm font-semibold text-foreground font-display">Recommended</h3>
           </div>
-          <h3 className="text-sm font-semibold text-foreground font-display tracking-wide">
-            Recommended Tool
-          </h3>
-        </div>
-        {recommendedItem ? (
           <Link
             href={recommendedItem.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block rounded-xl bg-accent/50 border border-border/50 px-3 py-2.5 transition-all duration-200 hover:bg-accent"
+            className="group block rounded-lg bg-accent/50 px-3 py-2 transition-colors hover:bg-accent"
           >
-            <div className="flex items-start justify-between gap-2">
-              <div>
-                <p className="text-sm font-medium text-foreground group-hover:text-accent-vibrant transition-colors">
-                  {recommendedItem.title}
-                </p>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  {recommendedItem.summary || recommendedItem.tags || "No description"}
-                </p>
-              </div>
-              <ExternalLink className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5 group-hover:text-accent-vibrant transition-colors" />
-            </div>
+            <p className="text-sm font-medium text-foreground/90 group-hover:text-accent-vibrant transition-colors truncate">
+              {recommendedItem.title}
+            </p>
+            <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">
+              {recommendedItem.summary || recommendedItem.tags || "No description"}
+            </p>
           </Link>
-        ) : (
-          <p className="text-sm text-muted-foreground py-2">
-            No recommendations yet. Tag items with{" "}
-            <code className="text-xs bg-muted px-1 rounded">ai</code> or{" "}
-            <code className="text-xs bg-muted px-1 rounded">tool</code>.
-          </p>
-        )}
-      </div>
-
-      <div className="px-4 pt-3 pb-2">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-500/20">
-            <BookOpen className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
-          </div>
-          <h3 className="text-sm font-semibold text-foreground font-display tracking-wide">
-            Intern Tasks
-          </h3>
         </div>
+      )}
 
-        <TaskMiniCard
-          task={todayTask}
-          label="Today"
-          isPrimary
-        />
-        <TaskMiniCard
-          task={tomorrowTask}
-          label="Tomorrow"
-          isPrimary={false}
-        />
-      </div>
-
-      {/* View all link */}
-      <div className="px-4 pb-4">
+      {/* Tasks */}
+      <div className="rounded-xl border border-border bg-card p-4">
+        <div className="flex items-center gap-2 mb-2.5">
+          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-accent/70">
+            <BookOpen className="h-3.5 w-3.5 text-muted-foreground" />
+          </div>
+          <h3 className="text-sm font-semibold text-foreground font-display">Tasks</h3>
+        </div>
+        <TaskMiniCard task={todayTask} label="Today" isPrimary />
+        <TaskMiniCard task={tomorrowTask} label="Tomorrow" isPrimary={false} />
         <Link
           href="/intern-tasks"
-          className="group flex items-center justify-center gap-1.5 rounded-xl border border-border/40 bg-accent/30 px-3 py-2 text-xs font-medium text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-foreground hover:border-border"
+          className="group flex items-center justify-center gap-1 rounded-lg border border-border/60 bg-accent/30 px-3 py-1.5 mt-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
         >
-          View all {">"} {INTERN_TASKS.length} tasks
-          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+          View all {INTERN_TASKS.length} tasks
+          <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
         </Link>
       </div>
     </div>
   );
 }
 
-function TaskMiniCard({
-  task,
-  label,
-  isPrimary,
-}: {
-  task: InternTaskData;
-  label: string;
-  isPrimary: boolean;
-}) {
+function TaskMiniCard({ task, label, isPrimary }: { task: InternTaskData; label: string; isPrimary: boolean }) {
   return (
-    <div
-      className={cn(
-        "rounded-xl border px-3 py-2.5 mb-2 last:mb-0",
-        isPrimary
-          ? "bg-accent/50 border-border/50"
-          : "bg-card/30 border-border/30",
-      )}
-    >
-      <div className="flex items-center justify-between mb-1">
-        <div className="flex items-center gap-1.5">
-          <span className={cn(
-            "text-[10px] font-mono uppercase tracking-wider",
-            isPrimary ? "text-muted-foreground" : "text-muted-foreground/70",
-          )}>
-            {label}
-          </span>
-          <span className={cn(
-            "inline-flex items-center rounded-full px-1.5 py-0.5 text-[9px] font-medium font-mono",
-            CATEGORY_COLORS[task.category],
-          )}>
-            {CATEGORY_LABELS[task.category]}
-          </span>
-        </div>
-        <span
-          className={cn(
-            "inline-flex items-center rounded-full px-1.5 py-0.5 text-[9px] font-medium font-mono",
-            DIFFICULTY_COLORS[task.difficulty],
-          )}
-        >
+    <div className={cn(
+      "rounded-lg px-3 py-2 mb-1.5 last:mb-0",
+      isPrimary ? "bg-accent/50 border border-border/50" : "",
+    )}>
+      <div className="flex items-center gap-1.5 mb-0.5">
+        <span className={cn(
+          "text-[10px] font-mono uppercase tracking-wider",
+          isPrimary ? "text-muted-foreground" : "text-muted-foreground/60",
+        )}>
+          {label}
+        </span>
+        <span className={cn(
+          "inline-flex items-center rounded-full px-1 py-0.5 text-[8px] font-medium font-mono",
+          CATEGORY_COLORS[task.category],
+        )}>
+          {CATEGORY_LABELS[task.category]}
+        </span>
+        <span className={cn(
+          "inline-flex items-center rounded-full px-1 py-0.5 text-[8px] font-medium font-mono ml-auto",
+          DIFFICULTY_COLORS[task.difficulty],
+        )}>
           {task.difficulty}
         </span>
       </div>
       <p className={cn(
-        "text-sm font-medium",
+        "text-xs font-medium",
         isPrimary ? "text-foreground" : "text-foreground/80",
       )}>
         {task.title}
-      </p>
-      <p className={cn(
-        "text-xs mt-0.5",
-        isPrimary ? "text-muted-foreground" : "text-muted-foreground/70",
-      )}>
-        {task.description}
       </p>
     </div>
   );

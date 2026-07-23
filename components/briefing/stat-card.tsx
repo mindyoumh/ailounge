@@ -4,54 +4,43 @@ interface StatCardProps {
   label: string;
   value: string | number;
   icon: React.ElementType;
-  accentColor: string;
-  gradient: string;
-  secondary?: string;
-  delay?: number;
+  trend?: { value: string; positive: boolean };
+  theme?: "blue" | "teal" | "purple" | "amber" | "rose";
 }
 
-export function StatCard({
-  label,
-  value,
-  icon: Icon,
-  accentColor,
-  gradient,
-  secondary,
-  delay = 0,
-}: StatCardProps) {
+const THEME_STYLES = {
+  blue: { container: "bg-blue-100 dark:bg-blue-900/50", icon: "text-blue-600 dark:text-blue-400" },
+  teal: { container: "bg-teal-100 dark:bg-teal-900/50", icon: "text-teal-600 dark:text-teal-400" },
+  purple: { container: "bg-purple-100 dark:bg-purple-900/50", icon: "text-purple-600 dark:text-purple-400" },
+  amber: { container: "bg-amber-100 dark:bg-amber-900/50", icon: "text-amber-600 dark:text-amber-400" },
+  rose: { container: "bg-rose-100 dark:bg-rose-900/50", icon: "text-rose-600 dark:text-rose-400" },
+} as const;
+
+export function StatCard({ label, value, icon: Icon, trend, theme }: StatCardProps) {
+  const s = theme ? THEME_STYLES[theme] : null;
   return (
-    <div
-      className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      <div
-        className={cn(
-          "absolute left-0 top-0 h-full w-[3px] transition-all duration-300 group-hover:w-[4px]",
-          accentColor,
-        )}
-      />
-      <div className="relative z-10 py-4 pl-5">
-        <div className="flex items-center gap-3">
-          <div
-            className={cn(
-              "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br shadow-sm transition-transform duration-300 group-hover:scale-110",
-              gradient,
-            )}
-          >
-            <Icon className="h-5 w-5 text-white" />
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="text-3xl font-bold tabular-nums tracking-tight text-foreground font-display">
+    <div className="group relative overflow-hidden rounded-xl border border-border bg-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm">
+      <div className="p-4">
+        <div className="flex items-start justify-between">
+          <div className="min-w-0">
+            <div className="text-2xl font-bold tabular-nums tracking-tight text-foreground font-display">
               {value}
             </div>
-            <div className="text-xs font-medium text-muted-foreground">
+            <div className="text-xs text-muted-foreground mt-0.5">
               {label}
             </div>
-            {secondary && (
-              <div className="mt-0.5 text-[11px] text-muted-foreground/70">
-                {secondary}
+            {trend && (
+              <div className={cn(
+                "flex items-center gap-1 mt-1 text-[11px] font-medium",
+                trend.positive ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400",
+              )}>
+                <span>{trend.positive ? "↑" : "↓"}</span>
+                <span>{trend.value}</span>
               </div>
             )}
+          </div>
+          <div className={cn("flex h-8 w-8 shrink-0 items-center justify-center rounded-lg", s?.container ?? "bg-accent/60")}>
+            <Icon className={cn("h-4 w-4", s?.icon ?? "text-muted-foreground")} />
           </div>
         </div>
       </div>

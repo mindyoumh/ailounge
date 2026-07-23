@@ -111,7 +111,7 @@ export function FeedBreakdown({
       className="animate-slide-up rounded-2xl border border-border/50 bg-card/50 backdrop-blur-xl transition-all duration-300 hover:shadow-lg"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="px-4 pt-4 pb-2">
+      <div className="px-5 pt-4 pb-2">
         <div className="flex items-center gap-2">
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-teal-500/20">
             <BarChart3 className="h-3.5 w-3.5 text-teal-600 dark:text-teal-400" />
@@ -121,7 +121,9 @@ export function FeedBreakdown({
           </h3>
         </div>
       </div>
-      <div className="px-4 pb-4">
+
+      {/* Mobile: tabs */}
+      <div className="px-5 pb-5 lg:hidden">
         <Tabs defaultValue="sources">
           <TabsList className="w-full bg-muted">
             <TabsTrigger value="sources" className="flex-1 data-[state=active]:bg-background">
@@ -138,6 +140,22 @@ export function FeedBreakdown({
             <Chart items={categories} total={total} />
           </TabsContent>
         </Tabs>
+      </div>
+
+      {/* Desktop: side-by-side */}
+      <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 px-5 pb-5">
+        <div>
+          <h4 className="text-xs font-medium text-muted-foreground mb-3 tracking-wide">
+            By Source
+          </h4>
+          <Chart items={sources} total={total} />
+        </div>
+        <div>
+          <h4 className="text-xs font-medium text-muted-foreground mb-3 tracking-wide">
+            By Category
+          </h4>
+          <Chart items={categories} total={total} />
+        </div>
       </div>
     </div>
   );

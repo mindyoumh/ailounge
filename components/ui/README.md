@@ -1,6 +1,6 @@
 # `components/ui/` — shadcn/ui Primitives
 
-12 UI components, standard shadcn/ui with minimal customization.
+13 UI components, standard shadcn/ui with minimal customization.
 
 ## Component Reference
 
@@ -17,7 +17,8 @@
 | **Table** | No | — | 6 sub-components: Table, TableHeader, TableBody, TableRow, TableHead, TableCell |
 | **Skeleton** | No | — | `Skeleton` (shimmer animation) + `CardSkeleton` + `StatCardSkeleton` composite loaders |
 | **DropdownMenu** | Yes | `@radix-ui/react-dropdown-menu` | 16 exports: Root, Trigger, Content, Item, CheckboxItem, RadioItem, Label, Separator, Shortcut, Group, Portal, Sub, SubContent, SubTrigger, RadioGroup |
-| **Navbar** | Yes | — | Sticky top nav, 3 nav items (Briefing, Feed, Stack), active route highlight, theme toggle button |
+| **Command** | Yes | `cmdk` | Command dialog with search input, group labels, item list, empty state, `shouldFilter` prop |
+| **Dialog** | Yes | `@radix-ui/react-dialog` | 5 exports: Root, Trigger, Portal, Overlay, Content (with animation) |
 
 ## Usage Notes
 

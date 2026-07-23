@@ -7,11 +7,11 @@ The data ingestion and storage layer for the Developer Dashboard.
 ```
 config/        — Seed data (intern tasks)
   ↓
-ingesters/    — Fetch/parse feed sources → SQLite + markdown
+ingesters/    — Fetch/parse feed sources → Supabase PostgreSQL + markdown (migrated from SQLite June 2026)
   ↓
 lib/          — Shared utilities (DB write, markdown write, analytics queries)
   ↓
-db/           — SQLite client, schema, migration
+db/           — Supabase client, schema, seed data
 ```
 
 ## Relationship to Other Directories
@@ -26,14 +26,17 @@ db/           — SQLite client, schema, migration
 ## Quickstart
 
 ```bash
-# Run DB migration (creates tables + seeds data)
+# Prerequisites: create .env.local with NEXT_PUBLIC_SUPABASE_URL and
+# NEXT_PUBLIC_SUPABASE_ANON_KEY. Run docs/supabase-schema.sql in Supabase SQL editor first.
+
+# Seed data (tables must already exist in Supabase)
 npm run db:migrate
 
 # Run all ingesters
 npm run ingest
 
 # Run a single ingester
-npm run ingest:manual     # docs/feeds/*.md → SQLite
+npm run ingest:manual     # docs/feeds/*.md → Supabase PostgreSQL
 npm run ingest:rss        # RSS/Atom feeds
 npm run ingest:hn         # Hacker News (HN Algolia API)
 npm run ingest:trending   # GitHub Trending (RSS feeds)
@@ -44,8 +47,8 @@ npm run ingest:prompts   # Prompt Library (curated extras + community + UI desig
 
 | Module | Status |
 |--------|--------|
-| `db/` | ✅ Done — 9 tables, migration, seed data |
-| `ingesters/manual-feeds/` | ✅ Done — parses markdown → SQLite (standalone, not in orchestrator) |
+| `db/` | ✅ Done — 10 tables + `user_roles`, migration, seed data |
+| `ingesters/manual-feeds/` | ✅ Done — parses markdown → Supabase PostgreSQL (standalone, not in orchestrator) |
 | `ingesters/rss/` | ✅ Done — 20 RSS feeds, regex parser |
 | `ingesters/hacker-news/` | ✅ Done — HN Algolia API, 20 stories |
 | `ingesters/github-trending/` | ✅ Done — fetches RSS directly (3 feeds: daily/weekly/monthly) |

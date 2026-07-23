@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDb } from "@/src/db/client";
+import { serviceClient } from "@/src/db/service-client";
 
 export async function GET(
   req: NextRequest,
@@ -10,12 +10,14 @@ export async function GET(
   const toDate = req.nextUrl.searchParams.get("to_date");
 
   if (fromDate && toDate) {
-    const db = getDb();
-    const errorRows = db
-      .prepare(
-        "SELECT pattern_key, error_type, raw_message, timestamp FROM log_errors WHERE analysis_id = ? AND is_error = 1 AND timestamp >= ? AND timestamp <= ?"
-      )
-      .all(id, fromDate, toDate) as { pattern_key: string; error_type: string; raw_message: string; timestamp: string }[];
+    const numId = Number(id);
+    const { data: errorRows } = await serviceClient
+      .from("log_errors")
+      .select("pattern_key, error_type, raw_message, timestamp")
+      .eq("analysis_id", numId)
+      .eq("is_error", 1)
+      .gte("timestamp", fromDate)
+      .lte("timestamp", toDate);
 
     const patternMap = new Map<string, {
       count: number;
@@ -24,13 +26,13 @@ export async function GET(
       typeCounts: Map<string, number>;
     }>();
 
-    for (const row of errorRows) {
+    for (const row of errorRows ?? []) {
       const key = row.pattern_key || "unknown";
       if (!patternMap.has(key)) {
         patternMap.set(key, {
           count: 0,
-          first_seen: row.timestamp,
-          last_seen: row.timestamp,
+          first_seen: row.timestamp ?? "",
+          last_seen: row.timestamp ?? "",
           typeCounts: new Map(),
         });
       }
@@ -43,7 +45,7 @@ export async function GET(
       }
     }
 
-    const totalFiltered = errorRows.length;
+    const totalFiltered = errorRows?.length ?? 0;
 
     const patterns = Array.from(patternMap.entries())
       .map(([pattern_key, data], index) => {
@@ -65,10 +67,11 @@ export async function GET(
     return NextResponse.json({ patterns });
   }
 
-  const db = getDb();
-  const rows = db
-    .prepare("SELECT * FROM log_patterns WHERE analysis_id = ? ORDER BY count DESC")
-    .all(id);
+  const { data: rows } = await serviceClient
+    .from("log_patterns")
+    .select("*")
+    .eq("analysis_id", Number(id))
+    .order("count", { ascending: false });
 
-  return NextResponse.json({ patterns: rows });
+  return NextResponse.json({ patterns: rows ?? [] });
 }

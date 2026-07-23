@@ -5,6 +5,78 @@
 
 ## June 2026
 
+- [ChatGPT Sites](https://openai.com/academy/chatgpt-sites) | 2026-06-02 | ai
+- [Our latest Google Finance upgrades, including a new app](https://blog.google/products-and-platforms/products/search/google-finance-updates-june-2026/) | 2026-06-25 | ai
+- [Ask an AI expert: What exactly is the full stack?](https://blog.google/innovation-and-ai/technology/ai/full-stack-ai-explainer/) | 2026-06-29 | ai
+- [Unlocking Britain’s next era of productivity: Building a nation of AI trailblazers](https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/unlocking-britains-next-era-of-productivity-building-a-nation-of-ai-trailblazers/) | 2026-06-30 | ai
+- [Redeploying Fable 5](https://www.anthropic.com/news/redeploying-fable-5) | 2026-06-30 | ai
+- [Introducing Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5) | 2026-06-30 | ai
+- [Claude Science, an AI workbench for scientists, is now available](https://www.anthropic.com/news/claude-science-ai-workbench) | 2026-06-30 | ai
+- [Previewing GPT-5.6 Sol: a next-generation model](https://openai.com/index/previewing-gpt-5-6-sol) | 2026-06-26 | ai
+- [HP Inc. launches Frontier strategic partnership with OpenAI](https://openai.com/index/hp-frontier-partnership) | 2026-06-28 | ai
+- [Mapping Europe’s AI Workforce Opportunity](https://openai.com/index/mapping-ai-jobs-transition-eu) | 2026-06-29 | ai
+- [Core dump epidemiology: fixing an 18-year-old bug](https://openai.com/index/core-dump-epidemiology-data-infrastructure-bug) | 2026-06-30 | ai
+- [Introducing GeneBench-Pro](https://openai.com/index/introducing-genebench-pro) | 2026-06-30 | ai
+- [Inside Genebench-Pro](https://openai.com/index/genebench-pro/case-studies) | 2026-06-30 | ai
+- [How ChatGPT adoption has expanded](https://openai.com/index/how-chatgpt-adoption-has-expanded) | 2026-06-30 | ai
+- [How agents are transforming work](https://openai.com/index/how-agents-are-transforming-work) | 2026-06-25 | ai
+- [OpenAI and Broadcom unveil LLM-optimized inference chip](https://openai.com/index/openai-broadcom-jalapeno-inference-chip) | 2026-06-24 | ai
+- [Introducing Claude Tag](https://www.anthropic.com/news/introducing-claude-tag) | 2026-06-23 | ai
+- [How Omio is building the future of conversational travel](https://openai.com/index/omio) | 2026-06-23 | ai
+- [How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery](https://openai.com/index/gpt-5-immunology-mystery) | 2026-06-23 | ai
+- [Helping build shared standards for advanced AI](https://openai.com/index/helping-build-shared-standards-for-advanced-ai) | 2026-06-23 | ai
+- [Codex-maxxing for long-running work](https://openai.com/index/codex-maxxing-long-running-work) | 2026-06-22 | ai
+- [Daybreak: Tools for securing every organization in the world](https://openai.com/index/daybreak-securing-the-world) | 2026-06-22 | ai
+- [Patch the Planet: a Daybreak initiative to support open source maintainers](https://openai.com/index/patch-the-planet) | 2026-06-22 | ai
+- [Samsung Electronics brings ChatGPT and Codex to employees](https://openai.com/index/samsung-electronics-chatgpt-codex-deployment) | 2026-06-21 | ai
+- [Using AI to help physicians diagnose rare genetic diseases affecting children](https://openai.com/index/diagnose-rare-childhood-diseases) | 2026-06-18 | ai
+- [Improving health intelligence in ChatGPT](https://openai.com/index/improving-health-intelligence-in-chatgpt) | 2026-06-18 | ai
+- [New usage analytics and updated spend controls for enterprises](https://openai.com/index/chatgpt-enterprise-spend-controls) | 2026-06-18 | ai
+- [New research shows how AMIE, our medical AI, could help manage health conditions.](https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/) | 2026-06-17 | ai
+- [Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem](https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem) | 2026-06-17 | ai
+- [Predicting model behavior before release by simulating deployment](https://openai.com/index/deployment-simulation) | 2026-06-16 | ai
+- [Introducing LifeSciBench](https://openai.com/index/introducing-life-sci-bench) | 2026-06-17 | ai
+- [A near-autonomous AI chemist improves a challenging reaction in medicinal chemistry](https://openai.com/index/ai-chemist-improves-reaction) | 2026-06-17 | ai
+- [Anthropic confidentially submits draft S-1 to the SEC](https://www.anthropic.com/news/confidential-draft-s1-sec) | 2026-06-01 | ai
+- [Expanding Project Glasswing](https://www.anthropic.com/news/expanding-project-glasswing) | 2026-06-02 | ai
+- [Introducing the Services Track and Partner Hub of the Claude Partner Network](https://www.anthropic.com/news/services-track-partner-hub) | 2026-06-03 | ai
+- [What we learned mapping a year’s worth of AI-enabled cyber threats](https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack) | 2026-06-03 | ai
+- [Claude Fable 5 and Claude Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) | 2026-06-09 | ai
+- [Introducing Claude Corps](https://www.anthropic.com/news/claude-corps) | 2026-06-11 | ai
+- [DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on](https://www.anthropic.com/news/dxc-anthropic-alliance) | 2026-06-11 | ai
+- [Statement on the US government directive to suspend access to Fable 5 and Mythos 5](https://www.anthropic.com/news/fable-mythos-access) | 2026-06-12 | ai
+- [Results from the first Anthropic Public Record](https://www.anthropic.com/news/anthropic-public-record) | 2026-06-12 | ai
+- [TCS and Anthropic partner to bring Claude to regulated industries](https://www.anthropic.com/news/tcs-anthropic-partnership) | 2026-06-12 | ai
+- [OpenAI frontier models and Codex are now available on AWS](https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws) | 2026-06-01 | ai
+- [Building the infrastructure for the Intelligence Age in Michigan](https://openai.com/index/stargate-michigan-data-center) | 2026-06-01 | ai
+- [Our views on AI policy and political advocacy](https://openai.com/index/our-views-on-ai-policy-and-political-advocacy) | 2026-06-01 | ai
+- [Codex is becoming a productivity tool for everyone](https://openai.com/index/codex-for-knowledge-work) | 2026-06-02 | ai
+- [Advancing youth safety and opportunity through global leadership](https://openai.com/index/advancing-youth-safety-and-opportunity-through-global-leadership) | 2026-06-02 | ai
+- [Codex for every role, tool, and workflow](https://openai.com/index/codex-for-every-role-tool-workflow) | 2026-06-02 | ai
+- [Travelers deploys AI-powered claims countrywide with OpenAI](https://openai.com/index/travelers) | 2026-06-02 | ai
+- [OpenAI public policy agenda](https://openai.com/index/public-policy-agenda) | 2026-06-03 | ai
+- [A blueprint for democratic governance of frontier AI](https://openai.com/index/frontier-safety-blueprint) | 2026-06-03 | ai
+- [How Wasmer used Codex to build a Node.js runtime for the edge](https://openai.com/index/wasmer) | 2026-06-03 | ai
+- [Introducing new capabilities to GPT-Rosalind](https://openai.com/index/introducing-new-capabilities-to-gpt-rosalind) | 2026-06-03 | ai
+- [Biodefense in the Intelligence Age](https://openai.com/index/biodefense-in-the-intelligence-age) | 2026-06-04 | ai
+- [Dreaming: Better memory for a more helpful ChatGPT](https://openai.com/index/chatgpt-memory-dreaming) | 2026-06-04 | ai
+- [How Endava is redesigning software delivery around AI agents](https://openai.com/index/endava-frontiers) | 2026-06-04 | ai
+- [Introducing the OpenAI Economic Research Exchange](https://openai.com/index/economic-research-exchange) | 2026-06-08 | ai
+- [Built to benefit everyone: our plan](https://openai.com/index/built-to-benefit-everyone-our-plan) | 2026-06-08 | ai
+- [Confidential submission of draft S-1 to the SEC](https://openai.com/index/openai-submits-confidential-s-1) | 2026-06-08 | ai
+- [Industrial policy for the Intelligence Age](https://openai.com/index/industrial-policy-for-the-intelligence-age) | 2026-06-09 | ai
+- [What Codex unlocks for Notion](https://openai.com/index/notion) | 2026-06-09 | ai
+- [How engineers at Nextdoor use Codex to build without limits](https://openai.com/index/nextdoor) | 2026-06-09 | ai
+- [From data to decisions: how LSEG is scaling trusted AI](https://openai.com/index/lseg) | 2026-06-10 | ai
+- [PRC-linked influence operations are targeting AI debates in the US](https://openai.com/index/prc-linked-influence-operations-ai-debates) | 2026-06-10 | ai
+- [Access OpenAI models and Codex through your Oracle cloud commitment](https://openai.com/index/openai-on-oracle-cloud) | 2026-06-10 | ai
+- [Supporting Europe’s work in ensuring a trustworthy AI ecosystem](https://openai.com/index/supporting-eu-trustworthy-ai-ecosystem) | 2026-06-11 | ai
+- [OpenAI to acquire Ona](https://openai.com/index/openai-to-acquire-ona) | 2026-06-11 | ai
+- [How an astrophysicist uses Codex to help simulate black holes](https://openai.com/index/using-codex-to-simulate-black-holes) | 2026-06-11 | ai
+- [BBVA puts AI at the core of banking with OpenAI](https://openai.com/index/bbva) | 2026-06-11 | ai
+- [How Preply combines AI and human tutors to personalize learning](https://openai.com/index/preply) | 2026-06-12 | ai
+- [New OpenAI Academy courses for the next era of work](https://openai.com/index/academy-courses-applying-ai-at-work) | 2026-06-12 | ai
+- [Introducing the OpenAI Partner Network](https://openai.com/index/introducing-openai-partner-network) | 2026-06-14 | ai
 - [We’re strengthening our presence in Alabama through new investments and community support.](https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/) | 2026-06-15 | ai
 - [Our new community investments in Virginia support local jobs and expand energy affordability.](https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virginia-community-investments/) | 2026-06-11 | ai
 - [Claude Fable 5 and Mythos 5 Launched — Mythos-Class Models Now Available](https://www.anthropic.com/news/claude-fable-5-mythos-5) | 2026-06-09 | ai, model, release, benchmark
@@ -23,6 +95,84 @@
 
 ## May 2026
 
+- [How finance teams use ChatGPT Work](https://openai.com/academy/how-finance-teams-use-codex) | 2026-05-12 | ai
+- [How data science teams use ChatGPT Work](https://openai.com/academy/codex-for-work/how-data-science-teams-use-codex) | 2026-05-15 | ai
+- [How sales teams use ChatGPT Work](https://openai.com/academy/codex-for-work/how-sales-teams-use-codex) | 2026-05-15 | ai
+- [How business operations teams use ChatGPT Work](https://openai.com/academy/codex-for-work/how-business-operations-teams-use-codex) | 2026-05-15 | ai
+- [AI is becoming a first hire for small businesses](https://openai.com/index/ai-first-hire-small-business) | 2026-05-25 | ai
+- [Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs](https://www.anthropic.com/news/enterprise-ai-services-company) | 2026-05-04 | ai
+- [Agents for financial services](https://www.anthropic.com/news/finance-agents) | 2026-05-05 | ai
+- [Higher usage limits for Claude and a compute deal with SpaceX](https://www.anthropic.com/news/higher-limits-spacex) | 2026-05-06 | ai
+- [Introducing Claude for Small Business](https://www.anthropic.com/news/claude-for-small-business) | 2026-05-13 | ai
+- [PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients](https://www.anthropic.com/news/pwc-expanded-partnership) | 2026-05-14 | ai
+- [Anthropic forms $200 million partnership with the Gates Foundation](https://www.anthropic.com/news/gates-foundation-partnership) | 2026-05-14 | ai
+- [Anthropic acquires Stainless](https://www.anthropic.com/news/anthropic-acquires-stainless) | 2026-05-18 | ai
+- [Widening the conversation on frontier AI](https://www.anthropic.com/news/widening-conversation-ai) | 2026-05-19 | ai
+- [KPMG integrates Claude across its core business and workforce of more than 276,000 in strategic alliance](https://www.anthropic.com/news/anthropic-kpmg) | 2026-05-19 | ai
+- [Anthropic co-founder Chris Olah's remarks on Pope Leo XIV's encyclical "Magnifica humanitas"](https://www.anthropic.com/news/chris-olah-pope-leo-encyclical) | 2026-05-25 | ai
+- [Anthropic appoints KiYoung Choi as Representative Director of Korea ahead of Seoul office opening](https://www.anthropic.com/news/kiyoung-choi-representative-director-anthropic-korea) | 2026-05-26 | ai
+- [Anthropic opens Milan office to support Italian enterprise, research, and developers](https://www.anthropic.com/news/milan-office-opening) | 2026-05-27 | ai
+- [Introducing Claude Opus 4.8](https://www.anthropic.com/news/claude-opus-4-8) | 2026-05-28 | ai
+- [Anthropic raises $65B in Series H funding at $965B post-money valuation](https://www.anthropic.com/news/series-h) | 2026-05-28 | ai
+- [How OpenAI delivers low-latency voice AI at scale](https://openai.com/index/delivering-low-latency-voice-ai-at-scale) | 2026-05-04 | ai
+- [OpenAI and PwC collaborate to reimagine the office of the CFO](https://openai.com/index/openai-pwc-finance-collaboration) | 2026-05-04 | ai
+- [Advancing youth safety and wellbeing in EMEA](https://openai.com/index/advancing-youth-safety-in-emea) | 2026-05-05 | ai
+- [New ways to buy ChatGPT ads](https://openai.com/index/new-ways-to-buy-chatgpt-ads) | 2026-05-05 | ai
+- [Unlocking large scale AI training networks with MRC (Multipath Reliable Connection)](https://openai.com/index/mrc-supercomputer-networking) | 2026-05-05 | ai
+- [GPT-5.5 Instant System Card](https://openai.com/index/gpt-5-5-instant-system-card) | 2026-05-05 | ai
+- [GPT-5.5 Instant: smarter, clearer, and more personalized](https://openai.com/index/gpt-5-5-instant) | 2026-05-05 | ai
+- [Singular Bank helps bankers move fast with ChatGPT and Codex](https://openai.com/index/singular-bank) | 2026-05-06 | ai
+- [How frontier firms are pulling ahead](https://openai.com/index/introducing-b2b-signals) | 2026-05-06 | ai
+- [Introducing ChatGPT Futures: Class of 2026](https://openai.com/index/introducing-chatgpt-futures-class-of-2026) | 2026-05-06 | ai
+- [Uber uses OpenAI to help people earn smarter and book faster](https://openai.com/index/uber) | 2026-05-06 | ai
+- [How ChatGPT learns about the world while protecting privacy](https://openai.com/index/how-chatgpt-protects-privacy) | 2026-05-06 | ai
+- [Simplex rethinks software development with Codex](https://openai.com/index/simplex) | 2026-05-07 | ai
+- [Testing ads in ChatGPT](https://openai.com/index/testing-ads-in-chatgpt) | 2026-05-07 | ai
+- [Introducing Trusted Contact in ChatGPT](https://openai.com/index/introducing-trusted-contact-in-chatgpt) | 2026-05-07 | ai
+- [Advancing voice intelligence with new models in the API](https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api) | 2026-05-07 | ai
+- [Parloa builds service agents customers want to talk to](https://openai.com/index/parloa) | 2026-05-07 | ai
+- [Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber](https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber) | 2026-05-07 | ai
+- [Running Codex safely at OpenAI](https://openai.com/index/running-codex-safely) | 2026-05-08 | ai
+- [OpenAI launches DeployCo to help businesses build around intelligence](https://openai.com/index/openai-launches-the-deployment-company) | 2026-05-11 | ai
+- [OpenAI Campus Network: Student club interest form](https://openai.com/index/openai-campus-network-student-club-interest-form) | 2026-05-11 | ai
+- [How enterprises are scaling AI](https://openai.com/business/guides-and-resources/how-enterprises-are-scaling-ai) | 2026-05-11 | ai
+- [How ChatGPT adoption broadened in early 2026](https://openai.com/signals/research/2026q1-update) | 2026-05-11 | ai
+- [What Parameter Golf taught us about AI-assisted research](https://openai.com/index/what-parameter-golf-taught-us) | 2026-05-12 | ai
+- [How NVIDIA engineers and researchers build with Codex](https://openai.com/index/nvidia) | 2026-05-12 | ai
+- [AutoScout24 scales engineering with AI-powered workflows](https://openai.com/index/autoscout24) | 2026-05-12 | ai
+- [How finance teams use Codex](https://openai.com/academy/how-finance-teams-use-codex) | 2026-05-12 | ai
+- [Our response to the TanStack npm supply chain attack](https://openai.com/index/our-response-to-the-tanstack-npm-supply-chain-attack) | 2026-05-13 | ai
+- [Building a safe, effective sandbox to enable Codex on Windows](https://openai.com/index/building-codex-windows-sandbox) | 2026-05-13 | ai
+- [Helping ChatGPT better recognize context in sensitive conversations](https://openai.com/index/chatgpt-recognize-context-in-sensitive-conversations) | 2026-05-14 | ai
+- [Work with Codex from anywhere](https://openai.com/index/work-with-codex-from-anywhere) | 2026-05-14 | ai
+- [Sea's View on the Future of Agentic Software Development with Codex](https://openai.com/index/sea-david-chen) | 2026-05-14 | ai
+- [A new personal finance experience in ChatGPT](https://openai.com/index/personal-finance-chatgpt) | 2026-05-15 | ai
+- [How business operations teams use Codex](https://openai.com/academy/codex-for-work/how-business-operations-teams-use-codex) | 2026-05-15 | ai
+- [How data science teams use Codex](https://openai.com/academy/codex-for-work/how-data-science-teams-use-codex) | 2026-05-15 | ai
+- [How sales teams use Codex](https://openai.com/academy/codex-for-work/how-sales-teams-use-codex) | 2026-05-15 | ai
+- [Databricks brings GPT-5.5 to enterprise agent workflows](https://openai.com/index/databricks) | 2026-05-15 | ai
+- [OpenAI and Malta partner to bring ChatGPT Plus to all citizens](https://openai.com/index/malta-chatgpt-plus-partnership) | 2026-05-16 | ai
+- [OpenAI and Dell partner to bring Codex to hybrid and on-premise enterprise environments](https://openai.com/index/dell-codex-enterprise-partnership) | 2026-05-18 | ai
+- [Advancing content provenance for a safer, more transparent AI ecosystem](https://openai.com/index/advancing-content-provenance) | 2026-05-19 | ai
+- [Introducing OpenAI for Singapore](https://openai.com/index/introducing-openai-for-singapore) | 2026-05-19 | ai
+- [The next phase of OpenAI’s Education for Countries](https://openai.com/index/the-next-phase-of-education-for-countries) | 2026-05-20 | ai
+- [How Ramp engineers accelerate code review with Codex](https://openai.com/index/ramp) | 2026-05-20 | ai
+- [An OpenAI model has disproved a central conjecture in discrete geometry](https://openai.com/index/model-disproves-discrete-geometry-conjecture) | 2026-05-20 | ai
+- [AdventHealth advances whole-person care with OpenAI](https://openai.com/index/adventhealth) | 2026-05-21 | ai
+- [OpenAI named a Leader in enterprise coding agents by Gartner](https://openai.com/index/gartner-2026-agentic-coding-leader) | 2026-05-22 | ai
+- [How Virgin Atlantic ships faster with Codex](https://openai.com/index/virgin-atlantic) | 2026-05-22 | ai
+- [OpenAI, Grupo Folha and Grupo UOL announce strategic content partnership](https://openai.com/index/grupo-folha-grupo-uol-partnership) | 2026-05-25 | ai
+- [Election information and safeguards in 2026](https://openai.com/index/election-safeguards-2026) | 2026-05-27 | ai
+- [Warp’s big bet on building open source with GPT-5.5](https://openai.com/index/warp) | 2026-05-27 | ai
+- [Building self-improving tax agents with Codex](https://openai.com/index/building-self-improving-tax-agents-with-codex) | 2026-05-27 | ai
+- [Cisco and OpenAI redefine enterprise engineering with Codex](https://openai.com/index/cisco) | 2026-05-27 | ai
+- [MUFG aims to become AI-native with OpenAI](https://openai.com/index/mufg) | 2026-05-28 | ai
+- [OpenAI’s Frontier Governance Framework](https://openai.com/index/openai-frontier-governance-framework) | 2026-05-28 | ai
+- [How Endava builds an agentic organization with Codex](https://openai.com/index/endava) | 2026-05-28 | ai
+- [A shared playbook for trustworthy third party evaluations](https://openai.com/index/trustworthy-third-party-evaluations-foundations) | 2026-05-29 | ai
+- [Strengthening societal resilience with Rosalind Biodefense](https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense) | 2026-05-29 | ai
+- [How Braintrust turns customer requests into code with Codex](https://openai.com/index/braintrust) | 2026-05-29 | ai
+- [Boston Children’s uses AI to unlock new diagnoses](https://openai.com/index/boston-childrens-hospital) | 2026-05-29 | ai
 - [Check out real-life AI prototypes from the Futures Lab.](https://blog.google/innovation-and-ai/technology/ai/university-waterloo-labs/) | 2026-05-29 | ai
 - [Take our I/O 2026 quiz, vibe coded in Google AI Studio.](https://blog.google/innovation-and-ai/technology/ai/io-2026-vibe-coded-quiz/) | 2026-05-29 | ai
 - [9 demos of Gemini Omni and Gemini 3.5 in action](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/) | 2026-05-29 | ai
@@ -40,3 +190,271 @@
 - [Gemini 3.5: frontier intelligence with action](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/) | 2026-05-19 | ai
 - [The new AI-powered Google Finance is expanding to Europe.](https://blog.google/products-and-platforms/products/search/ai-powered-google-finance-in-europe/) | 2026-05-11 | ai
 
+
+## April 2026
+- [Introducing Advanced Account Security](https://openai.com/index/advanced-account-security) | 2026-04-30 | ai
+- [ChatGPT Codex settings](https://openai.com/academy/codex-settings) | 2026-04-23 | ai
+- [What is ChatGPT Codex?](https://openai.com/academy/what-is-codex) | 2026-04-23 | ai
+- [Working with ChatGPT Codex](https://openai.com/academy/working-with-codex) | 2026-04-23 | ai
+- [How to get started with ChatGPT Codex](https://openai.com/academy/codex-how-to-start) | 2026-04-23 | ai
+- [How to use ChatGPT Work for everyday tasks](https://openai.com/academy/how-to-use-chatgpt-work-for-everyday-tasks) | 2026-04-23 | ai
+- [Modeling an AI jobs transition](https://openai.com/index/modeling-ai-jobs-transition) | 2026-04-25 | ai
+- [Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute](https://www.anthropic.com/news/google-broadcom-partnership-compute) | 2026-04-06 | ai
+- [Anthropic’s Long-Term Benefit Trust appoints Vas Narasimhan to Board of Directors](https://www.anthropic.com/news/narasimhan-board) | 2026-04-14 | ai
+- [Introducing Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7) | 2026-04-16 | ai
+- [Introducing Claude Design by Anthropic Labs](https://www.anthropic.com/news/claude-design-anthropic-labs) | 2026-04-17 | ai
+- [Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute](https://www.anthropic.com/news/anthropic-amazon-compute) | 2026-04-20 | ai
+- [An update on our election safeguards](https://www.anthropic.com/news/election-safeguards-update) | 2026-04-24 | ai
+- [Anthropic and NEC collaborate to build Japan’s largest AI engineering workforce](https://www.anthropic.com/news/anthropic-nec) | 2026-04-24 | ai
+- [Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office](https://www.anthropic.com/news/theo-hourmouzis-general-manager-australia-new-zealand) | 2026-04-27 | ai
+- [Claude for Creative Work](https://www.anthropic.com/news/claude-for-creative-work) | 2026-04-28 | ai
+- [Gradient Labs gives every bank customer an AI account manager](https://openai.com/index/gradient-labs) | 2026-04-01 | ai
+- [Codex now offers more flexible pricing for teams](https://openai.com/index/codex-flexible-pricing-for-teams) | 2026-04-02 | ai
+- [OpenAI acquires TBPN](https://openai.com/index/openai-acquires-tbpn) | 2026-04-02 | ai
+- [Announcing the OpenAI Safety Fellowship](https://openai.com/index/introducing-openai-safety-fellowship) | 2026-04-06 | ai
+- [Introducing the Child Safety Blueprint](https://openai.com/index/introducing-child-safety-blueprint) | 2026-04-08 | ai
+- [The next phase of enterprise AI](https://openai.com/index/next-phase-of-enterprise-ai) | 2026-04-08 | ai
+- [CyberAgent moves faster with ChatGPT Enterprise and Codex](https://openai.com/index/cyberagent) | 2026-04-09 | ai
+- [AI fundamentals](https://openai.com/academy/what-is-ai) | 2026-04-10 | ai
+- [Brainstorming with ChatGPT](https://openai.com/academy/brainstorming) | 2026-04-10 | ai
+- [ChatGPT for finance teams](https://openai.com/academy/finance) | 2026-04-10 | ai
+- [Applications of AI at OpenAI](https://openai.com/academy/applications-of-ai) | 2026-04-10 | ai
+- [ChatGPT for research](https://openai.com/academy/research) | 2026-04-10 | ai
+- [Financial services](https://openai.com/academy/financial-services) | 2026-04-10 | ai
+- [ChatGPT for managers](https://openai.com/academy/managers) | 2026-04-10 | ai
+- [ChatGPT for marketing teams](https://openai.com/academy/marketing) | 2026-04-10 | ai
+- [Creating images with ChatGPT](https://openai.com/academy/image-generation) | 2026-04-10 | ai
+- [Research with ChatGPT](https://openai.com/academy/search-and-deep-research) | 2026-04-10 | ai
+- [Using skills](https://openai.com/academy/skills) | 2026-04-10 | ai
+- [Getting started with ChatGPT](https://openai.com/academy/getting-started) | 2026-04-10 | ai
+- [ChatGPT for sales teams](https://openai.com/academy/sales) | 2026-04-10 | ai
+- [Healthcare](https://openai.com/academy/healthcare) | 2026-04-10 | ai
+- [Our response to the Axios developer tool compromise](https://openai.com/index/axios-developer-tool-compromise) | 2026-04-10 | ai
+- [Responsible and safe use of AI](https://openai.com/academy/responsible-and-safe-use) | 2026-04-10 | ai
+- [Writing with ChatGPT](https://openai.com/academy/writing) | 2026-04-10 | ai
+- [Working with files in ChatGPT](https://openai.com/academy/working-with-files) | 2026-04-10 | ai
+- [Using projects in ChatGPT](https://openai.com/academy/projects) | 2026-04-10 | ai
+- [Using custom GPTs](https://openai.com/academy/custom-gpts) | 2026-04-10 | ai
+- [ChatGPT for operations teams](https://openai.com/academy/operations) | 2026-04-10 | ai
+- [Prompting fundamentals](https://openai.com/academy/prompting) | 2026-04-10 | ai
+- [ChatGPT for customer success teams](https://openai.com/academy/customer-success) | 2026-04-10 | ai
+- [Analyzing data with ChatGPT](https://openai.com/academy/data-analysis) | 2026-04-10 | ai
+- [Personalizing ChatGPT](https://openai.com/academy/personalization) | 2026-04-10 | ai
+- [Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI](https://openai.com/index/cloudflare-openai-agent-cloud) | 2026-04-13 | ai
+- [Trusted access for the next era of cyber defense](https://openai.com/index/scaling-trusted-access-for-cyber-defense) | 2026-04-14 | ai
+- [The next evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk) | 2026-04-15 | ai
+- [Accelerating the cyber defense ecosystem that protects us all](https://openai.com/index/accelerating-cyber-defense-ecosystem) | 2026-04-16 | ai
+- [Introducing GPT-Rosalind for life sciences research](https://openai.com/index/introducing-gpt-rosalind) | 2026-04-16 | ai
+- [Codex for (almost) everything](https://openai.com/index/codex-for-almost-everything) | 2026-04-16 | ai
+- [OpenAI helps Hyatt advance AI among colleagues](https://openai.com/index/hyatt-advances-ai-with-chatgpt-enterprise) | 2026-04-20 | ai
+- [Scaling Codex to enterprises worldwide](https://openai.com/index/scaling-codex-to-enterprises-worldwide) | 2026-04-21 | ai
+- [Introducing ChatGPT Images 2.0](https://openai.com/index/introducing-chatgpt-images-2-0) | 2026-04-21 | ai
+- [Introducing OpenAI Privacy Filter](https://openai.com/index/introducing-openai-privacy-filter) | 2026-04-22 | ai
+- [Introducing workspace agents in ChatGPT](https://openai.com/index/introducing-workspace-agents-in-chatgpt) | 2026-04-22 | ai
+- [Workspace agents](https://openai.com/academy/workspace-agents) | 2026-04-22 | ai
+- [Speeding up agentic workflows with WebSockets in the Responses API](https://openai.com/index/speeding-up-agentic-workflows-with-websockets) | 2026-04-22 | ai
+- [Making ChatGPT better for clinicians](https://openai.com/index/making-chatgpt-better-for-clinicians) | 2026-04-22 | ai
+- [GPT-5.5 Bio Bug Bounty](https://openai.com/index/gpt-5-5-bio-bug-bounty) | 2026-04-23 | ai
+- [How to get started with Codex](https://openai.com/academy/codex-how-to-start) | 2026-04-23 | ai
+- [Plugins and skills](https://openai.com/academy/codex-plugins-and-skills) | 2026-04-23 | ai
+- [Working with Codex](https://openai.com/academy/working-with-codex) | 2026-04-23 | ai
+- [How to use Codex for everyday work](https://openai.com/academy/how-to-use-codex-for-everyday-work) | 2026-04-23 | ai
+- [Automations](https://openai.com/academy/codex-automations) | 2026-04-23 | ai
+- [What is Codex?](https://openai.com/academy/what-is-codex) | 2026-04-23 | ai
+- [Codex settings](https://openai.com/academy/codex-settings) | 2026-04-23 | ai
+- [GPT-5.5 System Card](https://openai.com/index/gpt-5-5-system-card) | 2026-04-23 | ai
+- [Introducing GPT-5.5](https://openai.com/index/introducing-gpt-5-5) | 2026-04-23 | ai
+- [Our principles](https://openai.com/index/our-principles) | 2026-04-26 | ai
+- [Choco automates food distribution with AI agents](https://openai.com/index/choco) | 2026-04-27 | ai
+- [An open-source spec for orchestration: Symphony](https://openai.com/index/open-source-codex-orchestration-symphony) | 2026-04-27 | ai
+- [The next phase of the Microsoft OpenAI partnership](https://openai.com/index/next-phase-of-microsoft-partnership) | 2026-04-27 | ai
+- [OpenAI available at FedRAMP Moderate](https://openai.com/index/openai-available-at-fedramp-moderate) | 2026-04-27 | ai
+- [Our commitment to community safety](https://openai.com/index/our-commitment-to-community-safety) | 2026-04-28 | ai
+- [OpenAI models, Codex, and Managed Agents come to AWS](https://openai.com/index/openai-on-aws) | 2026-04-28 | ai
+- [Cybersecurity in the Intelligence Age](https://openai.com/index/cybersecurity-in-the-intelligence-age) | 2026-04-29 | ai
+- [Building the compute infrastructure for the Intelligence Age](https://openai.com/index/building-the-compute-infrastructure-for-the-intelligence-age) | 2026-04-29 | ai
+- [Where the goblins came from](https://openai.com/index/where-the-goblins-came-from) | 2026-04-29 | ai
+
+## March 2026
+- [Accelerating the next phase of AI](https://openai.com/index/accelerating-the-next-phase-ai) | 2026-03-31 | ai
+- [Where things stand with the Department of War](https://www.anthropic.com/news/where-stand-department-war) | 2026-03-05 | ai
+- [Partnering with Mozilla to improve Firefox’s security](https://www.anthropic.com/news/mozilla-firefox-security) | 2026-03-06 | ai
+- [Sydney will become Anthropic’s fourth office in Asia-Pacific](https://www.anthropic.com/news/sydney-fourth-office-asia-pacific) | 2026-03-10 | ai
+- [Introducing The Anthropic Institute](https://www.anthropic.com/news/the-anthropic-institute) | 2026-03-11 | ai
+- [Anthropic invests $100 million into the Claude Partner Network](https://www.anthropic.com/news/claude-partner-network) | 2026-03-12 | ai
+- [Australian government and Anthropic sign MOU for AI safety and research](https://www.anthropic.com/news/australia-MOU) | 2026-03-31 | ai
+- [GPT-5.3 Instant: Smoother, more useful everyday conversations](https://openai.com/index/gpt-5-3-instant) | 2026-03-03 | ai
+- [GPT-5.3 Instant System Card](https://openai.com/index/gpt-5-3-instant-system-card) | 2026-03-03 | ai
+- [How Axios uses AI to help deliver high-impact local journalism](https://openai.com/index/axios-allison-murphy) | 2026-03-04 | ai
+- [Understanding AI and learning outcomes](https://openai.com/index/understanding-ai-and-learning-outcomes) | 2026-03-04 | ai
+- [Extending single-minus amplitudes to gravitons](https://openai.com/index/extending-single-minus-amplitudes-to-gravitons) | 2026-03-04 | ai
+- [The five AI value models driving business reinvention](https://openai.com/index/the-five-ai-value-models-driving-business-reinvention) | 2026-03-05 | ai
+- [Introducing ChatGPT for Excel and new financial data integrations](https://openai.com/index/chatgpt-for-excel) | 2026-03-05 | ai
+- [Introducing the Adoption news channel](https://openai.com/index/introducing-the-adoption-news-channel) | 2026-03-05 | ai
+- [VfL Wolfsburg turns ChatGPT into a club-wide capability](https://openai.com/index/vfl-wolfsburg) | 2026-03-05 | ai
+- [Ensuring AI use in education leads to opportunity](https://openai.com/index/ai-education-opportunity) | 2026-03-05 | ai
+- [Reasoning models struggle to control their chains of thought, and that’s good](https://openai.com/index/reasoning-models-chain-of-thought-controllability) | 2026-03-05 | ai
+- [GPT-5.4 Thinking System Card](https://openai.com/index/gpt-5-4-thinking-system-card) | 2026-03-05 | ai
+- [Introducing GPT-5.4](https://openai.com/index/introducing-gpt-5-4) | 2026-03-05 | ai
+- [How Descript engineers multilingual video dubbing at scale](https://openai.com/index/descript) | 2026-03-06 | ai
+- [How Balyasny Asset Management built an AI research engine](https://openai.com/index/balyasny-asset-management) | 2026-03-06 | ai
+- [Codex Security: now in research preview](https://openai.com/index/codex-security-now-in-research-preview) | 2026-03-06 | ai
+- [OpenAI to acquire Promptfoo](https://openai.com/index/openai-to-acquire-promptfoo) | 2026-03-09 | ai
+- [New ways to learn math and science in ChatGPT](https://openai.com/index/new-ways-to-learn-math-and-science-in-chatgpt) | 2026-03-10 | ai
+- [Improving instruction hierarchy in frontier LLMs](https://openai.com/index/instruction-hierarchy-challenge) | 2026-03-10 | ai
+- [Wayfair boosts catalog accuracy and support speed with OpenAI](https://openai.com/index/wayfair) | 2026-03-11 | ai
+- [Rakuten fixes issues twice as fast with Codex](https://openai.com/index/rakuten) | 2026-03-11 | ai
+- [From model to agent: Equipping the Responses API with a computer environment](https://openai.com/index/equip-responses-api-computer-environment) | 2026-03-11 | ai
+- [Designing AI agents to resist prompt injection](https://openai.com/index/designing-agents-to-resist-prompt-injection) | 2026-03-11 | ai
+- [Why Codex Security Doesn’t Include a SAST Report](https://openai.com/index/why-codex-security-doesnt-include-sast) | 2026-03-16 | ai
+- [Equipping workers with insights about compensation](https://openai.com/index/equipping-workers-with-insights-about-compensation) | 2026-03-17 | ai
+- [Introducing GPT-5.4 mini and nano](https://openai.com/index/introducing-gpt-5-4-mini-and-nano) | 2026-03-17 | ai
+- [OpenAI Japan announces Japan Teen Safety Blueprint to put teen safety first](https://openai.com/index/japan-teen-safety-blueprint) | 2026-03-17 | ai
+- [OpenAI to acquire Astral](https://openai.com/index/openai-to-acquire-astral) | 2026-03-19 | ai
+- [How we monitor internal coding agents for misalignment](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment) | 2026-03-19 | ai
+- [Creating with Sora Safely](https://openai.com/index/creating-with-sora-safely) | 2026-03-23 | ai
+- [Update on the OpenAI Foundation](https://openai.com/index/update-on-the-openai-foundation) | 2026-03-24 | ai
+- [Powering product discovery in ChatGPT](https://openai.com/index/powering-product-discovery-in-chatgpt) | 2026-03-24 | ai
+- [Helping developers build safer AI experiences for teens](https://openai.com/index/teen-safety-policies-gpt-oss-safeguard) | 2026-03-24 | ai
+- [Introducing the OpenAI Safety Bug Bounty program](https://openai.com/index/safety-bug-bounty) | 2026-03-25 | ai
+- [Inside our approach to the Model Spec](https://openai.com/index/our-approach-to-the-model-spec) | 2026-03-25 | ai
+- [STADLER reshapes knowledge work at a 230-year-old company](https://openai.com/index/stadler) | 2026-03-27 | ai
+- [Helping disaster response teams turn AI into action across Asia](https://openai.com/index/helping-disaster-response-teams-asia) | 2026-03-29 | ai
+
+## February 2026
+- [Our agreement with the Department of War](https://openai.com/index/our-agreement-with-the-department-of-war) | 2026-02-28 | ai
+- [Anthropic partners with Allen Institute and Howard Hughes Medical Institute to accelerate scientific discovery](https://www.anthropic.com/news/anthropic-partners-with-allen-institute-and-howard-hughes-medical-institute) | 2026-02-02 | ai
+- [Apple’s Xcode now supports the Claude Agent SDK](https://www.anthropic.com/news/apple-xcode-claude-agent-sdk) | 2026-02-03 | ai
+- [Claude is a space to think](https://www.anthropic.com/news/claude-is-a-space-to-think) | 2026-02-04 | ai
+- [Introducing Claude Opus 4.6](https://www.anthropic.com/news/claude-opus-4-6) | 2026-02-05 | ai
+- [Covering electricity price increases from our data centers](https://www.anthropic.com/news/covering-electricity-price-increases) | 2026-02-11 | ai
+- [Anthropic raises $30 billion in Series G funding at $380 billion post-money valuation](https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation) | 2026-02-12 | ai
+- [Anthropic is donating $20 million to Public First Action](https://www.anthropic.com/news/donate-public-first-action) | 2026-02-12 | ai
+- [Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program](https://www.anthropic.com/news/anthropic-codepath-partnership) | 2026-02-13 | ai
+- [Chris Liddell appointed to Anthropic’s board of directors](https://www.anthropic.com/news/chris-liddell-appointed-anthropic-board) | 2026-02-13 | ai
+- [Anthropic opens Bengaluru office and announces new partnerships across India](https://www.anthropic.com/news/bengaluru-office-partnerships-across-india) | 2026-02-16 | ai
+- [Anthropic and the Government of Rwanda sign MOU for AI in health and education](https://www.anthropic.com/news/anthropic-rwanda-mou) | 2026-02-17 | ai
+- [Introducing Claude Sonnet 4.6](https://www.anthropic.com/news/claude-sonnet-4-6) | 2026-02-17 | ai
+- [Anthropic and Infosys collaborate to build AI agents for telecommunications and other regulated industries](https://www.anthropic.com/news/anthropic-infosys) | 2026-02-17 | ai
+- [Making frontier cybersecurity capabilities available to defenders](https://www.anthropic.com/news/claude-code-security) | 2026-02-20 | ai
+- [Detecting and preventing distillation attacks](https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks) | 2026-02-23 | ai
+- [Anthropic’s Responsible Scaling Policy: Version 3.0](https://www.anthropic.com/news/responsible-scaling-policy-v3) | 2026-02-24 | ai
+- [Anthropic acquires Vercept to advance Claude's computer use capabilities](https://www.anthropic.com/news/acquires-vercept) | 2026-02-25 | ai
+- [Statement from Dario Amodei on our discussions with the Department of War](https://www.anthropic.com/news/statement-department-of-war) | 2026-02-26 | ai
+- [Statement on the comments from Secretary of War Pete Hegseth](https://www.anthropic.com/news/statement-comments-secretary-war) | 2026-02-27 | ai
+- [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app) | 2026-02-02 | ai
+- [Snowflake and OpenAI partner to bring frontier intelligence to enterprise data](https://openai.com/index/snowflake-partnership) | 2026-02-02 | ai
+- [The Sora feed philosophy](https://openai.com/index/sora-feed-philosophy) | 2026-02-03 | ai
+- [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness) | 2026-02-04 | ai
+- [GPT-5.3-Codex System Card](https://openai.com/index/gpt-5-3-codex-system-card) | 2026-02-05 | ai
+- [Introducing GPT-5.3-Codex](https://openai.com/index/introducing-gpt-5-3-codex) | 2026-02-05 | ai
+- [Introducing OpenAI Frontier](https://openai.com/index/introducing-openai-frontier) | 2026-02-05 | ai
+- [Introducing Trusted Access for Cyber](https://openai.com/index/trusted-access-for-cyber) | 2026-02-05 | ai
+- [GPT-5 lowers the cost of cell-free protein synthesis](https://openai.com/index/gpt-5-lowers-protein-synthesis-cost) | 2026-02-05 | ai
+- [Making AI work for everyone, everywhere: our approach to localization](https://openai.com/index/our-approach-to-localization) | 2026-02-06 | ai
+- [Bringing ChatGPT to GenAI.mil](https://openai.com/index/bringing-chatgpt-to-genaimil) | 2026-02-09 | ai
+- [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering) | 2026-02-11 | ai
+- [Introducing GPT-5.3-Codex-Spark](https://openai.com/index/introducing-gpt-5-3-codex-spark) | 2026-02-12 | ai
+- [Scaling social science research](https://openai.com/index/scaling-social-science-research) | 2026-02-13 | ai
+- [Beyond rate limits: scaling access to Codex and Sora](https://openai.com/index/beyond-rate-limits) | 2026-02-13 | ai
+- [Introducing Lockdown Mode and Elevated Risk labels in ChatGPT](https://openai.com/index/introducing-lockdown-mode-and-elevated-risk-labels-in-chatgpt) | 2026-02-13 | ai
+- [GPT-5.2 derives a new result in theoretical physics](https://openai.com/index/new-result-theoretical-physics) | 2026-02-13 | ai
+- [Introducing EVMbench](https://openai.com/index/introducing-evmbench) | 2026-02-18 | ai
+- [Introducing OpenAI for India](https://openai.com/index/openai-for-india) | 2026-02-18 | ai
+- [Advancing independent research on AI alignment](https://openai.com/index/advancing-independent-research-ai-alignment) | 2026-02-19 | ai
+- [Our First Proof submissions](https://openai.com/index/first-proof-submissions) | 2026-02-20 | ai
+- [OpenAI announces Frontier Alliance Partners](https://openai.com/index/frontier-alliance-partners) | 2026-02-23 | ai
+- [Why we no longer evaluate SWE-bench Verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified) | 2026-02-23 | ai
+- [Arvind KC appointed Chief People Officer](https://openai.com/index/arvind-kc-chief-people-officer) | 2026-02-24 | ai
+- [Disrupting malicious uses of AI | February 2026](https://openai.com/index/disrupting-malicious-ai-uses) | 2026-02-25 | ai
+- [OpenAI Codex and Figma launch seamless code-to-design experience](https://openai.com/index/figma-partnership) | 2026-02-26 | ai
+- [Pacific Northwest National Laboratory and OpenAI partner to accelerate federal permitting](https://openai.com/index/pacific-northwest-national-laboratory) | 2026-02-26 | ai
+- [An update on our mental health-related work](https://openai.com/index/update-on-mental-health-related-work) | 2026-02-27 | ai
+- [Scaling AI for everyone](https://openai.com/index/scaling-ai-for-everyone) | 2026-02-27 | ai
+- [OpenAI and Amazon announce strategic partnership](https://openai.com/index/amazon-partnership) | 2026-02-27 | ai
+- [Introducing the Stateful Runtime Environment for Agents in Amazon Bedrock](https://openai.com/index/introducing-the-stateful-runtime-environment-for-agents-in-amazon-bedrock) | 2026-02-27 | ai
+- [Joint Statement from OpenAI and Microsoft](https://openai.com/index/continuing-microsoft-partnership) | 2026-02-27 | ai
+
+## January 2026
+- [Inside OpenAI’s in-house data agent](https://openai.com/index/inside-our-in-house-data-agent) | 2026-01-29 | ai
+- [Advancing Claude in healthcare and the life sciences](https://www.anthropic.com/news/healthcare-life-sciences) | 2026-01-11 | ai
+- [Introducing Labs](https://www.anthropic.com/news/introducing-anthropic-labs) | 2026-01-13 | ai
+- [How scientists are using Claude to accelerate research and discovery](https://www.anthropic.com/news/accelerating-scientific-research) | 2026-01-15 | ai
+- [Anthropic appoints Irina Ghose as Managing Director of India ahead of Bengaluru office opening](https://www.anthropic.com/news/anthropic-appoints-irina-ghose-as-managing-director-of-india) | 2026-01-16 | ai
+- [Mariano-Florentino Cuéllar appointed to Anthropic’s Long-Term Benefit Trust](https://www.anthropic.com/news/mariano-florentino-long-term-benefit-trust) | 2026-01-21 | ai
+- [Anthropic and Teach For All launch global AI training initiative for educators](https://www.anthropic.com/news/anthropic-teach-for-all) | 2026-01-21 | ai
+- [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) | 2026-01-22 | ai
+- [Anthropic partners with the UK Government to bring AI assistance to GOV.UK services](https://www.anthropic.com/news/gov-UK-partnership) | 2026-01-27 | ai
+- [ServiceNow chooses Claude to power customer apps and increase internal productivity](https://www.anthropic.com/news/servicenow-anthropic-claude) | 2026-01-28 | ai
+- [Announcing OpenAI Grove Cohort 2](https://openai.com/index/openai-grove) | 2026-01-02 | ai
+- [Introducing ChatGPT Health](https://openai.com/index/introducing-chatgpt-health) | 2026-01-07 | ai
+- [How Tolan builds voice-first AI with GPT-5.1](https://openai.com/index/tolan) | 2026-01-07 | ai
+- [Netomi’s lessons for scaling agentic systems into the enterprise](https://openai.com/index/netomi) | 2026-01-08 | ai
+- [OpenAI for Healthcare](https://openai.com/index/openai-for-healthcare) | 2026-01-08 | ai
+- [Datadog uses Codex for system-level code review](https://openai.com/index/datadog) | 2026-01-09 | ai
+- [OpenAI and SoftBank Group partner with SB Energy](https://openai.com/index/stargate-sb-energy-partnership) | 2026-01-09 | ai
+- [Zenken boosts a lean sales team with ChatGPT Enterprise](https://openai.com/index/zenken) | 2026-01-13 | ai
+- [OpenAI partners with Cerebras](https://openai.com/index/cerebras-partnership) | 2026-01-14 | ai
+- [Strengthening the U.S. AI supply chain through domestic manufacturing](https://openai.com/index/strengthening-the-us-ai-supply-chain) | 2026-01-15 | ai
+- [Investing in Merge Labs](https://openai.com/index/investing-in-merge-labs) | 2026-01-15 | ai
+- [Introducing ChatGPT Go, now available worldwide](https://openai.com/index/introducing-chatgpt-go) | 2026-01-16 | ai
+- [Our approach to advertising and expanding access to ChatGPT](https://openai.com/index/our-approach-to-advertising-and-expanding-access) | 2026-01-16 | ai
+- [A business that scales with the value of intelligence](https://openai.com/index/a-business-that-scales-with-the-value-of-intelligence) | 2026-01-18 | ai
+- [Our approach to age prediction](https://openai.com/index/our-approach-to-age-prediction) | 2026-01-20 | ai
+- [ServiceNow powers actionable enterprise AI with OpenAI](https://openai.com/index/servicenow-powers-actionable-enterprise-ai-with-openai) | 2026-01-20 | ai
+- [Stargate Community](https://openai.com/index/stargate-community) | 2026-01-20 | ai
+- [Horizon 1000: Advancing AI for primary healthcare](https://openai.com/index/horizon-1000) | 2026-01-20 | ai
+- [Introducing Edu for Countries](https://openai.com/index/edu-for-countries) | 2026-01-21 | ai
+- [How countries can end the capability overhang](https://openai.com/index/how-countries-can-end-the-capability-overhang) | 2026-01-21 | ai
+- [How Higgsfield turns simple ideas into cinematic social videos](https://openai.com/index/higgsfield) | 2026-01-21 | ai
+- [Inside Praktika's conversational approach to language learning](https://openai.com/index/praktika) | 2026-01-22 | ai
+- [Inside GPT-5 for Work: How Businesses Use GPT-5](https://openai.com/business/guides-and-resources/chatgpt-usage-and-adoption-patterns-at-work) | 2026-01-22 | ai
+- [Scaling PostgreSQL to power 800 million ChatGPT users](https://openai.com/index/scaling-postgresql) | 2026-01-22 | ai
+- [Unrolling the Codex agent loop](https://openai.com/index/unrolling-the-codex-agent-loop) | 2026-01-23 | ai
+- [How Indeed uses AI to help evolve the job search](https://openai.com/index/indeed-maggie-hulce) | 2026-01-26 | ai
+- [TRUSTBANK uses AI agents to personalize Furusato Nozei gifts](https://openai.com/index/trustbank) | 2026-01-27 | ai
+- [Introducing Prism](https://openai.com/index/introducing-prism) | 2026-01-27 | ai
+- [PVH reimagines the future of fashion with OpenAI](https://openai.com/index/pvh-future-of-fashion) | 2026-01-27 | ai
+- [Keeping your data safe when an AI agent clicks a link](https://openai.com/index/ai-agent-link-safety) | 2026-01-28 | ai
+- [The next chapter for AI in the EU](https://openai.com/index/the-next-chapter-for-ai-in-the-eu) | 2026-01-28 | ai
+- [EMEA Youth & Wellbeing Grant](https://openai.com/index/emea-youth-and-wellbeing-grant) | 2026-01-28 | ai
+- [Retiring GPT-4o, GPT-4.1, GPT-4.1 mini, and OpenAI o4-mini in ChatGPT](https://openai.com/index/retiring-gpt-4o-and-older-models) | 2026-01-29 | ai
+- [Taisei Corporation shapes the next generation of talent with AI](https://openai.com/index/taisei) | 2026-01-29 | ai
+
+## July 2026
+- [The latest AI news we announced in June 2026](https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/) | 2026-07-01 | ai
+- [Celebrating 25 years of visual search innovation](https://blog.google/products-and-platforms/products/search/google-images-25th-anniversary/) | 2026-07-14 | ai
+- [Create, edit and star in videos with two Google Vids updates](https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/) | 2026-07-16 | ai
+- [Connect more of your apps to Search](https://blog.google/products-and-platforms/products/search/connected-apps/) | 2026-07-16 | ai
+- [Introducing Claude for Teachers](https://www.anthropic.com/news/claude-for-teachers) | 2026-07-14 | ai
+- [Anthropic commits $10 million to Canadian AI research](https://www.anthropic.com/news/canadian-ai-research) | 2026-07-14 | ai
+- [Apply for Anthropic’s AI for Science rare disease research grants](https://www.anthropic.com/news/rare-disease-research-grants) | 2026-07-20 | ai
+- [How data science teams use ChatGPT Work](https://openai.com/academy/codex-for-work/how-data-science-teams-use-codex) | 2026-07-14 | ai
+- [How sales teams use ChatGPT Work](https://openai.com/academy/codex-for-work/how-sales-teams-use-codex) | 2026-07-14 | ai
+- [How to manage AI investments in the agentic era](https://openai.com/index/managing-ai-investments-in-agentic-era) | 2026-07-14 | ai
+- [GPT-Red: Unlocking Self-Improvement for Robustness](https://openai.com/index/unlocking-self-improvement-gpt-red) | 2026-07-15 | ai
+- [The US is advancing AI safety through state and federal action](https://openai.com/index/advancing-ai-safety-through-state-and-federal-action) | 2026-07-15 | ai
+- [How Cars24 scales conversations and builds faster with OpenAI](https://openai.com/index/cars24) | 2026-07-16 | ai
+- [Why teens deserve access to safe AI](https://openai.com/index/why-teens-deserve-access-safe-ai) | 2026-07-16 | ai
+- [A scorecard for the AI age](https://openai.com/index/a-scorecard-for-the-ai-age) | 2026-07-17 | ai
+- [Safety and alignment in an era of long-horizon models](https://openai.com/index/safety-alignment-long-horizon-models) | 2026-07-20 | ai
+- [Inviting hard questions](https://www.anthropic.com/news/hard-questions) | 2026-07-09 | ai
+- [UST is bringing Claude to physical AI](https://www.anthropic.com/news/ust-claude) | 2026-07-09 | ai
+- [Ben Bernanke appointed to Anthropic’s Long-Term Benefit Trust](https://www.anthropic.com/news/ben-bernanke) | 2026-07-09 | ai
+- [Introducing a way to reflect on how you use Claude](https://www.anthropic.com/news/reflect-with-claude) | 2026-07-09 | ai
+- [ChatGPT is now a partner for your most ambitious work](https://openai.com/index/chatgpt-for-your-most-ambitious-work) | 2026-07-09 | ai
+- [GPT-5.6: Frontier intelligence that scales with your ambition](https://openai.com/index/gpt-5-6) | 2026-07-09 | ai
+- [GPT-5.5 Bio Bug Bounty](https://openai.com/index/bio-bug-bounty) | 2026-07-09 | ai
+- [GPT-5.6 is now the preferred model in Microsoft 365 Copilot](https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot) | 2026-07-09 | ai
+- [Getting started with ChatGPT](https://openai.com/academy/getting-started) | 2026-07-10 | ai
+- [How Deutsche Telekom is rewiring telecommunications with AI](https://openai.com/index/deutsche-telekom) | 2026-07-10 | ai
+- [Expanding Managed Agents in Gemini API:  background tasks, remote MCP and more](https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/) | 2026-07-07 | ai
+- [More details on Fable 5’s cyber safeguards and our jailbreak framework](https://www.anthropic.com/news/fable-safeguards-jailbreak-framework) | 2026-07-02 | ai
+- [Government of Alberta uses Claude to find and fix cybersecurity vulnerabilities across government systems](https://www.anthropic.com/news/alberta-government-claude-cybersecurity) | 2026-07-06 | ai
+- [MUFG aims to become AI-native with OpenAI](https://openai.com/index/mufg) | 2026-07-07 | ai
+- [Australian Payments Plus moves faster with ChatGPT and Codex](https://openai.com/index/australian-payments-plus) | 2026-07-07 | ai
+- [Introducing GPT-Live](https://openai.com/index/introducing-gpt-live) | 2026-07-08 | ai
+- [Helping K–12 educators build practical AI skills](https://openai.com/index/k-12-educators-practical-skills) | 2026-07-08 | ai
+- [Separating signal from noise in coding evaluations](https://openai.com/index/separating-signal-from-noise-coding-evaluations) | 2026-07-08 | ai
+- [Our approach to government and national security partnerships](https://openai.com/index/government-national-security-partnerships) | 2026-07-08 | ai
+- [New York City educators and industry leaders gathered at Google’s offices to shape the future of AI in classrooms.](https://blog.google/products-and-platforms/products/education/nyc-ai-summit/) | 2026-07-01 | ai

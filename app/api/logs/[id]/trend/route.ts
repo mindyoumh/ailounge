@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDb } from "@/src/db/client";
+import { serviceClient } from "@/src/db/service-client";
 
 export async function GET(
   req: NextRequest,
@@ -10,29 +10,29 @@ export async function GET(
   const fromDate = req.nextUrl.searchParams.get("from_date");
   const toDate = req.nextUrl.searchParams.get("to_date");
 
-  const db = getDb();
+  let query = serviceClient
+    .from("log_errors")
+    .select("timestamp")
+    .eq("analysis_id", numId)
+    .eq("is_error", 1)
+    .order("timestamp");
 
-  let where = "WHERE analysis_id = @id AND is_error = 1";
-  const bindings: Record<string, string | number> = { id: numId };
   if (fromDate && toDate) {
-    where += " AND timestamp >= @fromDate AND timestamp <= @toDate";
-    bindings.fromDate = fromDate;
-    bindings.toDate = toDate;
+    query = query.gte("timestamp", fromDate).lte("timestamp", toDate);
   }
 
-  const errorRows = db
-    .prepare(`SELECT timestamp FROM log_errors ${where} ORDER BY timestamp`)
-    .all(bindings) as { timestamp: string | null }[];
+  const { data: errorRows } = await query;
 
+  const dailyCounts: { day: string; count: number }[] = [];
   const dayMap = new Map<string, number>();
-  for (const row of errorRows) {
+  for (const row of errorRows ?? []) {
     const day = row.timestamp ? row.timestamp.substring(0, 10) : "unknown";
     dayMap.set(day, (dayMap.get(day) ?? 0) + 1);
   }
-
-  const dailyCounts = [...dayMap.entries()]
-    .map(([day, count]) => ({ day, count }))
-    .sort((a, b) => a.day.localeCompare(b.day));
+  for (const [day, count] of dayMap) {
+    dailyCounts.push({ day, count });
+  }
+  dailyCounts.sort((a, b) => a.day.localeCompare(b.day));
 
   return NextResponse.json({ dailyCounts });
 }

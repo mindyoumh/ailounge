@@ -1,6 +1,12 @@
 import fs from "fs";
 import path from "path";
-import { getDb } from "../src/db/client";
+import { createClient } from "@supabase/supabase-js";
+import { config } from "dotenv";
+config({ path: ".env.local" });
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const FEEDS_DIR = path.join(process.cwd(), "docs", "feeds");
 const MIN_DATE = "2026-01-01";
@@ -54,12 +60,13 @@ function formatDate(dateStr: string): string {
 }
 
 export async function cleanFeedFiles(): Promise<void> {
-  const db = getDb();
-  const rows = db
-    .prepare(
-      "SELECT title, url, published_at, COALESCE(tags, category) as tags, category, source FROM feed_items WHERE published_at >= ?1 GROUP BY url ORDER BY published_at DESC"
-    )
-    .all(MIN_DATE) as unknown as FeedFileEntry[];
+  const { data: rows } = await supabase
+    .from("feed_items")
+    .select("title, url, published_at, tags, category, source")
+    .gte("published_at", MIN_DATE)
+    .order("published_at", { ascending: false });
+
+  const feedRows = (rows ?? []) as FeedFileEntry[];
 
   const filenames = fs.readdirSync(FEEDS_DIR).filter((f) => f.endsWith(".md"));
 
@@ -74,7 +81,7 @@ export async function cleanFeedFiles(): Promise<void> {
     const content = fs.readFileSync(filePath, "utf-8");
     const header = extractHeader(content);
 
-    const matchingRows = rows.filter(filter);
+    const matchingRows = feedRows.filter(filter);
 
     if (matchingRows.length === 0 && filename !== "07-rumors.md") {
       console.log(`  ⚠️  ${filename} — no matching entries for ${MIN_DATE}+, writing empty`);
