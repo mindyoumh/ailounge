@@ -63,7 +63,7 @@ Three open-source repositories were evaluated using a consistent set of criteria
 | UI library match | Lit ❌ | BlueprintJS ❌ | Radix UI ✅ |
 | Database compatibility | PostgreSQL ✅ | PostgreSQL ✅ | PostgreSQL ✅ |
 | Editor viable | BlockSuite (Lit) ❌ | TipTap (AGPL) ❌ | Lexical ✅ |
-| Real-time patterns | Yjs ✅ | Yjs+Hocuspouse ✅ | None ❌ |
+| Real-time patterns | Yjs ✅ | Yjs+Hocuspocus ✅ | None ❌ |
 | Adoptable tooling | Vitest ✅ | None | Biome ✅, Vitest ✅ |
 
 ---
@@ -85,7 +85,7 @@ Three editor engines were evaluated across the three repositories:
 Both AFFiNE and Plane demonstrate Yjs-based CRDT patterns:
 
 - **AFFiNE** uses y-octo for local-first sync with server authority. Architecture is overkill for Mind You's current single-user model.
-- **Plane** uses Hocuspouse (Yjs + WebSocket + Redis) for server-authoritative real-time collaboration. This is the more practical reference pattern.
+- **Plane** uses Hocuspocus (Yjs + WebSocket + Redis) for server-authoritative real-time collaboration. This is the more practical reference pattern.
 - **Cal.diy** has no real-time collaboration features.
 
 **Conclusion:** Real-time collaboration is not needed today. If multi-user features are planned, a standalone Node.js WebSocket service inspired by Plane's `apps/live/` architecture is the recommended approach.
@@ -115,7 +115,7 @@ Both AFFiNE and Plane demonstrate Yjs-based CRDT patterns:
 | Item | Source | Condition |
 |------|--------|-----------|
 | Lexical editor | Cal.diy `@calcom/ui` | If Mind You develops rich text editing requirements |
-| Hocuspouse + Yjs pattern | Plane `apps/live/` | If Mind You needs real-time multi-user collaboration |
+| Hocuspocus + Yjs pattern | Plane `apps/live/` | If Mind You needs real-time multi-user collaboration |
 | BlockSuite store/sync packages | AFFiNE `@blocksuite/store`, `@blocksuite/sync` | If Mind You needs offline-first or CRDT-based content management |
 
 ### Not Recommended Based on Current Findings
@@ -137,7 +137,7 @@ The following are optional follow-up research areas. They are not recommended ac
 
 - **Ingestion pipeline redesign** — If the current `src/ingesters/` architecture needs modularization, study Cal.diy's `packages/app-store/` pattern as a reference architecture for self-contained plugin packages with standardized interfaces.
 
-- **Real-time collaboration** — If multi-user features are planned, study Plane's `apps/live/` (Hocuspouse + Yjs) and AFFiNE's `@blocksuite/sync` for CRDT patterns. A standalone Node.js WebSocket service is the recommended implementation approach.
+- **Real-time collaboration** — If multi-user features are planned, study Plane's `apps/live/` (Hocuspocus + Yjs) and AFFiNE's `@blocksuite/sync` for CRDT patterns. A standalone Node.js WebSocket service is the recommended implementation approach.
 
 - **Offline-first content** — If offline capability is needed, study `@blocksuite/store` and `@blocksuite/sync` for CRDT document model patterns. Do not adopt BlockSuite itself — study the patterns in isolation.
 
@@ -171,7 +171,19 @@ This synthesis has the following limitations:
 
 ## Supporting Research
 
-The following reports were used to produce this synthesis:
+### Curated Engineering Reports
+
+The following reports provide detailed engineering evaluations supporting the conclusions in this synthesis. Each follows a consistent structure: metadata, technology stack, architecture highlights, compatibility analysis, adoption recommendations, and areas for future reference.
+
+- [affine.md](affine.md) — Technical evaluation of AFFiNE v0.27.0 and BlockSuite editor engine
+- [plane.md](plane.md) — Technical evaluation of Plane v1.3.1 and its real-time collaboration architecture
+- [caldiy.md](caldiy.md) — Technical evaluation of Cal.diy v6.2.0 and its integration architecture
+
+These reports explain the engineering reasoning behind the verdicts and recommendations presented above. Read them for technology stack details, compatibility matrices, effort estimates, and architectural patterns worth studying.
+
+### Source Research
+
+The original working research used to produce this synthesis:
 
 **AFFiNE / BlockSuite:**
 - `affine-rnd/repository-analysis.md` — Full code-level analysis of AFFiNE's architecture, tech stack, and integration feasibility
