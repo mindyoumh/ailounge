@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-22
 **Confidence:** High (verified via web search, source inspection, and live feed URL confirmation)
-**Subject:** Validation of 6 proposed RSS/API sources from `docs/archive/engineering-intelligence-expansion-plan.md`
+**Subject:** Validation of 6 proposed RSS/API sources from the original engineering-intelligence expansion plan (Sir Bo's proposal, since superseded by the corrected sources below)
 
 ---
 
