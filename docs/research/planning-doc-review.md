@@ -4,7 +4,7 @@
 **Documents Reviewed:**
 | # | File | Lines | Role |
 |---|------|-------|------|
-| A | `docs/archive/engineering-intelligence-expansion-plan.md` | 250 | Strategic "what" — original plan from Sir Bo |
+| A | Engineering Intelligence Expansion Plan (archived, then deleted 2026-08-26 — unique content captured in §4-5 below) | 250 | Strategic "what" — original plan from Sir Bo |
 | B | `docs/plans/engineering-intelligence-implementation-roadmap.md` | 286 | Phased "when" — execution order, complexity, issues |
 | C | `docs/plans/engineering-intelligence-execution-plan.md` | 284 | Tactical "how" — exact files, lines, changes for a developer |
 
@@ -113,7 +113,7 @@ This removes the need for the Roadmap to duplicate the RSS_FEEDS entries, FILE_C
 
 ## 4. Can Any Document Be Safely Removed?
 
-### A: Expansion Plan (`docs/archive/engineering-intelligence-expansion-plan.md`)
+### A: Expansion Plan (archived, then deleted 2026-08-26)
 
 **Can be archived, but not deleted.**
 
@@ -170,4 +170,4 @@ If the Expansion Plan is archived, the following unique content should be migrat
 6. Add "Open Questions" section to Roadmap (from A §244-250)
 7. Merge 2 unique risk entries into Roadmap risks table
 
-After migration, `expansion-plan.md` was moved to `docs/archive/engineering-intelligence-expansion-plan.md`.
+After migration, `expansion-plan.md` was moved into an archive folder and has since been deleted outright (2026-08-26 doc-archive cleanup) — its unique content remains captured in the migration plan above.

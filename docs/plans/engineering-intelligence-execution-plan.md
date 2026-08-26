@@ -4,7 +4,6 @@
 **Audience:** Developer implementing the 10 new feed sources
 **Prerequisite Reading:**
 
-- [`engineering-intelligence-expansion-plan.md`](../archive/engineering-intelligence-expansion-plan.md) — original 4-phase plan (archived)
 - [`../research/engineering-intelligence-source-validation.md`](../research/engineering-intelligence-source-validation.md) — URL validation & corrections
 - [`engineering-intelligence-implementation-roadmap.md`](./engineering-intelligence-implementation-roadmap.md) — phased ordering & complexity
 

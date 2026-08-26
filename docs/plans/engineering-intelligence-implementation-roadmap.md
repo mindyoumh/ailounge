@@ -2,7 +2,6 @@
 
 **Date:** 2026-06-22
 **Source Documents:**
-- [`engineering-intelligence-expansion-plan.md`](../archive/engineering-intelligence-expansion-plan.md) — original 4-phase plan (archived)
 - [`../research/engineering-intelligence-source-validation.md`](../research/engineering-intelligence-source-validation.md) — source-by-source validation with corrections
 
 ---
