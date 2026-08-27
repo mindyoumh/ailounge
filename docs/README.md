@@ -142,6 +142,7 @@ Auth is powered by Supabase Auth. Pages are exempt from middleware (see `proxy.t
 | `research/pricing.md` | AI model pricing comparisons and cost analysis |
 | `research/deepseek-gemini-claude-comparison.md` | Model capability comparison across DeepSeek, Gemini, and Claude |
 | `research/vibe-coding-vs-legacy.md` | Analysis of AI-assisted coding vs traditional development approaches |
+| `research/third-party-repositories/` | Third-party repository R&D — engineering evaluation of AFFiNE, Plane, and Cal.diy for adoption; start at `README.md`, decisions in `third-party-repository-rnd-synthesis.md` |
 
 ---
 
