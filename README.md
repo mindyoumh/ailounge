@@ -1,5 +1,16 @@
 # Mind You AI Council and AI Factory
 
+[![RSS](https://github.com/mindyoumh/my-ailounge/actions/workflows/ingest-rss.yml/badge.svg)](https://github.com/mindyoumh/my-ailounge/actions/workflows/ingest-rss.yml)
+[![HN + GitHub Trending](https://github.com/mindyoumh/my-ailounge/actions/workflows/ingest-hn-trending.yml/badge.svg)](https://github.com/mindyoumh/my-ailounge/actions/workflows/ingest-hn-trending.yml)
+[![Repo Radar](https://github.com/mindyoumh/my-ailounge/actions/workflows/ingest-repo-radar.yml/badge.svg)](https://github.com/mindyoumh/my-ailounge/actions/workflows/ingest-repo-radar.yml)
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?logo=supabase&logoColor=white)
+[![Last commit](https://img.shields.io/github/last-commit/mindyoumh/my-ailounge)](https://github.com/mindyoumh/my-ailounge/commits/main)
+
 This repository functions as the **Mind You AI Council and AI Factory**, an advanced, AI-powered internal ecosystem engineered to elevate organizational productivity by a factor of 100x. By centralizing strategic AI-driven management and operational support, it reduces manual workload, boosts efficiency, and enables seamless coordination across all technical domains.
 
 ---
@@ -7,16 +18,25 @@ This repository functions as the **Mind You AI Council and AI Factory**, an adva
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [New Team Members - Start Here](#new-team-members---start-here)
 - [Developer Intelligence Feed](#developer-intelligence-feed)
+  - [Tech Stack](#tech-stack)
+  - [Architecture](#architecture)
+- [First-Time Setup](#first-time-setup)
+- [Available Commands](#available-commands)
+- [Automated Ingestion](#automated-ingestion)
+- [Authentication](#authentication)
+- [End-to-End Workflow](#end-to-end-workflow)
+- [Dashboard Features](#dashboard-features)
 - [Key Features](#key-features)
 - [Project Structure](#project-structure)
 - [Tooling](#tooling)
 - [Pricing](#pricing)
 - [Roles](#roles)
 - [Research](#research)
-- [Usage Guide](#usage-guide)
 - [Contributing](#contributing)
 - [FAQs and Support](#faqs-and-support)
+- [Targets for 2026](#targets-for-2026)
 
 ---
 
@@ -49,102 +69,57 @@ This guide walks you through:
 
 The Developer Intelligence Feed is an engineering intelligence dashboard currently being developed within the AI Factory ecosystem. Its purpose is to aggregate and centralize high-signal technical news, discussions, trends, security updates, engineering resources, and curated feed sources into a single searchable interface.
 
-The platform currently supports ingestion from:
+Ingestion sources:
 
-- Hacker News
-- RSS Feeds
-- GitHub Trending
-- Manually Curated Feed Sources
+| Source | Script | Automated |
+| --- | --- | --- |
+| Hacker News | `npm run ingest:hn` | Every 4h |
+| GitHub Trending | `npm run ingest:trending` | Every 4h |
+| RSS Feeds | `npm run ingest:rss` | Every 12h |
+| Repo Radar | part of `npm run ingest` | Every 6h |
+| Prompt Library | `npm run ingest:prompts` | Manual |
+| Manually Curated Feeds | `npm run ingest:manual` | Manual |
 
-All feed data is normalized and stored in a centralized Supabase PostgreSQL database, allowing the dashboard to provide a unified view of engineering-related information.
-
-### Dashboard Architecture
-
-```text
-Feed Sources
-(Manual, RSS, Hacker News, GitHub Trending)
-        ↓
-Feed Ingesters
-        ↓
-Supabase PostgreSQL
-        ↓
-API Layer (/api/feed)
-        ↓
-Engineering Briefing
-Feed Dashboard
-```
+All feed data is normalized and stored in a centralized Supabase PostgreSQL database, allowing the dashboard to provide a unified view of engineering-related information. Database constraints prevent duplicate entries, so ingesters are safe to re-run.
 
 ### Tech Stack
 
-#### Frontend
+| Layer | Technology |
+| --- | --- |
+| Frontend | Next.js 16, React 19, TypeScript 5, Tailwind CSS 4, Radix UI |
+| Backend | Next.js Route Handlers (TypeScript) |
+| Database | Supabase PostgreSQL via `@supabase/supabase-js` |
+| Charts | Nivo (`@nivo/bar`, `@nivo/pie`) |
+| Automation | GitHub Actions scheduled workflows |
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS
-- Radix UI
+Supporting packages include `lucide-react` (icons), `cmdk` (command palette), `sonner` (toasts), `csv-parse` (log parsing), `pdf-lib` (watchlist export), and `tsx` (TypeScript execution for ingesters).
 
-#### Backend
+### Architecture
 
-- Next.js Route Handlers
-- TypeScript
+```text
+Feed Sources
+(Manual, RSS, Hacker News, GitHub Trending, Repo Radar)
+        ↓
+Feed Ingesters  ←── GitHub Actions (scheduled)
+        ↓
+Supabase PostgreSQL
+        ↓
+   ┌────┴────┐
+   ↓         ↓
+Server     API Layer
+Components (/api/feed)
+   ↓         ↓
+Engineering  Feed
+Briefing     Dashboard
+```
 
-#### Database
-
-- Supabase PostgreSQL
-- @supabase/supabase-js
-
-#### Automation
-
-- GitHub Actions
-- Feed Ingestion Pipelines
-
----
-
-### Dashboard Dependencies
-
-The Developer Intelligence Feed dashboard is built using the following packages.
-
-#### Core Framework
-
-- next
-- react
-- react-dom
-- typescript
-
-#### UI Components
-
-- @radix-ui/react-select
-- @radix-ui/react-separator
-- @radix-ui/react-slot
-- @radix-ui/react-tabs
-- @radix-ui/react-toggle
-
-#### Styling
-
-- tailwindcss
-- @tailwindcss/postcss
-- postcss
-- autoprefixer
-- class-variance-authority
-- clsx
-- tailwind-merge
-
-#### Icons
-
-- lucide-react
-
-#### Development Tooling
-
-- tsx
-- ts-node
-- @types/node
-- @types/react
-- @types/react-dom
+Server components query Supabase directly at request time. Client components fetch through the API routes.
 
 ---
 
-### First-Time Setup
+## First-Time Setup
+
+**Prerequisites:** Node.js 22 (matches CI) and a Supabase project.
 
 Clone the repository and install dependencies:
 
@@ -152,153 +127,129 @@ Clone the repository and install dependencies:
 npm install
 ```
 
-Set up Supabase PostgreSQL (requires `.env.local` with `NEXT_PUBLIC_SUPABASE_URL`,
-`NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY`):
+Create `.env.local` in the project root:
 
 ```bash
-# Run docs/supabase-schema.sql in Supabase SQL editor first, then:
+NEXT_PUBLIC_SUPABASE_URL=https://<project-id>.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon key>
+SUPABASE_SERVICE_ROLE_KEY=<service role key>
+```
+
+All three are required — the app will not boot without them. Values come from Supabase Dashboard → Settings → API. `.env.local` is gitignored; never commit it. The service role key bypasses row-level security, so treat it as a production credential.
+
+Run `docs/supabase-schema.sql` in the Supabase SQL editor to create the schema, apply `docs/rls-policies.sql` for row-level security, then seed:
+
+```bash
 npm run db:migrate
 ```
 
-Or set up the database:
-
-```bash
-npm run db:migrate
-```
-
-Run all feed ingesters:
+Populate the database and start the dashboard:
 
 ```bash
 npm run ingest
-```
-
-Start the dashboard:
-
-```bash
 npm run dev
 ```
 
-Open:
+| Page | URL |
+| --- | --- |
+| Engineering Briefing | http://localhost:3000 |
+| Feed Dashboard | http://localhost:3000/feed |
 
-```text
-http://localhost:3000
-```
-
-Dashboard Feed:
-
-```text
-http://localhost:3000/feed
-```
-
-> Note: The project uses Supabase PostgreSQL (migrated from SQLite).
+> Note: The project uses Supabase PostgreSQL (migrated from SQLite). The legacy `data/` directory is gitignored and no longer used.
 
 ---
 
-### Available Commands
+## Available Commands
 
-#### Dashboard
-
-```bash
-npm run dev
-npm run build
-npm run start
-```
-
-#### Database
+### Dashboard
 
 ```bash
-npm run db:migrate
+npm run dev      # Development server
+npm run build    # Production build
+npm run start    # Production server
 ```
 
-#### Feed Ingestion
+### Database
 
 ```bash
-npm run ingest
-npm run ingest:hn
-npm run ingest:rss
-npm run ingest:trending
-npm run ingest:manual
+npm run db:migrate    # Seed default rows (watchlist, repo radar, prompts) — schema is applied separately from docs/supabase-schema.sql
 ```
+
+### Feed Ingestion
+
+```bash
+npm run ingest            # All orchestrated ingesters
+npm run ingest:hn         # Hacker News only
+npm run ingest:rss        # RSS feeds only
+npm run ingest:trending   # GitHub Trending only
+npm run ingest:manual     # Manual feed markdown (standalone)
+npm run ingest:prompts    # Prompt Library
+```
+
+`npm run ingest` honours the `INGEST_SOURCES` environment variable — a comma-separated allowlist of `hn`, `github_trending`, `rss`, `repo_radar`. Unset means all four.
 
 ---
 
-### End-to-End Workflow
+## Automated Ingestion
 
-The Developer Intelligence Feed operates through a straightforward ingestion and visualization pipeline.
+Three GitHub Actions workflows keep the database current without manual intervention.
 
-1. Run:
+| Workflow | File | Schedule | `INGEST_SOURCES` |
+| --- | --- | --- | --- |
+| RSS | `.github/workflows/ingest-rss.yml` | Every 12h | `rss` |
+| HN + GitHub Trending | `.github/workflows/ingest-hn-trending.yml` | Every 4h | `hn,github_trending` |
+| Repo Radar | `.github/workflows/ingest-repo-radar.yml` | Every 6h | `repo_radar` |
 
-```bash
-npm run ingest
-```
+All three support `workflow_dispatch` for manual runs. Status is reflected in the badges at the top of this README.
 
-2. The ingestion pipeline executes all configured ingesters:
-   - Manual Feeds
-   - RSS Feeds
-   - Hacker News
-   - GitHub Trending
+### Required Actions secrets
 
-3. Each ingester fetches new content and stores it in:
+Set under **Settings → Secrets and variables → Actions** (not the Dependabot tab — secrets stored there are invisible to these workflows):
 
-```text
-Supabase PostgreSQL
-```
+| Secret | Purpose | Required |
+| --- | --- | --- |
+| `SUPABASE_URL` | Supabase project URL | Yes |
+| `SUPABASE_SERVICE_ROLE_KEY` | RLS-bypassing key for ingestion writes | Yes |
+| `GH_ACCESS_TOKEN` | Lifts Repo Radar's GitHub API quota from 60 to 5,000 req/hr | Optional |
 
-4. Records are normalized and inserted into Supabase PostgreSQL using database constraints that automatically prevent duplicate entries.
+The workflows map `SUPABASE_URL` onto the `NEXT_PUBLIC_SUPABASE_URL` environment variable that the code reads — the secret name and the variable name deliberately differ. Missing or empty secrets surface as `Missing env: NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY` at `src/db/service-client.ts`, thrown at import time before any ingestion begins.
 
-5. The Next.js application reads directly from the same database.
-
-6. The Engineering Briefing page loads statistics and recent feed items directly from Supabase PostgreSQL using Server Components.
-
-7. The Feed Dashboard retrieves records through:
-
-```text
-/api/feed
-```
-
-8. Users can:
-   - Search content
-   - Filter by source
-   - Filter by category
-   - Browse paginated results
-   - Mark items as read
-   - Pin important items
-   - Add manual entries
-   - Delete entries
-
-9. Refreshing the browser immediately reflects newly ingested content without requiring a rebuild or restart.
+Ingestion status per source is written to the `kv_store` table (`ingest:status:*`, `ingest:count:*`, `ingest:last_run:*`) and surfaced by the IngestHealth widget and `/api/ingest/status`.
 
 ---
 
-### Current Dashboard Features
+## Authentication
 
-- Engineering Briefing Dashboard
-- Feed Aggregation
-- Search
-- Source Filtering
-- Category Filtering
-- Pagination
-- Read/Unread Tracking
-- Item Pinning
-- Manual Feed Creation
-- Feed Item Deletion
-- Supabase PostgreSQL Persistence
+Sign-up is restricted to `@mindyou.com.ph` email addresses, enforced in two places: client-side in `app/signup/page.tsx`, and server-side by the Supabase `before-signup` Auth Hook in `supabase/functions/before-signup/index.ts`. Route protection lives in `proxy.ts` via the `PUBLIC_ROUTES` and `PUBLIC_API_ROUTES` constants. Role checks use `requireRole` from `src/lib/auth-helpers.ts`.
 
 ---
 
-### Future Direction
+## End-to-End Workflow
 
-The project is currently evaluating alternatives to traditional cron-based scheduling for automated feed ingestion workflows.
+1. Run `npm run ingest`.
+2. The pipeline executes each configured ingester — Hacker News, GitHub Trending, RSS, and Repo Radar.
+3. Each ingester fetches new content, scores it for relevance and engagement, and upserts it into Supabase PostgreSQL.
+4. Database constraints reject duplicates automatically, so only genuinely new records are inserted.
+5. The Engineering Briefing page loads statistics and recent items through Server Components reading Supabase directly.
+6. The Feed Dashboard retrieves records through `/api/feed`.
+7. Users can search, filter by source or category, browse paginated results, mark items read, pin items, add manual entries, and delete entries.
+8. Refreshing the browser reflects newly ingested content without a rebuild or restart.
 
-Areas under investigation include:
+---
 
-- GitHub Actions automation
-- Event-driven workflows
-- Scheduled ingestion pipelines
-- Lightweight orchestration mechanisms
-- Alternative automation platforms
+## Dashboard Features
 
-The goal is to reduce operational overhead while maintaining reliable feed updates.
+- Engineering Briefing dashboard with ingestion health
+- Feed aggregation across four sources (Hacker News, GitHub Trending, RSS, Manual)
+- Search, source filtering, category filtering, pagination
+- Read/unread tracking and item pinning
+- Manual feed creation and deletion
+- Repo Radar for tracked repositories
+- Watchlist with CVE matching, version tracking, and PDF export
+- Prompt library
+- Log analysis dashboard with Nivo charts
+- Command palette
+- Supabase PostgreSQL persistence
 
 ---
 
@@ -312,14 +263,20 @@ The goal is to reduce operational overhead while maintaining reliable feed updat
 
 ## Project Structure
 
-- `/app/` - Next.js application pages, dashboard UI, and API routes.
-- `/components/` - Reusable React components and UI elements.
-- `/src/` - Feed ingesters, database layer, and backend utilities.
-- `/docs/` - Research, planning, feed definitions, and documentation.
-- `/diagrams/` - Architecture diagrams and workflow visualizations.
-- `/ideas/` - Brainstorming, experiments, and proposals.
-- `/intern-logs/` - Contributor workspaces and task tracking.
-- `/data/` - Legacy SQLite database storage (no longer actively used).
+| Path | Contents |
+| --- | --- |
+| `app/` | Next.js pages, dashboard UI, and API routes |
+| `components/` | Reusable React components and UI primitives |
+| `src/` | Feed ingesters, database layer, scoring, and backend utilities |
+| `supabase/` | Edge functions and Supabase configuration |
+| `.github/workflows/` | Scheduled ingestion workflows |
+| `docs/` | Research, planning, feed definitions, and SQL schema |
+| `diagrams/` | Architecture diagrams and workflow visualizations |
+| `ideas/` | Brainstorming, experiments, and proposals |
+| `intern-logs/` | Contributor workspaces and task tracking |
+| `data/` | Legacy SQLite storage (gitignored, no longer used) |
+
+Most directories carry their own README. Start with [`docs/README.md`](./docs/README.md) for documentation discovery, and [`AGENTS.md`](./AGENTS.md) for the agent-facing reference covering path aliases, critical constraints, and the navigation map.
 
 ---
 
@@ -373,43 +330,28 @@ The ecosystem fosters a research-driven workflow. Access benchmarks, live leader
 
 ---
 
-## Usage Guide
-
-### Getting Started
-
-1. Read the Role Definitions documentation.
-2. Complete the onboarding guide.
-3. Install required tooling and AI agents.
-4. Initialize the dashboard database.
-5. Run feed ingestion.
-6. Launch the dashboard locally.
-7. Begin development.
-
----
-
 ## Contributing
 
 We welcome contributions.
 
 Recommended workflow:
 
-1. Create a feature branch.
+1. Create a feature branch (`feat/description` or `fix/description`).
 2. Implement changes.
-3. Verify ingestion and dashboard functionality.
-4. Submit a Pull Request.
-5. Request review from the engineering team.
+3. Read the sub-README before editing any module, and update it afterwards — documentation is part of the implementation.
+4. Verify ingestion and dashboard functionality.
+5. Run `npm run build` — it must pass before commit.
+6. Submit a Pull Request and request review from the engineering team.
 
-For additional discussions and proposals, see:
+After schema changes, run `npm run db:migrate` then `npm run build`. After ingester changes, run `npm run ingest` then `npm run build`.
 
-`ideas/to-discuss.md`
+For additional discussions and proposals, see [`ideas/to-discuss.md`](./ideas/to-discuss.md).
 
 ---
 
 ## FAQs and Support
 
-Frequently asked questions and troubleshooting guidelines are available in:
-
-`docs/tooling/WARP.md`
+Frequently asked questions and troubleshooting guidelines are available in [`docs/tooling/WARP.md`](./docs/tooling/WARP.md).
 
 ---
 
@@ -420,7 +362,7 @@ Frequently asked questions and troubleshooting guidelines are available in:
 - Automate repetitive engineering workflows.
 - Expand feed coverage.
 - Improve developer intelligence capabilities.
-- Evaluate automation alternatives to cron scheduling.
+- Add automated testing and linting (neither is configured yet).
 
 ### Quality Improvements
 
@@ -428,9 +370,7 @@ Frequently asked questions and troubleshooting guidelines are available in:
 - Improve dashboard usability.
 - Strengthen feed quality and relevance.
 
-For complete targets, refer to:
-
-`docs/tooling/reference-prompts.md`
+For complete targets, refer to [`docs/tooling/reference-prompts.md`](./docs/tooling/reference-prompts.md).
 
 ---
 
