@@ -37,7 +37,6 @@ This document outlines the reorganization of the `my-ailounge` repository to fol
 ### Phase 3: Root Preservation
 7. **Retain in Root:**
    - `.gitignore`
-   - `.geminiignore`
    - `.github/`
    - `.git/`
    - `README.md`

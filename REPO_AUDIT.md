@@ -4,7 +4,6 @@
 
 ### Root Files
 
-- .geminiignore
 - .gitignore
 - README.md
 - trending (outdated).md
