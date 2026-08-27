@@ -38,8 +38,8 @@ This report evaluates Cal.diy for potential technology adoption, component reuse
 |--------|------|---------|
 | `AGENTS.md` | Mind You | Tech stack definition, constraints, coding rules |
 | `DASHBOARD-BUILD-SPEC.md` | Mind You | Architecture spec, feature requirements |
-| `repository-analysis.md` | `.scratch/caldiy-rnd/` | Full technical analysis of the repository |
-| `third-party-repository-rnd-synthesis.md` | `docs/research/` | Cross-repository synthesis and recommendations |
+| `repository-analysis.md` | Internal research notes (not committed) | Full technical analysis of the repository |
+| `third-party-repository-rnd-synthesis.md` | `docs/research/third-party-repositories/` | Cross-repository synthesis and recommendations |
 
 ---
 
@@ -64,7 +64,7 @@ This report evaluates Cal.diy for potential technology adoption, component reuse
 | Lexical | Rich text editor | N/A (evaluating) |
 | Jotai | Atomic state management | None (server-first) |
 | TanStack React Query 5 | Data fetching | Server components + fetch |
-| react-hook-form 7 | Forms | React Hook Form |
+| react-hook-form 7 | Forms | Plain controlled inputs (useState) — no form library |
 | Zod 3.25 | Validation | Zod |
 | next-auth 4 | Authentication | Supabase Auth |
 | next-i18next 15 | Internationalization | None (planned) |

@@ -3,7 +3,7 @@
 Engineering evaluation of three open-source repositories for the Mind You project.
 
 **Scope:** AFFiNE/BlockSuite, Plane, Cal.diy
-**Date:** July 2026
+**Date:** 2026-07-21 – 2026-07-27
 **Status:** Complete
 
 ---
@@ -71,7 +71,7 @@ Start with the synthesis for decisions. Read the individual reports for technica
 
 | Repository | Version | License | Verdict |
 |------------|---------|---------|---------|
-| AFFiNE | v0.27.0 | MIT | Study patterns only |
+| AFFiNE | v0.27.0 | MIT (client) / EE (backend server) | Study patterns only |
 | Plane | v1.3.1 | AGPL-3.0 | Do not use |
 | Cal.diy | v6.2.0 | MIT | Adopt tooling + study patterns |
 

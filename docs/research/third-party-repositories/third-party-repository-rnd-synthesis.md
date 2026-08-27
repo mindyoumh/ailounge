@@ -2,9 +2,9 @@
 
 **Scope:** AFFiNE/BlockSuite, Plane, Cal.diy
 **Purpose:** Engineering recommendation based on completed repository research
-**Related Research:** `affine-rnd/`, `plane-rnd/`, `caldiy-rnd/` (6 reports total)
+**Related Research:** `affine.md`, `plane.md`, `caldiy.md` (this directory)
 **Status:** Final
-**Date:** July 27, 2026
+**Date:** 2026-07-27
 
 ---
 
@@ -24,9 +24,9 @@
 
 | Decision Area | Recommendation | Basis |
 |---------------|----------------|-------|
-| Editor integration | No editor needed today | BlockSuite incompatible, TipTap AGPL, Lexical conditional |
-| Real-time collaboration | Not needed today | Mind You is single-user; patterns documented for future reference |
-| Development tooling | Adopt Biome + Vitest immediately | Proven alongside Next.js 16 in Cal.diy; Mind You has no test infrastructure |
+| Editor integration | No editor needed today | BlockSuite incompatible, TipTap usable (MIT) but Plane's `@plane/editor` wrapper is AGPL, Lexical conditional |
+| Real-time collaboration | Not needed today | Mind You has no real-time collaborative editing; patterns documented for future reference |
+| Development tooling | Adopt Biome + Vitest immediately; adopt Playwright for E2E | Proven alongside Next.js 16 in Cal.diy; Mind You has no test infrastructure |
 | Ingestion pipeline architecture | Study Cal.diy app-store pattern | Modular interface for 150+ integrations directly informs plugin design |
 | Code reuse from any repository | None recommended | Stack mismatches or license blockers prevent direct code adoption |
 
@@ -49,7 +49,7 @@ Three open-source repositories were evaluated using a consistent set of criteria
 5. **Adoptable tooling** — linting, testing, build configuration
 6. **Architectural transferability** — patterns that could inform Mind You's design without code reuse
 
-**Scope boundaries:** This synthesis covers repository analysis only. Product-level comparison is documented separately in `affine-rnd/research.md`. Deployment and installation guidance is documented in `affine-rnd/installation.md`.
+**Scope boundaries:** This synthesis covers repository analysis only. Product-level comparison and deployment/installation guidance were captured in internal working notes (`affine-rnd/research.md`, `affine-rnd/installation.md`) kept locally and not committed to this repository.
 
 ---
 
@@ -57,14 +57,14 @@ Three open-source repositories were evaluated using a consistent set of criteria
 
 | Dimension | AFFiNE | Plane | Cal.diy |
 |-----------|--------|-------|---------|
-| License | MIT ✅ | AGPL-3.0 ❌ | MIT ✅ |
+| License | MIT ✅ (backend server EE) | AGPL-3.0 ❌ | MIT ✅ |
 | Framework match | NestJS/Vite ❌ | Django/RR7 ❌ | Next.js 16 ✅ |
 | React compatibility | 19 ✅ | 19 ✅ | 18.2 ⚠️ |
 | UI library match | Lit ❌ | BlueprintJS ❌ | Radix UI ✅ |
 | Database compatibility | PostgreSQL ✅ | PostgreSQL ✅ | PostgreSQL ✅ |
-| Editor viable | BlockSuite (Lit) ❌ | TipTap (AGPL) ❌ | Lexical ✅ |
+| Editor viable | BlockSuite (Lit) ❌ | @plane/editor (AGPL) ❌ | Lexical ✅ |
 | Real-time patterns | Yjs ✅ | Yjs+Hocuspocus ✅ | None ❌ |
-| Adoptable tooling | Vitest ✅ | None | Biome ✅, Vitest ✅ |
+| Adoptable tooling | None | None | Biome ✅, Vitest ✅ |
 
 ---
 
@@ -75,7 +75,7 @@ Three open-source repositories were evaluated using a consistent set of criteria
 Three editor engines were evaluated across the three repositories:
 
 - **BlockSuite (AFFiNE):** Rejected. Lit-based Web Components are fundamentally incompatible with React 19 App Router. No SSR support. Integration effort estimated at 14–23 days (embedded) or 19–36 days (headless).
-- **TipTap (Plane):** Rejected. AGPL-3.0 license makes it unusable in a proprietary project.
+- **TipTap (via Plane's `@plane/editor`):** Rejected as sourced from Plane — the `@plane/editor` wrapper inherits Plane's AGPL-3.0 license, making that integration unusable in a proprietary project. The upstream TipTap library itself is MIT-licensed and remains usable independently of Plane.
 - **Lexical (Cal.diy):** Conditional candidate. React-native, SSR-compatible, MIT-licensed, used at Meta scale. Recommended for evaluation only if Mind You develops rich text editing requirements.
 
 **Conclusion:** No editor is needed for Mind You's current dashboard architecture. Lexical remains the fallback if requirements change.
@@ -84,7 +84,7 @@ Three editor engines were evaluated across the three repositories:
 
 Both AFFiNE and Plane demonstrate Yjs-based CRDT patterns:
 
-- **AFFiNE** uses y-octo for local-first sync with server authority. Architecture is overkill for Mind You's current single-user model.
+- **AFFiNE** uses y-octo for local-first sync with server authority. Architecture is overkill for Mind You's current non-collaborative model (multi-user auth and RBAC exist; shared live editing does not).
 - **Plane** uses Hocuspocus (Yjs + WebSocket + Redis) for server-authoritative real-time collaboration. This is the more practical reference pattern.
 - **Cal.diy** has no real-time collaboration features.
 
@@ -149,7 +149,7 @@ The following unresolved questions influence whether future investigations are p
 
 1. **Does Mind You need a rich text editor?** The dashboard is a data visualization and ingestion tool. If editing is limited to forms and search, no editor evaluation is needed.
 
-2. **Does Mind You need real-time collaboration?** The current architecture is single-user. If multi-user features are not planned, CRDT and sync pattern research is academic.
+2. **Does Mind You need real-time collaboration?** The current architecture has multi-user auth and RBAC but no real-time collaborative editing. If multi-user collaborative features are not planned, CRDT and sync pattern research is academic.
 
 3. **What is the deployment model?** Self-hosted (Docker) versus Vercel/cloud affects which architectural patterns are relevant. Cal.diy supports both; AFFiNE and Plane are self-hosted only.
 
@@ -183,7 +183,7 @@ These reports explain the engineering reasoning behind the verdicts and recommen
 
 ### Source Research
 
-The original working research used to produce this synthesis:
+The original working research used to produce this synthesis is listed below for provenance. These are internal working notes kept locally during the research process and are not committed to this repository.
 
 **AFFiNE / BlockSuite:**
 - `affine-rnd/repository-analysis.md` — Full code-level analysis of AFFiNE's architecture, tech stack, and integration feasibility

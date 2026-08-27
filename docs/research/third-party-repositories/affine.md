@@ -3,7 +3,7 @@
 > **Date:** 2026-07-21
 > **Repository:** github.com/toeverything/AFFiNE
 > **Version:** v0.27.0 (canary)
-> **License:** MIT (Community Edition)
+> **License:** Mixed — MIT for most of the tree (client, BlockSuite, desktop); `packages/backend` and `packages/common/native` are under AFFiNE's proprietary Enterprise Edition (EE) license; CE client-side assets are MPL-2.0
 
 ---
 
@@ -39,10 +39,10 @@ This report evaluates AFFiNE for potential technology adoption, component reuse,
 |--------|------|---------|
 | `AGENTS.md` | Mind You | Tech stack definition, constraints, coding rules |
 | `DASHBOARD-BUILD-SPEC.md` | Mind You | Architecture spec, feature requirements |
-| `repository-analysis.md` | `.scratch/affine-rnd/` | Full technical analysis of the repository |
-| `blocksuite-evaluation.md` | `.scratch/affine-rnd/` | Deep evaluation of BlockSuite editor engine |
-| `installation.md` | `.scratch/affine-rnd/` | Deployment method comparison |
-| `research.md` | `.scratch/affine-rnd/` | Product comparison (Notion/Miro alternatives) |
+| `repository-analysis.md` | Internal research notes (not committed) | Full technical analysis of the repository |
+| `blocksuite-evaluation.md` | Internal research notes (not committed) | Deep evaluation of BlockSuite editor engine |
+| `installation.md` | Internal research notes (not committed) | Deployment method comparison |
+| `research.md` | Internal research notes (not committed) | Product comparison (Notion/Miro alternatives) |
 
 ---
 
@@ -218,6 +218,8 @@ Client (React + BlockSuite)
 | **Docker Compose deployment** | `deploy/` directory | Reference for self-hosted deployment beyond Vercel | 1-2 days to configure |
 | **NestJS module organization** | `packages/backend/server/` | Backend architectural patterns (if migrating from Next.js API routes) | Only if paradigm shift planned |
 
+Note: `packages/backend/server/` is EE-licensed, not MIT — its code must not be copied, only its patterns studied.
+
 ### Component-Level Reuse
 
 | Component | Reusable? | Notes |
@@ -233,7 +235,7 @@ Client (React + BlockSuite)
 
 | Pattern | Integration Effort | Maintenance Burden | Recommendation |
 |---------|-------------------|-------------------|----------------|
-| CRDT sync (headless) | Medium (14-23 days) | High (ongoing) | Consider only if offline-first required |
+| CRDT sync (headless) | Medium (19-36 days) | High (ongoing) | Consider only if offline-first required |
 | Block-based document model | Medium (14-23 days embedded, 19-36 days headless) | High | Not aligned with current needs |
 | Docker Compose deployment | Low (1-2 days) | Low | Reference only |
 | NestJS patterns | High (3-5 weeks) | Medium | Only if migrating from Next.js |

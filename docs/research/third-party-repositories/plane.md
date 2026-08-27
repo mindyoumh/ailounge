@@ -38,8 +38,8 @@ This report evaluates Plane for potential technology adoption, component reuse, 
 |--------|------|---------|
 | `AGENTS.md` | Mind You | Tech stack definition, constraints, coding rules |
 | `DASHBOARD-BUILD-SPEC.md` | Mind You | Architecture spec, feature requirements |
-| `repository-analysis.md` | `.scratch/plane-rnd/` | Full technical analysis of the repository |
-| `third-party-repository-rnd-synthesis.md` | `docs/research/` | Cross-repository synthesis and recommendations |
+| `repository-analysis.md` | Internal research notes (not committed) | Full technical analysis of the repository |
+| `third-party-repository-rnd-synthesis.md` | `docs/research/third-party-repositories/` | Cross-repository synthesis and recommendations |
 
 ---
 
@@ -69,7 +69,7 @@ This report evaluates Plane for potential technology adoption, component reuse, 
 | Headless UI | UI primitives | Radix UI / shadcn/ui |
 | BlueprintJS | UI components | shadcn/ui |
 | Recharts | Charts | Nivo |
-| react-hook-form | Forms | React Hook Form |
+| react-hook-form | Forms | Plain controlled inputs (useState) — no form library |
 
 ### Backend Stack
 
@@ -79,7 +79,7 @@ This report evaluates Plane for potential technology adoption, component reuse, 
 | PostgreSQL 15 | Primary database | Supabase PostgreSQL |
 | Valkey/Redis 7.x | Cache, real-time sync | Supabase (managed) |
 | RabbitMQ 3.13 | Message queue (Celery) | N/A |
-| MinIO / S3 | Object storage | Supabase Storage |
+| MinIO / S3 | Object storage | Not currently used (Supabase Storage available if needed) |
 | Celery | Background tasks | N/A |
 | Hocuspocus | Real-time WebSocket server | N/A |
 
