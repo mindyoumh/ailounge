@@ -135,7 +135,7 @@ Security audit, Documentation, Intern mentoring, Stakeholder emails.
 
 ### 8. Intern Task Board — Safe Mode (MVP)
 
-**Status:** Planned — see [`docs/plans/intern-task-board-mvp-plan.md`](../plans/intern-task-board-mvp-plan.md)
+**Status:** Planned — see [`docs/archives/2026-07-24/intern-task-board-mvp.md`](../archives/2026-07-24/intern-task-board-mvp.md)
 
 Where interns fit. Instead of production data, give them: synthetic tasks, mock APIs, local SQLite,
 generated fixtures, isolated branches, fake logs, fake incidents, code-review exercises.

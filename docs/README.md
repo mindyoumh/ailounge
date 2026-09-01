@@ -86,7 +86,7 @@ Auth is powered by Supabase Auth. Pages are exempt from middleware (see `proxy.t
 |-----|-------------|
 | `../app/intern-tasks/README.md` | Full page: category pills, difficulty/sort filters, expandable cards, static config — no DB |
 | `../components/intern-tasks/README.md` | InternTaskCard component: expandable sections, category/difficulty color maps |
-| `plans/intern-task-board-mvp-plan.md` | MVP plan: 8 phases, 7 components, explicit exclusions (no claiming, no completion, no auth) |
+| `archives/2026-07-24/intern-task-board-mvp.md` | MVP plan: 8 phases, 7 components, explicit exclusions (no claiming, no completion, no auth) |
 
 ## Dashboard
 
@@ -152,7 +152,7 @@ Auth is powered by Supabase Auth. Pages are exempt from middleware (see `proxy.t
 |-----|-------------|
 | `plans/README.md` | Department-level problem statements and potential solutions (executive, marketing, sales, finance, HR, engineering, operations, admin, health) |
 | `plans/_TEMPLATE.md` | Template for documenting new problems and solutions |
-| `plans/intern-task-board-mvp-plan.md` | Intern Safe Task Board MVP plan — read-only task catalog, 8 implementation phases, explicit exclusions, component tree |
+| `archives/2026-07-24/intern-task-board-mvp.md` | Intern Safe Task Board MVP plan — read-only task catalog, 8 implementation phases, explicit exclusions, component tree |
 
 ---
 

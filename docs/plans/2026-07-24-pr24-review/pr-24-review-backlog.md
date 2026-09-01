@@ -4,6 +4,7 @@
 **Branch:** `feat/developer-intelligence-feed` → `main`
 **Reviewed:** 2026-07-24
 **Scope:** 174 files, +23,271 / −246
+**Source review:** [`docs/archives/2026-07-24/pr-24-review.md`](../../archives/2026-07-24/pr-24-review.md)
 
 Critical/High findings were fixed in-branch (commit `ec996c1` — build repair). The
 items below are **Medium/Low** and are intentionally **not** implemented in this PR.
