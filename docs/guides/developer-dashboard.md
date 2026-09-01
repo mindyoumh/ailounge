@@ -12,7 +12,7 @@ This is a **specification for developers**, not an implementation. Nothing here 
 > Tailwind for UI. One reusable shell, multiple panels.
 
 > **Out of scope:** business/operational dashboards (e.g. hot-leads, lead funnel, model-cost).
-> Those are Mind You *business problems* and live under [`plans/<department>/`](./plans/) — not here.
+> Those are Mind You *business problems* and live under [`plans/<department>/`](../plans/) — not here.
 
 ---
 
@@ -288,4 +288,4 @@ Each: **what · why · rough effort (S/M/L)**. Build after the MVP six.
 
 ---
 
-_Business dashboards are intentionally excluded — see [`plans/`](./plans/) for Mind You business problems._
+_Business dashboards are intentionally excluded — see [`plans/`](../plans/) for Mind You business problems._
