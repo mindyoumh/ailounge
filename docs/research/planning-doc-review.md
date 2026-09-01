@@ -105,7 +105,7 @@ Doc B is the only one that is:
 
 The Roadmap should add a brief reference to the Execution Plan for implementation-level detail:
 
-> **For exact file changes, line numbers, and code blocks, see the [Execution Plan](./engineering-intelligence-execution-plan.md), Steps 1-7.**
+> **For exact file changes, line numbers, and code blocks, see the [Execution Plan](../plans/engineering-intelligence-execution-plan.md), Steps 1-7.**
 
 This removes the need for the Roadmap to duplicate the RSS_FEEDS entries, FILE_CATEGORY_MAP code, or CATEGORIES array changes, while still directing the reader to where they are.
 
@@ -170,4 +170,4 @@ If the Expansion Plan is archived, the following unique content should be migrat
 6. Add "Open Questions" section to Roadmap (from A §244-250)
 7. Merge 2 unique risk entries into Roadmap risks table
 
-After migration, `expansion-plan.md` was moved into an archive folder and has since been deleted outright (2026-08-26 doc-archive cleanup) — its unique content remains captured in the migration plan above.
+After migration, `expansion-plan.md` was moved into an archive folder (predating this repo's current `docs/archives/`, reinstated 2026-09-01) and has since been deleted outright (2026-08-26 doc-archive cleanup) — its unique content remains captured in the migration plan above.

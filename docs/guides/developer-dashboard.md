@@ -12,7 +12,7 @@ This is a **specification for developers**, not an implementation. Nothing here 
 > Tailwind for UI. One reusable shell, multiple panels.
 
 > **Out of scope:** business/operational dashboards (e.g. hot-leads, lead funnel, model-cost).
-> Those are Mind You *business problems* and live under [`plans/<department>/`](./plans/) — not here.
+> Those are Mind You *business problems* and live under [`plans/<department>/`](../plans/) — not here.
 
 ---
 
@@ -135,7 +135,7 @@ Security audit, Documentation, Intern mentoring, Stakeholder emails.
 
 ### 8. Intern Task Board — Safe Mode (MVP)
 
-**Status:** Planned — see [`docs/plans/intern-task-board-mvp-plan.md`](../plans/intern-task-board-mvp-plan.md)
+**Status:** Planned — see [`docs/archives/2026-07-24/intern-task-board-mvp.md`](../archives/2026-07-24/intern-task-board-mvp.md)
 
 Where interns fit. Instead of production data, give them: synthetic tasks, mock APIs, local SQLite,
 generated fixtures, isolated branches, fake logs, fake incidents, code-review exercises.
@@ -288,4 +288,4 @@ Each: **what · why · rough effort (S/M/L)**. Build after the MVP six.
 
 ---
 
-_Business dashboards are intentionally excluded — see [`plans/`](./plans/) for Mind You business problems._
+_Business dashboards are intentionally excluded — see [`plans/`](../plans/) for Mind You business problems._

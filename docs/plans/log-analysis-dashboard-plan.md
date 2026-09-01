@@ -6,20 +6,9 @@ My-AILounge ingests engineering intelligence from multiple sources (Hacker News,
 
 ## Current Status
 
-This feature is currently in the planning and discovery phase.
-
-The team is performing manual analysis of Acuity and Zoho log exports to identify:
-
-- recurring errors
-- common operational patterns
-- anomalies and outliers
-- useful reporting metrics
-
-The findings from this analysis will be used to refine the dashboard widgets, executive summary generation, and pattern detection framework before implementation begins.
-
-No implementation work has started.
-
-Analysis artifacts, exported log files, and executive summaries are maintained outside the repository due to data confidentiality requirements. This document only tracks the proposed dashboard feature and implementation plan.
+- **Shipped:** `/logs` (`app/logs/page.tsx`) and `components/logs/*` run a full pipeline — CSV upload, parsing, pattern detection, anomaly/spike detection, per-analysis executive summaries, and dynamic widgets (overview cards, error trend chart, source breakdown, pattern drill-down) — covering Phase 1 and Phase 2 scope, plus JSON/CSV/PDF export.
+- **Not yet built:** the Future Enhancements below — additional log formats beyond Acuity/Zoho, scheduled/automated ingestion, cross-upload historical trend analysis, and feed-pipeline integration.
+- **Open Questions:** still unresolved as written below; notably, no CSV size/row cap is enforced yet.
 
 ## Problem Statement
 
